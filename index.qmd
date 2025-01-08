@@ -1,0 +1,44 @@
+---
+page-layout: full
+title-block-banner: false
+---
+
+<!-- {{< fa display >}} {{< fa paperclip >}} -->
+<!--  -->
+
+
+### Tentative Schedule 
+
+| Day | Topic | Slides | In Class |
+|----|-------------|:--:|:--:|
+| R 01/09 | Review of Estimation | <a href="files/lectures/W01-L1-review-of-estimation.html"><i class="fa fa-display fa-s" style="color: #8DC8E8;"></i></a> <a href="https://github.com/samanthaseals/STA4173Sp25TR/blob/main/files/lectures/W01-L1-review-of-estimation.qmd"><i class="fa fa-paperclip" style="color: #8DC8E8;"></i></a> |   |
+| T 01/14 | Independent and dependent *t* tests | | |
+| R 01/16 | How to conceptualize research questions as hypotheses | | |
+| T 01/21 | Optional meeting - Assignment 1 help |  | |
+| R 01/23 | Assumptions on *t* tests, Wilcoxons | | |
+| T 01/28 | Assignment 1 | | |
+| R 01/30 | One-Way ANOVA and post-hoc tests | | |
+| T 02/04 | ANOVA assumptions; Kruskal-Wallis  | | |
+| R 02/06 | Project: planning meeting | | |
+| T 02/11 | Two-way ANOVA | | |
+| R 02/13 | Assignment 2 | | |
+| T 02/18 | Regression | | |
+| R 02/20 | Regression | | |
+| T 02/25 | Assigment 3 | | |
+| R 02/27 | Project: planning meeting | | |
+| T 03/04 | Categorical analysis | | |
+| R 03/06 | Logistic regression | | |
+| T 03/11 | Assignment 4 | | |
+| R 03/13 | Project: planning meeting | | |
+| T 03/18 | Spring Break! | | |
+| R 03/20 | Spring Break! | | | 
+| T 03/25 | Project: analysis | | |
+| R 03/27 | OUR: What is a Poster? | | |
+| T 04/01 | Project: analysis | | |
+| R 04/03 | Project: summary | | |
+| T 04/08 | Project: poster draft | | |
+| R 04/10 | Individual group meetings with Dr. Seals | | |
+| T 04/15 | Poster presentation practice | | |
+| R 04/17 | OUR Symposium | | | |
+| T 04/21 | Catch up! | | |
+| R 04/24 | Project: reflections | | |

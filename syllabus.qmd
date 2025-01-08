@@ -1,0 +1,49 @@
+---
+page-layout: full
+title: "Syllabus"
+format:
+  html:
+    embed-resources: true
+execute:
+    echo: false
+    warning: false
+    message: false
+---
+
+Note: this is an abbreviated syllabus. The full syllabus is available through Classmate and/or Canvas.
+
+### Instructor Information
+
+- [Dr. Samantha Seals](http://sealslab.github.io)
+-	Office: 4/344
+
+### Meeting Times and Location
+
+-	TR 2:30-3:45 pm
+- Classroom: 4/310
+
+### Office Hours
+
+- Monday: 2:30--4:30 pm (Central)
+- Wednesday: 2:30--4:30 pm (Central)
+- Thursday: 10:00 am--12:00 pm (Central)
+- Other times by appointment
+
+### Grading and Evaluation
+
+The course grade will be determined as follows:
+
+1. Assignments (25%): Each module will include an activity for students to complete using Quarto and R. The resulting .html file should be submitted to the designated dropbox on Canvas by 11:59 pm on the specified date (see Canvas). 
+2. Project (40%): You will work with your research team to complete a research project. There will be several group check ins submitted during the project period. The resulting .pdf file should be submitted to the designated dropbox on Canvas by 11:59 pm on the specified date (see Canvas). 
+3. OUR Symposium (10%): Each team will put together a research poster based on the project. All research teams will present their poster at the symposium. 
+4. Final Exam (25%): The final exam will be a timed concepts-based exam. While there may be some calculations needed, you will not be processing raw data. The final exam will be *in class* 11:00 am-1:30 pm on April 30, 2025.
+
+### Late Policy 
+
+Assigments have due dates, however, the dropboxes will not close until the end of the semester. All students are automatically granted "extensions" without question. 
+
+Note that if there is not a submission when I go to grade (after the initial deadline), I will assign a zero (0) and request that you submit the assignment when you are able to. This is only for record keeping purposes. There is no penalty for submitting late and a full grade will be given upon review of your submission.
+
+**Extensions are *not available* for the projects or final exam**.
+
+

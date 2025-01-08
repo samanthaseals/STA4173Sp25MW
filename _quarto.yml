@@ -1,0 +1,25 @@
+project:
+  type: website
+
+website:
+  title: "<b>STA4173 - Biostatistics - Spring 2025</b>"
+
+  navbar:
+    collapse: false
+    right:
+      - syllabus.qmd
+      - index.qmd
+      - icon: github
+        href: https://github.com/samanthaseals/STA4173Sp25TR/tree/main/files/lectures
+  search: false
+
+format:
+  html:
+    anchor-sections: false
+    title-block: false
+    theme: cosmo
+    css: styles.css
+
+execute:
+  freeze: auto
+

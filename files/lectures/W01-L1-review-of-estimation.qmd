@@ -1,0 +1,364 @@
+---
+title: "**Review of Statistical Estimation**"
+subtitle: "**STA4173: Biostatistics** <br> Spring 2025"
+execute:
+  echo: true
+  warning: false
+  message: false
+  error: true
+format: 
+  revealjs:
+    code-overflow: wrap
+    df-print: paged
+    embed-resources: true
+    slide-number: false
+    width: 1600
+    height: 900
+    html-math-method: katex
+    theme:
+      - default
+      - sp25.scss
+editor: source
+---
+
+## **Introduction**
+
+-   In this lecture, we will review estimation
+    -   Continuous variables
+        -   Mean
+        -   Median
+        -   Percentiles / quartiles
+        -   Variance and standard deviation
+        -   Interquartile range
+    -   Categorical variables
+        -   Count
+        -   Percentage
+- We will also discuss exploring data graphically
+
+## **R: Introduction**
+
+-   In this course, we will review formulas, but we will use R for computational purposes
+    -   Remember to refer to the lecture notes for specific code needed
+    -   Code is also available on this course's GitHub repository
+    
+- You can install R and RStudio if you wish; both are free. 
+    - We have access to the [Posit Workbench](https://rstudio.hmcse.uwf.edu/) ("the server") through HMCSE.
+
+- I know that this is probably the first time you are seeing R (or any sort of programming).
+    - That is why we have "R lab" time built in to our course. 
+    - Remember that I am not looking for perfection, but instead for competency. 
+    
+## **Today's Data: Palmer Penguins**
+
+- Today we will be demonstrating the basics using the [Palmer Penguins](https://allisonhorst.github.io/palmerpenguins/) dataset, available through R.
+
+```{r}
+penguins <- palmerpenguins::penguins
+```
+
+```{r}
+#| echo: false
+library(tidyverse)
+penguins
+```
+    
+## **Types of Variables**
+
+::: {.callout-note}
+## Continuous Variables
+A continuous variable is a variable that can has an infinite set of possible values.
+:::
+
+- Between any two possible values, there are an infinite number of possible values.
+
+- These typically arise from measurement. (Height, weight, etc.)
+
+::: {.callout-note}
+## Discrete Variables
+A discrete variable is a variable that can only take on a finite set of possible values.
+:::
+
+- The possible values can usually be listed.
+
+- These typically arise from categorizing (work vs. home) or counting.
+
+## **Types of Variables**
+
+```{r}
+#| echo: false
+penguins
+```
+
+## **Types of Continuous Variables**
+
+::: {.callout-note}
+## Ratio Variables
+A ratio variable is a variable that has a meaningful zero point, allowing comparisons of magnitude.
+:::
+
+- True zero point indicates the absence of the quantity being measured.
+
+- All arithmetic operations (addition, subtraction, multiplication, division) are meaningful.
+
+::: {.callout-note}
+## Interval Variables
+An interval variable has an arbitrary zero point and differences between values are meaningful.
+:::
+
+- The zero point does not indicate a true absence.
+
+- A 1 unit difference always represents the same amount.
+
+## **Types of Discrete Variables**
+
+::: {.callout-note}
+## Ordinal Variables
+An ordinal variable has a meaningful order of responses; the exact differences between responses are not necessarily equal.
+:::
+
+- We understand which value is "greater" or "less," but not by how much.
+
+- Arithmetic is not meaningful.
+
+::: {.callout-note}
+## Nominal Variables
+A nominal variable has is no intrinsic order among the categories.
+:::
+
+- Categories are used merely as labels or names.
+
+- No arithmetic or ordering operations are meaningful.
+
+## **Measures of Centrality: Mean**
+
+::: {.callout-note}
+## Sample Mean
+The sample mean provides a single number that can represent a "typical" or central value in your data.
+
+$$
+\bar{x} = \frac{\sum_{i=1}^n x_i}{n}
+$$
+:::
+
+-   R syntax:
+
+```{r}
+#| eval: false
+dataset_name %>% summarize(mean(variable_name, na.rm = TRUE))
+```
+
+## **Measures of Centrality: Mean**
+
+- Let's find the average weight (*body_mass_g*) of the penguins.
+
+```{r}
+penguins %>% summarize(mean(body_mass_g, na.rm = TRUE))
+```
+
+- Let's find the average flipper length (*flipper_length_mm*) of the penguins.
+
+```{r}
+penguins %>% summarize(mean(flipper_length_mm, na.rm = TRUE))
+```
+
+## **Measures of Centrality: Median**
+
+::: {.callout-note}
+## Sample Median
+The sample median is the midpoint of a distribution, the number such that half the observations are smaller and the other half are larger. 
+    
+- If $n$ is odd, the median is the single middle value.
+- If $n$ is even, the median is the average of the two middle values.
+:::
+
+- R syntax:
+
+```{r}
+#| eval: false
+dataset_name %>% summarize(median(variable_name, na.rm = TRUE))
+```
+
+## **Measures of Centrality: Median**
+
+- Let's find the median weight (*body_mass_g*) of the penguins.
+
+```{r}
+penguins %>% summarize(median(body_mass_g, na.rm = TRUE))
+```
+
+- Let's find the median flipper length (*flipper_length_mm*) of the penguins.
+
+```{r}
+penguins %>% summarize(median(flipper_length_mm, na.rm = TRUE))
+```
+
+## **Measures of Spread: Variance and Standard Deviation**
+
+::: {.callout-note}
+## Sample Variance
+The sample variance measures how "widely spread" the data points are around the mean.
+
+$$s^2 = \frac{\sum_{i=1}^n x_i^2 - \frac{(\sum_{i=1}^n x_i)^2}{n}}{n-1}$$
+:::
+
+- When we have a mound-shaped and symmetric distribution, most  observations will fall within 2 standard deviations of the mean.
+
+- Variance results in units^2^, which typically does not make sense.
+
+::: {.callout-note}
+## Sample Standard Deviation
+The sample standard deviation also measures how "widely spread" the data points are around the mean.
+
+$$s = \sqrt{s^2}$$
+:::
+
+- Standard deviation is the square root of the variance, measuring spread in the *original units* of the data.
+
+- R syntax:
+
+```{r}
+#| eval: false
+dataset_name %>% summarize(var(variable_name, na.rm = TRUE), 
+                           sd(variable_name, na.rm = TRUE))
+```
+
+## **Measures of Spread: Variance and Standard Deviation**
+
+- Let's find the variance and standard deviation of the weight (*body_mass_g*) of the penguins.
+
+```{r}
+penguins %>% summarize(var(body_mass_g, na.rm = TRUE),
+                       sd(body_mass_g, na.rm = TRUE))
+```
+
+- Let's find the variance and standard deviation of the flipper length (*flipper_length_mm*) of the penguins.
+
+```{r}
+penguins %>% summarize(var(flipper_length_mm, na.rm = TRUE),
+                       sd(flipper_length_mm, na.rm = TRUE))
+```
+
+## **Measures of Spread: Interquartile Range**
+
+::: {.callout-note}
+## Sample Interquartile Range
+The sample interquartile range measures the spread of the middle 50% of data.
+
+$$\text{IQR} = P_{75}-P_{25}$$
+:::
+
+- R syntax:
+
+```{r}
+#| eval: false
+dataset_name %>% summarize(IQR(variable_name))
+```
+
+## **Measures of Spread: Interquartile Range**
+
+- Let's find the IQR of the weight (*body_mass_g*) of the penguins.
+
+```{r}
+penguins %>% summarize(IQR(body_mass_g, na.rm = TRUE))
+```
+
+- Let's find the IQR of the flipper length (*flipper_length_mm*) of the penguins.
+
+```{r}
+penguins %>% summarize(IQR(flipper_length_mm, na.rm = TRUE))
+```
+
+## **Mean & Standard Deviation vs. Median & IQR**
+
+- When should we use the mean vs. the median to describe the center of the distribution?
+    - Mound-shaped and symmetric $\to$ $\bar{x}$ & $s$.
+    - Not mound-shaped and symmetric $\to$ $M$ & $\text{IQR}$.
+
+- ... How do we know the shape of the distribution?
+
+- We will explore histograms.
+
+## **Graphs: Histograms**
+
+![](images/W01-L1-a.png){fig-align="center"}
+
+## **Graphs: Histograms**
+
+![](images/W01-L1-b.png){fig-align="center"}
+
+## **Graphs: Histograms**
+
+![](images/W01-L1-c.png){fig-align="center"}
+
+## **Graphs: Histograms**
+
+![](images/W01-L1-d.png){fig-align="center"}
+
+## **Graphs: Histograms (`R` code)**
+
+- We are using the `ggplot2` package for graphing.
+    - It will always start with `ggplot()`.
+    - We will then layer elements on top.
+
+- R syntax:
+
+```{r}
+#| eval: false
+dataset_name %>% 
+  ggplot(aes(x=variable_name)) + 
+  geom_histogram() 
+```
+
+## **Graphs: Histograms**
+
+- Let's look at the histogram of penguin weight (*body_mass_g*):
+
+<center>
+```{r}
+penguins %>% 
+  ggplot(aes(x=body_mass_g)) + 
+  geom_histogram() 
+```
+</center>
+
+## **Graphs: Histograms**
+
+- Let's look at the histogram of penguin weight (*body_mass_g*):
+
+<center>
+```{r}
+penguins %>% 
+  ggplot(aes(x=body_mass_g)) + 
+  geom_histogram() +
+  labs(x = "Body Mass (g)",
+       y = "Number of Penguins",
+       title = "Penguin Weight Distribution") +
+  theme_bw()
+```
+</center>
+
+## **Wrap Up**
+
+- Today we reviewed estimation.
+
+- Next week, we will review statistical inference.
+    - Confidence intervals
+    - Hypothesis testing
+    
+- Get to know you quiz - complete with RStudio.
+    - .qmd $\to$ Quarto
+    - .R $\to$ R script
+    
+- Join the Discord server!
+    - If you are already a Discord user, this is a friendly reminder that you can change your display name...
+    
+
+
+
+
+
+
+
+
+
+
