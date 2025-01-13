@@ -1,0 +1,275 @@
+---
+title: "**Dependent *t*-Tests**"
+subtitle: "**STA4173: Biostatistics** <br> Spring 2025"
+execute:
+  echo: true
+  warning: false
+  message: false
+  error: true
+format: 
+  revealjs:
+    code-overflow: wrap
+    df-print: paged
+    embed-resources: true
+    slide-number: false
+    width: 1600
+    height: 900
+    html-math-method: katex
+    theme:
+      - default
+      - sp25.scss
+editor: source
+---
+
+## **Introduction**
+
+- In the last lecture, we reviewed statistical inference on two independent means.
+    
+    - CI for $\mu_1-\mu_2$
+    - Hypothesis test for $\mu_1-\mu_2$ (two-sample *t*-test)
+
+- Today, we will focus on drawing *conclusions* about two dependent means.
+
+    - CI for $\mu_d = \mu_1-\mu_2$
+    - Hypothesis test for $\mu_d = \mu_1-\mu_2$ (paired *t*-test)
+
+## **Independent vs. Dependent Data**
+
+::: {.callout-note}
+## Independent data 
+An individual selected for one sample does not dictate which individual is to be in a second sample.
+
+In the data, there is not a way to link the individuals in the sample.
+:::
+
+::: {.callout-note}
+## Dependent data 
+An individual selected to be in one sample is used to determine the individual in the second sample.
+
+In the data, there is a way to link the individuals in the sample.
+:::
+
+- Examples:
+    - Two sections of STA4173
+    - Project grades in one section of STA4173
+    - Male and female penguins
+    - Prices online vs. in store at Target
+
+## **Estimating $\mathbf{\boldsymbol \mu_d = \boldsymbol \mu_1-\boldsymbol \mu_2}$**
+
+-   We are now interested in comparing two **dependent** groups.
+
+-   We assume that the two groups come from the same population and are going to examine the difference,
+
+$$
+d = y_{i, 1} - y_{i, 2}
+$$
+
+-   After drawing samples, we have the following,
+    -   $\bar{d}$ estimates $\mu_d$,
+    -   $s^2_d$ estimates $\sigma^2_d$, and
+    -   $n$ is the sample size.
+
+## **Confidence Interval for $\mathbf{\boldsymbol \mu_d}$**
+
+::: {.callout-note}
+## $\mathbf{(1-\boldsymbol\alpha)100\%}$ confidence interval for $\mathbf{\boldsymbol\mu_d}$
+
+$$ \bar{d} \pm t_{\alpha/2} \frac{s_d}{\sqrt{n}} $$
+
+-   where $t_{\alpha/2}$ has $n-1$ degrees of freedom.
+-   To construct this interval, we require either:
+    -   the differences to be normally distributed or
+    -   the sample size is sufficiently large ($n \ge 30$)
+
+:::
+
+- `R` syntax:
+
+```{r}
+#| eval: false
+t.test(dataset_name$variable1_name,
+       dataset_name$variable2_name, 
+       paired = TRUE, 
+       conf.level = confidence_level)
+```
+
+## **Confidence Interval for $\mathbf{\boldsymbol \mu_d}$: Example**
+
+-   Insurance adjusters are concerned about the high estimates they are receiving for auto repairs from garage I compared to garage II.
+-   15 cars were taken to both garages for separate estimates of repair costs.
+
+```{r}
+library(tidyverse)
+garage <- tibble(g1 = c(17.6, 20.2, 19.5, 11.3, 13.0, 
+                        16.3, 15.3, 16.2, 12.2, 14.8,
+                        21.3, 22.1, 16.9, 17.6, 18.4), 
+                 g2 = c(17.3, 19.1, 18.4, 11.5, 12.7, 
+                        15.8, 14.9, 15.3, 12.0, 14.2, 
+                        21.0, 21.0, 16.1, 16.7, 17.5))
+```
+
+-   Construct the 95% confidence interval for the average difference between the two garages.
+
+- Remember the `R` syntax:
+
+```{r}
+#| eval: false
+t.test(dataset_name$variable1_name,
+       dataset_name$variable2_name, 
+       paired = TRUE, 
+       conf.level = confidence_level)
+```
+
+
+## **Confidence Interval for $\mathbf{\boldsymbol \mu_d}$: Example**
+
+```{r}
+t.test(garage$g1, 
+       garage$g2, 
+       paired = TRUE, 
+       conf.level = 0.95)
+```
+
+-   The 95% CI for $\mu_d$, where $d = x_{\text{I}} - x_{\text{II}}$ is (0.39, 0.83).
+
+-   From the problem statement:
+    - *Insurance adjusters are concerned about the high estimates they are receiving for auto repairs from garage I compared to garage II.*
+-   Can we say that estimates from garage I are higher than those from garage II?
+
+## **Paired *t*-Test**
+
+::: {.callout-note}
+## Hypothesis Test for Two Dependent Means
+Hypotheses
+
+- $H_0:$ $\mu_d = \mu_0$ $|$ $H_0:$ $\mu_d \le \mu_0$ | $H_0:$ $\mu_d \ge \mu_0$
+- $H_1:$ $\mu_d \ne \mu_0$ | $H_0:$ $\mu_d > \mu_0$ | $H_1:$ $\mu_d < \mu_0$ 
+
+Test Statistic
+$$
+t_0 = \frac{\bar{d}-\mu_0}{\frac{s_d}{\sqrt{n}}}
+$$
+
+*P*-Value
+
+- $p = 2 P[t \ge |t_0|]$ | $p = P[t \ge |t_0|]$ | $p = P[t \le |t_0|]$
+
+Rejection Region
+
+- Reject $H_0$ if $p < \alpha$.
+
+Conclusion/Interpretation
+
+- [Reject or fail to reject] $H_0$.
+
+- There [is or is not] sufficient evidence to suggest [alternative hypothesis in words].
+
+:::
+
+## **Paired *t*-Test**
+
+- R syntax:
+
+```{r}
+#| eval: false
+t.test(dataset_name$variable1_name, 
+       dataset_name$variable2_name, 
+       paired = TRUE, 
+       mu = hypothesized_difference,
+       alternative = "alternative")
+```
+
+- Important!!
+    - We are estimating $\mu_1 - \mu_2$, but R is going to subtract in the order we state in the `t.test()` function.
+        - e.g., if we want to examine $\mu_d  = \mu_{\text{freshman}} - \mu_{\text{sophomore}}$:
+
+```{r}
+#| eval: false
+t.test(students$freshman_gpa, 
+       students$sophomore_gpa, 
+       paired = TRUE, 
+       mu = 0,
+       alternative = "alternative")
+```
+
+```{r}
+#| eval: false
+t.test(students$sophomore_gpa, 
+       students$freshman_gpa, 
+       paired = TRUE, 
+       mu = 0,
+       alternative = "alternative")
+```
+
+## **Paired *t*-Test: Example**
+
+-   Let's now formally determine if garage I's estimates are higher than garage II's. Test at the $\alpha=0.05$ level.
+
+- Recall the data,
+
+```{r}
+#| eval: false
+garage <- tibble(g1 = c(17.6, 20.2, 19.5, 11.3, 13.0, 
+                        16.3, 15.3, 16.2, 12.2, 14.8,
+                        21.3, 22.1, 16.9, 17.6, 18.4), 
+                 g2 = c(17.3, 19.1, 18.4, 11.5, 12.7, 
+                        15.8, 14.9, 15.3, 12.0, 14.2, 
+                        21.0, 21.0, 16.1, 16.7, 17.5))
+```
+
+- and the `R` syntax:
+
+```{r}
+#| eval: false
+t.test(dataset_name$variable1_name, 
+       dataset_name$variable2_name, 
+       paired = TRUE, 
+       mu = hypothesized_difference,
+       alternative = "alternative")
+```
+
+## **Paired *t*-Test: Example**
+
+```{r}
+t.test(garage$g1, 
+       garage$g2,
+       paired = TRUE,
+       mu = 0,
+       alternative = "greater")
+```
+
+- Are the estimates from garage I significantly higher than those from garage II?
+
+## **Paired *t*-Test: Example**
+
+**Hypotheses**
+
+-   $H_0: \ \mu_{\text{I}} \le \mu_{\text{II}}$ OR $\mu_{d} \le 0$, where $\mu_d = \mu_{\text{I}} - \mu_{\text{II}}$
+-   $H_1: \ \mu_{\text{I}} > \mu_{\text{II}}$ OR $\mu_{d} > 0$
+
+**Test Statistic and *p*-Value**
+
+- $t_0 = 6.023$
+- $p < 0.001$
+
+**Rejection Region**
+
+- Reject $H_0$ if $p < \alpha$; $\alpha = 0.05$.
+
+**Conclusion/Interpretation**
+
+- Reject $H_0$.
+- There is sufficient evidence to suggest the estimates at garage I are higher than that of garage II.
+
+## **Wrap Up**
+
+- Today we reviewed the dependent *t*-test.
+    - Confidence intervals
+    - Hypothesis testing
+    
+- Get to know you quiz - complete with RStudio - was due <u>Monday or Tuesday</u>.
+
+- <u>Campus is closed on Monday!</u>
+    - Tuesday: *optional* session for Assignment 1 help.
+    - TR section: 2:30-3:45 pm, 4/310.
