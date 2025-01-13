@@ -4,14 +4,7 @@
     "href": "syllabus.html",
     "title": "Syllabus",
     "section": "",
-    "text": "Note: this is an abbreviated syllabus. The full syllabus is available through Classmate and/or Canvas.\n\nInstructor Information\n\nDr. Samantha Seals\nOffice: 4/344\n\n\n\nMeeting Times and Location\n\nTR 2:30-3:45 pm\nClassroom: 4/310\n\n\n\nOffice Hours\n\nMonday: 2:30–4:30 pm (Central)\nWednesday: 2:30–4:30 pm (Central)\nThursday: 10:00 am–12:00 pm (Central)\nOther times by appointment\n\n\n\nGrading and Evaluation\nThe course grade will be determined as follows:\n\nAssignments (25%): Each module will include an activity for students to complete using Quarto and R. The resulting .html file should be submitted to the designated dropbox on Canvas by 11:59 pm on the specified date (see Canvas).\nProject (40%): You will work with your research team to complete a research project. There will be several group check ins submitted during the project period. The resulting .pdf file should be submitted to the designated dropbox on Canvas by 11:59 pm on the specified date (see Canvas).\nOUR Symposium (10%): Each team will put together a research poster based on the project. All research teams will present their poster at the symposium.\nFinal Exam (25%): The final exam will be a timed concepts-based exam. While there may be some calculations needed, you will not be processing raw data. The final exam will be in class 11:00 am-1:30 pm on April 30, 2025.\n\n\n\nLate Policy\nAssigments have due dates, however, the dropboxes will not close until the end of the semester. All students are automatically granted “extensions” without question.\nNote that if there is not a submission when I go to grade (after the initial deadline), I will assign a zero (0) and request that you submit the assignment when you are able to. This is only for record keeping purposes. There is no penalty for submitting late and a full grade will be given upon review of your submission.\nExtensions are not available for the projects or final exam."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "<b>STA4173 - Biostatistics - Spring 2025</b>",
-    "section": "",
-    "text": "Tentative Schedule\n\n\n\n\n\n\n\n\n\nDay\nTopic\nSlides\nIn Class\n\n\n\n\nR 01/09\nReview of Estimation\n \n\n\n\nT 01/14\nIndependent and dependent t tests\n\n\n\n\nR 01/16\nHow to conceptualize research questions as hypotheses\n\n\n\n\nT 01/21\nOptional meeting - Assignment 1 help\n\n\n\n\nR 01/23\nAssumptions on t tests, Wilcoxons\n\n\n\n\nT 01/28\nAssignment 1\n\n\n\n\nR 01/30\nOne-Way ANOVA and post-hoc tests\n\n\n\n\nT 02/04\nANOVA assumptions; Kruskal-Wallis\n\n\n\n\nR 02/06\nProject: planning meeting\n\n\n\n\nT 02/11\nTwo-way ANOVA\n\n\n\n\nR 02/13\nAssignment 2\n\n\n\n\nT 02/18\nRegression\n\n\n\n\nR 02/20\nRegression\n\n\n\n\nT 02/25\nAssigment 3\n\n\n\n\nR 02/27\nProject: planning meeting\n\n\n\n\nT 03/04\nCategorical analysis\n\n\n\n\nR 03/06\nLogistic regression\n\n\n\n\nT 03/11\nAssignment 4\n\n\n\n\nR 03/13\nProject: planning meeting\n\n\n\n\nT 03/18\nSpring Break!\n\n\n\n\nR 03/20\nSpring Break!\n\n\n\n\nT 03/25\nProject: analysis\n\n\n\n\nR 03/27\nOUR: What is a Poster?\n\n\n\n\nT 04/01\nProject: analysis\n\n\n\n\nR 04/03\nProject: summary\n\n\n\n\nT 04/08\nProject: poster draft\n\n\n\n\nR 04/10\nIndividual group meetings with Dr. Seals\n\n\n\n\nT 04/15\nPoster presentation practice\n\n\n\n\nR 04/17\nOUR Symposium\n\n\n\n\nT 04/21\nCatch up!\n\n\n\n\nR 04/24\nProject: reflections"
+    "text": "Note: this is an abbreviated syllabus. The full syllabus is available through Classmate and/or Canvas.\n\nInstructor Information\n\nDr. Samantha Seals\nOffice: 4/344\n\n\n\nMeeting Times and Location\n\nMW 1:00-2:15 pm\nClassroom: 51/152\n\n\n\nOffice Hours\n\nMonday: 2:30–4:30 pm (Central)\nWednesday: 2:30–4:30 pm (Central)\nThursday: 10:00 am–12:00 pm (Central)\nOther times by appointment\n\n\n\nGrading and Evaluation\nThe course grade will be determined as follows:\n\nAssignments (25%): Each module will include an activity for students to complete using Quarto and R. The resulting .html file should be submitted to the designated dropbox on Canvas by 11:59 pm on the specified date (see Canvas).\nProject (40%): You will work with your research team to complete a research project. There will be several group check ins submitted during the project period. The resulting .pdf file should be submitted to the designated dropbox on Canvas by 11:59 pm on the specified date (see Canvas).\nOUR Symposium (10%): Each team will put together a research poster based on the project. All research teams will present their poster at the symposium.\nFinal Exam (25%): The final exam will be a timed concepts-based exam. While there may be some calculations needed, you will not be processing raw data. The final exam will be in class 11:00 am-1:30 pm on April 30, 2025.\n\n\n\nLate Policy\nAssigments have due dates, however, the dropboxes will not close until the end of the semester. All students are automatically granted “extensions” without question.\nNote that if there is not a submission when I go to grade (after the initial deadline), I will assign a zero (0) and request that you submit the assignment when you are able to. This is only for record keeping purposes. There is no penalty for submitting late and a full grade will be given upon review of your submission.\nExtensions are not available for the projects or final exam."
   },
   {
     "objectID": "files/lectures/W01-L1-review-of-estimation.html#introduction",
@@ -180,5 +173,299 @@
     "title": "Review of Statistical Estimation",
     "section": "Wrap Up",
     "text": "Wrap Up\n\nToday we reviewed estimation.\nNext week, we will review statistical inference.\n\nConfidence intervals\nHypothesis testing\n\nGet to know you quiz - complete with RStudio.\n\n.qmd \\to Quarto\n.R \\to R script\n\nJoin the Discord server!\n\nIf you are already a Discord user, this is a friendly reminder that you can change your display name…"
+  },
+  {
+    "objectID": "files/assignments/Assignment0.html",
+    "href": "files/assignments/Assignment0.html",
+    "title": "Introductions",
+    "section": "",
+    "text": "What is your name as it appears on my roster in Classmate? (We are using this assignment for attendance verification.)\nHow is your name pronounced?\nIs there another name you prefer to go by?\nWhat are your pronouns?\nWhat is your major(s) and minor(s)?\nWhat statistics courses have you taken previously?\nWhat environmental science courses have you taken previously?\nAre you familiar with statistical programming? (e.g., R, python, SAS, etc.)\nAre you familiar with Pensacola Beach?\nDo you have any questions or concerns about this course? If so, please list them and we will respond when we grade this assignment.\nWhat interests do you have, outside of school and work?\nWhat are three of your favorite things?\nIf you were independently wealthy, what would you do with your time?"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "<b>STA4173 - Biostatistics - Spring 2025</b>",
+    "section": "",
+    "text": "Tentative Schedule\n\n\n\n\n\n\n\n\n\nDay\nTopic\nSlides\nIn Class\n\n\n\n\nW 01/09\nReview of Estimation\n \n \n\n\nM 01/13\nIndependent and dependent t tests\n \n\n\n\nW 01/15\nMeeting EES; dependent t-tests\n \n\n\n\nT 01/21\nOptional meeting - Assignment 1 help\n\n\n\n\nW 01/22\nAssumptions on t tests, Wilcoxons\n\n\n\n\nM 01/27\nAssignment 1\n\n\n\n\nW 01/29\nOne-Way ANOVA and post-hoc tests\n\n\n\n\nM 02/03\nANOVA assumptions; Kruskal-Wallis\n\n\n\n\nW 02/05\nProject: planning meeting\n\n\n\n\nM 02/10\nTwo-way ANOVA\n\n\n\n\nW 02/12\nAssignment 2\n\n\n\n\nM 02/17\nRegression\n\n\n\n\nW 02/19\nRegression\n\n\n\n\nM 02/24\nAssigment 3\n\n\n\n\nW 02/26\nProject: planning meeting\n\n\n\n\nM 03/03\nCategorical analysis\n\n\n\n\nW 03/05\nLogistic regression\n\n\n\n\nM 03/10\nAssignment 4\n\n\n\n\nW 03/12\nProject: planning meeting\n\n\n\n\nM 03/17\nSpring Break!\n\n\n\n\nW 03/19\nSpring Break!\n\n\n\n\nM 03/24\nProject: analysis\n\n\n\n\nW 03/26\nOUR: What is a Poster?\n\n\n\n\nM 03/31\nProject: analysis\n\n\n\n\nW 04/02\nProject: summary\n\n\n\n\nM 04/07\nProject: poster draft\n\n\n\n\nW 04/09\nIndividual group meetings with Dr. Seals\n\n\n\n\nM 04/14\nPoster presentation practice\n\n\n\n\nW 04/16\nOUR Symposium\n\n\n\n\nM 04/21\nCatch up!\n\n\n\n\nW 04/23\nProject: reflections"
+  },
+  {
+    "objectID": "files/lectures/W02-L2-dependent-t.html#introduction",
+    "href": "files/lectures/W02-L2-dependent-t.html#introduction",
+    "title": "Dependent t-Tests",
+    "section": "Introduction",
+    "text": "Introduction\n\nIn the last lecture, we reviewed statistical inference on two independent means.\n\nCI for \\mu_1-\\mu_2\nHypothesis test for \\mu_1-\\mu_2 (two-sample t-test)\n\nToday, we will focus on drawing conclusions about two dependent means.\n\nCI for \\mu_d = \\mu_1-\\mu_2\nHypothesis test for \\mu_d = \\mu_1-\\mu_2 (paired t-test)"
+  },
+  {
+    "objectID": "files/lectures/W02-L2-dependent-t.html#independent-vs.-dependent-data",
+    "href": "files/lectures/W02-L2-dependent-t.html#independent-vs.-dependent-data",
+    "title": "Dependent t-Tests",
+    "section": "Independent vs. Dependent Data",
+    "text": "Independent vs. Dependent Data\n\n\n\n\n\n\nIndependent data\n\n\nAn individual selected for one sample does not dictate which individual is to be in a second sample.\nIn the data, there is not a way to link the individuals in the sample.\n\n\n\n\n\n\n\n\n\nDependent data\n\n\nAn individual selected to be in one sample is used to determine the individual in the second sample.\nIn the data, there is a way to link the individuals in the sample.\n\n\n\n\nExamples:\n\nTwo sections of STA4173\nProject grades in one section of STA4173\nMale and female penguins\nPrices online vs. in store at Target"
+  },
+  {
+    "objectID": "files/lectures/W02-L2-dependent-t.html#estimating-mathbfboldsymbol-mu_d-boldsymbol-mu_1-boldsymbol-mu_2",
+    "href": "files/lectures/W02-L2-dependent-t.html#estimating-mathbfboldsymbol-mu_d-boldsymbol-mu_1-boldsymbol-mu_2",
+    "title": "Dependent t-Tests",
+    "section": "Estimating \\mathbf{\\boldsymbol \\mu_d = \\boldsymbol \\mu_1-\\boldsymbol \\mu_2}",
+    "text": "Estimating \\mathbf{\\boldsymbol \\mu_d = \\boldsymbol \\mu_1-\\boldsymbol \\mu_2}\n\nWe are now interested in comparing two dependent groups.\nWe assume that the two groups come from the same population and are going to examine the difference,\n\n\nd = y_{i, 1} - y_{i, 2}\n\n\nAfter drawing samples, we have the following,\n\n\\bar{d} estimates \\mu_d,\ns^2_d estimates \\sigma^2_d, and\nn is the sample size."
+  },
+  {
+    "objectID": "files/lectures/W02-L2-dependent-t.html#confidence-interval-for-mathbfboldsymbol-mu_d",
+    "href": "files/lectures/W02-L2-dependent-t.html#confidence-interval-for-mathbfboldsymbol-mu_d",
+    "title": "Dependent t-Tests",
+    "section": "Confidence Interval for \\mathbf{\\boldsymbol \\mu_d}",
+    "text": "Confidence Interval for \\mathbf{\\boldsymbol \\mu_d}\n\n\n\n\n\n\n\\mathbf{(1-\\boldsymbol\\alpha)100\\%} confidence interval for \\mathbf{\\boldsymbol\\mu_d}\n\n\n \\bar{d} \\pm t_{\\alpha/2} \\frac{s_d}{\\sqrt{n}} \n\nwhere t_{\\alpha/2} has n-1 degrees of freedom.\nTo construct this interval, we require either:\n\nthe differences to be normally distributed or\nthe sample size is sufficiently large (n \\ge 30)\n\n\n\n\n\n\nR syntax:\n\n\nt.test(dataset_name$variable1_name,\n       dataset_name$variable2_name, \n       paired = TRUE, \n       conf.level = confidence_level)"
+  },
+  {
+    "objectID": "files/lectures/W02-L2-dependent-t.html#confidence-interval-for-mathbfboldsymbol-mu_d-example",
+    "href": "files/lectures/W02-L2-dependent-t.html#confidence-interval-for-mathbfboldsymbol-mu_d-example",
+    "title": "Dependent t-Tests",
+    "section": "Confidence Interval for \\mathbf{\\boldsymbol \\mu_d}: Example",
+    "text": "Confidence Interval for \\mathbf{\\boldsymbol \\mu_d}: Example\n\nInsurance adjusters are concerned about the high estimates they are receiving for auto repairs from garage I compared to garage II.\n15 cars were taken to both garages for separate estimates of repair costs.\n\n\nlibrary(tidyverse)\ngarage &lt;- tibble(g1 = c(17.6, 20.2, 19.5, 11.3, 13.0, \n                        16.3, 15.3, 16.2, 12.2, 14.8,\n                        21.3, 22.1, 16.9, 17.6, 18.4), \n                 g2 = c(17.3, 19.1, 18.4, 11.5, 12.7, \n                        15.8, 14.9, 15.3, 12.0, 14.2, \n                        21.0, 21.0, 16.1, 16.7, 17.5))\n\n\nConstruct the 95% confidence interval for the average difference between the two garages.\nRemember the R syntax:\n\n\nt.test(dataset_name$variable1_name,\n       dataset_name$variable2_name, \n       paired = TRUE, \n       conf.level = confidence_level)"
+  },
+  {
+    "objectID": "files/lectures/W02-L2-dependent-t.html#confidence-interval-for-mathbfboldsymbol-mu_d-example-1",
+    "href": "files/lectures/W02-L2-dependent-t.html#confidence-interval-for-mathbfboldsymbol-mu_d-example-1",
+    "title": "Dependent t-Tests",
+    "section": "Confidence Interval for \\mathbf{\\boldsymbol \\mu_d}: Example",
+    "text": "Confidence Interval for \\mathbf{\\boldsymbol \\mu_d}: Example\n\nt.test(garage$g1, \n       garage$g2, \n       paired = TRUE, \n       conf.level = 0.95)\n\n\n    Paired t-test\n\ndata:  garage$g1 and garage$g2\nt = 6.0234, df = 14, p-value = 3.126e-05\nalternative hypothesis: true mean difference is not equal to 0\n95 percent confidence interval:\n 0.3949412 0.8317254\nsample estimates:\nmean difference \n      0.6133333 \n\n\n\nThe 95% CI for \\mu_d, where d = x_{\\text{I}} - x_{\\text{II}} is (0.39, 0.83).\nFrom the problem statement:\n\nInsurance adjusters are concerned about the high estimates they are receiving for auto repairs from garage I compared to garage II.\n\nCan we say that estimates from garage I are higher than those from garage II?"
+  },
+  {
+    "objectID": "files/lectures/W02-L2-dependent-t.html#paired-t-test",
+    "href": "files/lectures/W02-L2-dependent-t.html#paired-t-test",
+    "title": "Dependent t-Tests",
+    "section": "Paired t-Test",
+    "text": "Paired t-Test\n\n\n\n\n\n\nHypothesis Test for Two Dependent Means\n\n\nHypotheses\n\nH_0: \\mu_d = \\mu_0 | H_0: \\mu_d \\le \\mu_0 | H_0: \\mu_d \\ge \\mu_0\nH_1: \\mu_d \\ne \\mu_0 | H_0: \\mu_d &gt; \\mu_0 | H_1: \\mu_d &lt; \\mu_0\n\nTest Statistic \nt_0 = \\frac{\\bar{d}-\\mu_0}{\\frac{s_d}{\\sqrt{n}}}\n\nP-Value\n\np = 2 P[t \\ge |t_0|] | p = P[t \\ge |t_0|] | p = P[t \\le |t_0|]\n\nRejection Region\n\nReject H_0 if p &lt; \\alpha.\n\nConclusion/Interpretation\n\n[Reject or fail to reject] H_0.\nThere [is or is not] sufficient evidence to suggest [alternative hypothesis in words]."
+  },
+  {
+    "objectID": "files/lectures/W02-L2-dependent-t.html#paired-t-test-1",
+    "href": "files/lectures/W02-L2-dependent-t.html#paired-t-test-1",
+    "title": "Dependent t-Tests",
+    "section": "Paired t-Test",
+    "text": "Paired t-Test\n\nR syntax:\n\n\nt.test(dataset_name$variable1_name, \n       dataset_name$variable2_name, \n       paired = TRUE, \n       mu = hypothesized_difference,\n       alternative = \"alternative\")\n\n\nImportant!!\n\nWe are estimating \\mu_1 - \\mu_2, but R is going to subtract in the order we state in the t.test() function.\n\ne.g., if we want to examine \\mu_d  = \\mu_{\\text{freshman}} - \\mu_{\\text{sophomore}}:\n\n\n\n\nt.test(students$freshman_gpa, \n       students$sophomore_gpa, \n       paired = TRUE, \n       mu = 0,\n       alternative = \"alternative\")\n\n\nt.test(students$sophomore_gpa, \n       students$freshman_gpa, \n       paired = TRUE, \n       mu = 0,\n       alternative = \"alternative\")"
+  },
+  {
+    "objectID": "files/lectures/W02-L2-dependent-t.html#paired-t-test-example",
+    "href": "files/lectures/W02-L2-dependent-t.html#paired-t-test-example",
+    "title": "Dependent t-Tests",
+    "section": "Paired t-Test: Example",
+    "text": "Paired t-Test: Example\n\nLet’s now formally determine if garage I’s estimates are higher than garage II’s. Test at the \\alpha=0.05 level.\nRecall the data,\n\n\ngarage &lt;- tibble(g1 = c(17.6, 20.2, 19.5, 11.3, 13.0, \n                        16.3, 15.3, 16.2, 12.2, 14.8,\n                        21.3, 22.1, 16.9, 17.6, 18.4), \n                 g2 = c(17.3, 19.1, 18.4, 11.5, 12.7, \n                        15.8, 14.9, 15.3, 12.0, 14.2, \n                        21.0, 21.0, 16.1, 16.7, 17.5))\n\n\nand the R syntax:\n\n\nt.test(dataset_name$variable1_name, \n       dataset_name$variable2_name, \n       paired = TRUE, \n       mu = hypothesized_difference,\n       alternative = \"alternative\")"
+  },
+  {
+    "objectID": "files/lectures/W02-L2-dependent-t.html#paired-t-test-example-1",
+    "href": "files/lectures/W02-L2-dependent-t.html#paired-t-test-example-1",
+    "title": "Dependent t-Tests",
+    "section": "Paired t-Test: Example",
+    "text": "Paired t-Test: Example\n\nt.test(garage$g1, \n       garage$g2,\n       paired = TRUE,\n       mu = 0,\n       alternative = \"greater\")\n\n\n    Paired t-test\n\ndata:  garage$g1 and garage$g2\nt = 6.0234, df = 14, p-value = 1.563e-05\nalternative hypothesis: true mean difference is greater than 0\n95 percent confidence interval:\n 0.4339886       Inf\nsample estimates:\nmean difference \n      0.6133333 \n\n\n\nAre the estimates from garage I significantly higher than those from garage II?"
+  },
+  {
+    "objectID": "files/lectures/W02-L2-dependent-t.html#paired-t-test-example-2",
+    "href": "files/lectures/W02-L2-dependent-t.html#paired-t-test-example-2",
+    "title": "Dependent t-Tests",
+    "section": "Paired t-Test: Example",
+    "text": "Paired t-Test: Example\nHypotheses\n\nH_0: \\ \\mu_{\\text{I}} \\le \\mu_{\\text{II}} OR \\mu_{d} \\le 0, where \\mu_d = \\mu_{\\text{I}} - \\mu_{\\text{II}}\nH_1: \\ \\mu_{\\text{I}} &gt; \\mu_{\\text{II}} OR \\mu_{d} &gt; 0\n\nTest Statistic and p-Value\n\nt_0 = 6.023\np &lt; 0.001\n\nRejection Region\n\nReject H_0 if p &lt; \\alpha; \\alpha = 0.05.\n\nConclusion/Interpretation\n\nReject H_0.\nThere is sufficient evidence to suggest the estimates at garage I are higher than that of garage II."
+  },
+  {
+    "objectID": "files/lectures/W02-L2-dependent-t.html#wrap-up",
+    "href": "files/lectures/W02-L2-dependent-t.html#wrap-up",
+    "title": "Dependent t-Tests",
+    "section": "Wrap Up",
+    "text": "Wrap Up\n\nToday we reviewed the dependent t-test.\n\nConfidence intervals\nHypothesis testing\n\nGet to know you quiz - complete with RStudio - was due Monday or Tuesday.\nCampus is closed on Monday!\n\nTuesday: optional session for Assignment 1 help.\nTR section: 2:30-3:45 pm, 4/310."
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#introduction",
+    "href": "files/lectures/W02-L1-two-sample-t.html#introduction",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Introduction",
+    "text": "Introduction\n\nIn the last lecture, we focused on describing data.\n\nContinuous data: mean with standard deviation, median with interquartile range\nCategorical data: count with percentage\n\nToday, we will focus on drawing conclusions about two population means using data.\n\nConfidence intervals\nHypothesis testing"
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#confidence-intervals",
+    "href": "files/lectures/W02-L1-two-sample-t.html#confidence-intervals",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Confidence Intervals",
+    "text": "Confidence Intervals\n\n\n\n\n\n\nPoint Estimate\n\n\nThe single value of a statistic that estimates the value of a parameter.\n\n\n\n\nExamples of point estimates:\nIt is necessary to know how good our estimation is, or to quantify our uncertainty.\n\n\n\n\n\n\n\nConfidence Interval\n\n\nA range of plausible values for the parameter based on values observed in the sample.\n\n\\text{estimate} \\pm \\text{margin of error}\n\n\n\n\n\n\n\n\n\n\nLevel of Confidence\n\n\nThe probability that the interval will capture the true parameter value in repeated samples. i.e., the success rate for the method."
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#confidence-intervals-1",
+    "href": "files/lectures/W02-L1-two-sample-t.html#confidence-intervals-1",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Confidence Intervals",
+    "text": "Confidence Intervals"
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#confidence-intervals-2",
+    "href": "files/lectures/W02-L1-two-sample-t.html#confidence-intervals-2",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Confidence Intervals",
+    "text": "Confidence Intervals\n\nBecause CIs are a range of values, we will use interval notation,\n\n\n(lower bound, upper bound)\n\n\nwhere\n\nlower bound = point estimate – margin of error\nupper bound = point estimate + margin of error\n\nMake sure to state your confidence intervals in numeric order.\n\ni.e., the lower bound must be the smaller number and the upper bound must be the larger number."
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#confidence-interval-for-mathbfboldsymbol-mu_1-boldsymbolmu_2",
+    "href": "files/lectures/W02-L1-two-sample-t.html#confidence-interval-for-mathbfboldsymbol-mu_1-boldsymbolmu_2",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Confidence Interval for \\mathbf{\\boldsymbol \\mu_1-\\boldsymbol\\mu_2}",
+    "text": "Confidence Interval for \\mathbf{\\boldsymbol \\mu_1-\\boldsymbol\\mu_2}\n\n\n\n\n\n\n(1-\\alpha)100\\% confidence interval for \\mu_1-\\mu_2\n\n\n\n(\\bar{x}_1 - \\bar{x}_2) \\pm t_{\\alpha/2} \\sqrt{\\frac{s_1^2 }{n_1} + \\frac{s_2^2}{n_2}}\n where t_{\\alpha/2} has \\text{min}(n_1-1, n_2-1) degrees of freedom.\n\n\n\n\nTo construct this interval, we require either:\n\nthe two populations to be normally distributed or\nthe sample sizes are sufficiently large (n_1 \\ge 30 and n_2 \\ge 30)\n\nR syntax:\n\n\nt.test(continuous_variable ~ grouping_variable,\n       data = dataset_name,\n       conf.level = confidence_level)"
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#confidence-interval-for-mathbfboldsymbol-mu_1-boldsymbolmu_2-1",
+    "href": "files/lectures/W02-L1-two-sample-t.html#confidence-interval-for-mathbfboldsymbol-mu_1-boldsymbolmu_2-1",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Confidence Interval for \\mathbf{\\boldsymbol \\mu_1-\\boldsymbol\\mu_2}",
+    "text": "Confidence Interval for \\mathbf{\\boldsymbol \\mu_1-\\boldsymbol\\mu_2}\n\nRecall the Palmer penguin data,\n\n\npenguins &lt;- palmerpenguins::penguins"
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#confidence-interval-for-mathbfboldsymbol-mu_1-boldsymbolmu_2-2",
+    "href": "files/lectures/W02-L1-two-sample-t.html#confidence-interval-for-mathbfboldsymbol-mu_1-boldsymbolmu_2-2",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Confidence Interval for \\mathbf{\\boldsymbol \\mu_1-\\boldsymbol\\mu_2}",
+    "text": "Confidence Interval for \\mathbf{\\boldsymbol \\mu_1-\\boldsymbol\\mu_2}\n\nLet’s find the 95% confidence interval for the difference in average weight (body_mass_g) between male and female (sex) penguins.\nRemember the R syntax:\n\n\nt.test(continuous_variable ~ grouping_variable,\n       data = dataset_name,\n       conf.level = confidence_level) \n\n\nWhat is the continuous variable?\nWhat is the grouping variable?\nWhat is the dataset name?\nWhat is the confidence level?"
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#confidence-interval-for-mathbfboldsymbol-mu_1-boldsymbolmu_2-3",
+    "href": "files/lectures/W02-L1-two-sample-t.html#confidence-interval-for-mathbfboldsymbol-mu_1-boldsymbolmu_2-3",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Confidence Interval for \\mathbf{\\boldsymbol \\mu_1-\\boldsymbol\\mu_2}",
+    "text": "Confidence Interval for \\mathbf{\\boldsymbol \\mu_1-\\boldsymbol\\mu_2}\n\nLet’s find the 95% confidence interval for the difference in weight (body_mass_g) between male and female penguins.\n\n\nt.test(body_mass_g ~ sex,\n       data = penguins,\n       conf.level = 0.95) \n\n\n    Welch Two Sample t-test\n\ndata:  body_mass_g by sex\nt = -8.5545, df = 323.9, p-value = 4.794e-16\nalternative hypothesis: true difference in means between group female and group male is not equal to 0\n95 percent confidence interval:\n -840.5783 -526.2453\nsample estimates:\nmean in group female   mean in group male \n            3862.273             4545.685 \n\n\n\nThus, the 95% confidence interval for \\mu_F - \\mu_M is (-840.6, -526.2)."
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#confidence-interval-for-mathbfboldsymbol-mu_1-boldsymbolmu_2-4",
+    "href": "files/lectures/W02-L1-two-sample-t.html#confidence-interval-for-mathbfboldsymbol-mu_1-boldsymbolmu_2-4",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Confidence Interval for \\mathbf{\\boldsymbol \\mu_1-\\boldsymbol\\mu_2}",
+    "text": "Confidence Interval for \\mathbf{\\boldsymbol \\mu_1-\\boldsymbol\\mu_2}\n\nWhat about the 99% confidence interval for the difference in weight (body_mass_g) between male and female penguins?\n\n\nt.test(body_mass_g ~ sex,\n       data = penguins,\n       conf.level = 0.99) \n\n\nWhat do you expect? Recall that the 95% CI was (-840.6, -526.2)."
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#confidence-interval-for-mathbfboldsymbol-mu_1-boldsymbolmu_2-5",
+    "href": "files/lectures/W02-L1-two-sample-t.html#confidence-interval-for-mathbfboldsymbol-mu_1-boldsymbolmu_2-5",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Confidence Interval for \\mathbf{\\boldsymbol \\mu_1-\\boldsymbol\\mu_2}",
+    "text": "Confidence Interval for \\mathbf{\\boldsymbol \\mu_1-\\boldsymbol\\mu_2}\n\nWhat about the 99% confidence interval for the difference in weight (body_mass_g) between male and female penguins?\n\n\nt.test(body_mass_g ~ sex,\n       data = penguins,\n       conf.level = 0.99) \n\n\n    Welch Two Sample t-test\n\ndata:  body_mass_g by sex\nt = -8.5545, df = 323.9, p-value = 4.794e-16\nalternative hypothesis: true difference in means between group female and group male is not equal to 0\n99 percent confidence interval:\n -890.4112 -476.4124\nsample estimates:\nmean in group female   mean in group male \n            3862.273             4545.685 \n\n\n\nThus, the 99% confidence interval for \\mu_F - \\mu_M is (-890.4, -476.4).\n\nRecall that the 95% CI was (-840.6, -526.2)."
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#hypothesis-testing",
+    "href": "files/lectures/W02-L1-two-sample-t.html#hypothesis-testing",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Hypothesis Testing",
+    "text": "Hypothesis Testing\n\nA friend of yours wants to play a simple coin-flipping game.\n\nIf the coin comes up heads, you win; if it comes up tails, your friend wins.\nSuppose the outcome of five plays of the game is T, T, T, T, T.\nIs your friend cheating?"
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#hypothesis-testing-1",
+    "href": "files/lectures/W02-L1-two-sample-t.html#hypothesis-testing-1",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Hypothesis Testing",
+    "text": "Hypothesis Testing\n\nA friend of yours wants to play a simple coin-flipping game.\n\nIf the coin comes up heads, you win; if it comes up tails, your friend wins.\nSuppose the outcome of five plays of the game is T, T, T, T, T.\nIs your friend cheating?\n\nWe know the probability of flipping a tail is 0.5.\nWe can compute the probability of flipping five tails in a row.\n\n\n\n\n\\begin{align*}\n     P[\\text{T, T, T, T, T}] &=  0.5 \\times 0.5 \\times 0.5 \\times 0.5 \\times 0.5 \\\\\n     &= 0.03125\n\\end{align*}\n\n\nIs this probability low enough to believe your friend is cheating?"
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#hypothesis-testing-2",
+    "href": "files/lectures/W02-L1-two-sample-t.html#hypothesis-testing-2",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Hypothesis Testing",
+    "text": "Hypothesis Testing\n\n\n\n\n\n\nHypothesis Testing\n\n\nA procedure, based on sample evidence and probability, used to test statements regarding a characteristic of one or more populations.\n\n\n\n\nSteps in hypothesis testing\n\nMake a statement regarding the nature of the population.\nCollect evidence (sample data) to test the statement.\nAnalyze the data to assess the plausibility of the statement.\n\nNote: if we have population parameters available, we do not need to perform a hypothesis test."
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#hypothesis-testing-hypotheses",
+    "href": "files/lectures/W02-L1-two-sample-t.html#hypothesis-testing-hypotheses",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Hypothesis Testing: Hypotheses",
+    "text": "Hypothesis Testing: Hypotheses\n\n\n\n\n\n\nHypothesis\n\n\nA statement regarding a characteristic of one or more populations.\n\n\n\n\nIn hypothesis testing, we have two hypotheses: the null and the alternative.\n\n\n\n\n\n\n\nNull hypothesis, H_0\n\n\nA statement to be tested.\n\nThis is a statement of no change, no effect, or no difference.\nIt is assumed true until evidence indicates otherwise.\n\n\n\n\n\n\n\n\n\n\nAlternative hypothesis, H_1\n\n\nA statement that we are trying to find evidence to support."
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#hypothesis-testing-hypotheses-1",
+    "href": "files/lectures/W02-L1-two-sample-t.html#hypothesis-testing-hypotheses-1",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Hypothesis Testing: Hypotheses",
+    "text": "Hypothesis Testing: Hypotheses\n\nOne sample tests:\n\nTwo-tailed test\n\nH_0: parameter = some value\nH_1: parameter \\ne some value\n\nLeft-tailed test\n\nH_0: parameter \\ge some value\nH_1: parameter &lt; some value\n\nRight-tailed test\n\nH_0: parameter \\le some value\nH_1: parameter &gt; some value"
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#hypothesis-testing-hypotheses-2",
+    "href": "files/lectures/W02-L1-two-sample-t.html#hypothesis-testing-hypotheses-2",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Hypothesis Testing: Hypotheses",
+    "text": "Hypothesis Testing: Hypotheses\n\nTwo sample tests\n\nTwo-tailed test\n\nH_0: parameter1 – parameter2 = 0\nH_1: parameter1 – parameter2 \\ne 0\n\nLeft-tailed test\n\nH_0: parameter1 – parameter2 \\ge 0\nH_1: parameter1 – parameter2 &lt; 0\n\nRight-tailed test\n\nH_0: parameter1 – parameter2 \\le 0\nH_1: parameter1 – parameter2 &gt; 0"
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#hypothesis-testing-errors",
+    "href": "files/lectures/W02-L1-two-sample-t.html#hypothesis-testing-errors",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Hypothesis Testing: Errors",
+    "text": "Hypothesis Testing: Errors\n\nWe use data to draw conclusions about hypotheses.\n\nWe will either reject or fail to reject the null (H_0).\n\nIf we draw the wrong conclusion, we make an error.\nThese can be classified as Type I (\\alpha) or Type II (\\beta) errors.\n\n\\alpha and \\beta are probabilities (i.e., are between 0 and 1)."
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#hypothesis-testing-errors-1",
+    "href": "files/lectures/W02-L1-two-sample-t.html#hypothesis-testing-errors-1",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Hypothesis Testing: Errors",
+    "text": "Hypothesis Testing: Errors\n\nAs stated earlier, Type I (\\alpha) and Type II (\\beta) errors are probabilities.\n\n\\alpha = \\text{P}[\\text{reject } H_0 \\text{ when } H_0 \\text{ is true}]\n\\beta = \\text{P}[\\text{fail to reject } H_0 \\text{ when } H_1 \\text{ is true}]\n\nWe also call \\alpha the level of significance.\nWe should choose \\alpha based on the level of error we are willing to withstand in the experiment.\n\nThe \\alpha that is commonly used is \\alpha=0.05.\nSometimes, smaller \\alpha is used. e.g., clinical trial \\to \\alpha=0.01.\n\nFor a fixed sample size (n), \\alpha and \\beta are inversely related."
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#hypothesis-testing-test-statistics",
+    "href": "files/lectures/W02-L1-two-sample-t.html#hypothesis-testing-test-statistics",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Hypothesis Testing: Test Statistics",
+    "text": "Hypothesis Testing: Test Statistics\n\nAfter stating our hypotheses, we will construct a test statistic.\nThe choice of test statistic depends on:\n\nThe hypotheses being tested.\nAssumptions made about the data.\n\nThe value of the test statistic depends on the sample data.\n\nIf we were to draw a different sample, we would find a different value for the test statistic.\n\nWe will use the test statistic on our way to drawing conclusions about the hypotheses."
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#hypothesis-testing-p-values",
+    "href": "files/lectures/W02-L1-two-sample-t.html#hypothesis-testing-p-values",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Hypothesis Testing: p-Values",
+    "text": "Hypothesis Testing: p-Values\n\n\n\n\n\n\np-value\n\n\nThe probability of observing what we’ve observed or something more extreme, assuming the null hypothesis is true.\n\n\n\n\nAfter constructing test statistics, we will find the corresponding p-value.\nFinding a p-value depends on the distribution being used.\nWe will compare the p-value to \\alpha in order to draw conclusions.\n\nReject H_0 if p &lt; \\alpha."
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#hypothesis-testing-conclusions-and-interpretations",
+    "href": "files/lectures/W02-L1-two-sample-t.html#hypothesis-testing-conclusions-and-interpretations",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Hypothesis Testing: Conclusions and Interpretations",
+    "text": "Hypothesis Testing: Conclusions and Interpretations\n\nOnce we’ve found the p-value, we can draw a conclusion.\n\nIf p &lt; \\alpha, we reject H_0.\n\nThere is sufficient evidence to suggest that H_1 is true.\n\nIf p \\ge \\alpha, we fail to reject H_0.\n\nThere is not sufficient evidence to suggest that H_1 is true.\n\n\nTake aways:\n\nWe never “accept” the null.\nWe always interpret in terms of H_1."
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#two-sample-t-test",
+    "href": "files/lectures/W02-L1-two-sample-t.html#two-sample-t-test",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Two-Sample t-Test",
+    "text": "Two-Sample t-Test\n\n\n\n\n\n\nHypothesis Test for Two Independent Means\n\n\nHypotheses\n\nH_0: \\mu_1-\\mu_2 = \\mu_0 | H_0: \\mu_1-\\mu_2 \\le \\mu_0 | H_0: \\mu_1-\\mu_2 \\ge \\mu_0\nH_1: \\mu_1-\\mu_2 \\ne \\mu_0 | H_0: \\mu_1 - \\mu_2 &gt; \\mu_0 | H_1: \\mu_1 - \\mu_2 &lt; \\mu_0\n\nTest Statistic \nt_0 = \\frac{(\\bar{x}_1-\\bar{x}_2)-\\mu_0}{\\sqrt{\\frac{s_1^2}{n}+\\frac{s_2^2}{n}}}\n\np-Value\n\np = 2 P[t \\ge |t_0|] | p = P[t \\ge |t_0|] | p = P[t \\le |t_0|]\n\nRejection Region\n\nReject H_0 if p &lt; \\alpha.\n\nConclusion/Interpretation\n\n[Reject or fail to reject] H_0.\nThere [is or is not] sufficient evidence to suggest [alternative hypothesis in words]."
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#two-sample-t-test-1",
+    "href": "files/lectures/W02-L1-two-sample-t.html#two-sample-t-test-1",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Two-Sample t-Test",
+    "text": "Two-Sample t-Test\n\nR syntax:\n\n\nt.test(continuous_variable ~ grouping_variable,\n       data = dataset_name,\n       mu = hypothesized_difference,\n       alternative = alternative)\n\n\nImportant!!\n\nWe are estimating \\mu_1 - \\mu_2, but R is going to subtract in alphabetical or numeric order of the grouping variable.\n\ne.g., if we have “Male” and “Female”, it will estimate \\mu_{\\text{Female}} - \\mu_{\\text{Male}}.\ne.g., if we have “110” and “5”, it will estimate \\mu_{5} - \\mu_{110}.\nIn the case of two-tailed tets, this does not matter… but beware when doing a one-tailed test!"
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#two-sample-t-test-example",
+    "href": "files/lectures/W02-L1-two-sample-t.html#two-sample-t-test-example",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Two-Sample t-Test: Example",
+    "text": "Two-Sample t-Test: Example\n\nConsider the penguin data. Is there a significant difference in weight (body_mass_g) between male and female penguins? Test at the \\alpha=0.05 level.\nRemember the R syntax:\n\n\nt.test(continuous_variable ~ grouping_variable,\n       data = dataset_name,\n       mu = hypothesized_difference,\n       alternative = alternative)\n\n\nWhat is the continuous variable?\nWhat is the grouping variable?\nWhat is the dataset name?\nWhat is the hypothesized difference?\nWhat is the alternative?"
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#two-sample-t-test-example-1",
+    "href": "files/lectures/W02-L1-two-sample-t.html#two-sample-t-test-example-1",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Two-Sample t-Test: Example",
+    "text": "Two-Sample t-Test: Example\n\nConsider the penguin data. Is there a significant difference in weight (body_mass_g) between male and female penguins? Test at the \\alpha=0.05 level.\nRemember the R syntax:\n\n\nt.test(body_mass_g ~ sex,\n       data = penguins,\n       mu = 0,\n       alternative = \"two\")\n\n\n    Welch Two Sample t-test\n\ndata:  body_mass_g by sex\nt = -8.5545, df = 323.9, p-value = 4.794e-16\nalternative hypothesis: true difference in means between group female and group male is not equal to 0\n95 percent confidence interval:\n -840.5783 -526.2453\nsample estimates:\nmean in group female   mean in group male \n            3862.273             4545.685 \n\n\n\nIs this a significant difference?"
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#two-sample-t-test-example-2",
+    "href": "files/lectures/W02-L1-two-sample-t.html#two-sample-t-test-example-2",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Two-Sample t-Test: Example",
+    "text": "Two-Sample t-Test: Example\nHypotheses\n\nH_0: \\mu_1-\\mu_2 = 0\nH_1: \\mu_1-\\mu_2 \\ne 0\n\nTest Statistic and p-Value\n\nt_0 = -8.55\np &lt; 0.001\n\nRejection Region\n\nReject H_0 if p &lt; \\alpha; \\alpha=0.05.\n\nConclusion/Interpretation\n\nReject H_0.\nThere is sufficient evidence to suggest that male and female penguins have different weights."
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#hypothesis-testing-practical-vs.-statistical-significance",
+    "href": "files/lectures/W02-L1-two-sample-t.html#hypothesis-testing-practical-vs.-statistical-significance",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Hypothesis Testing: Practical vs. Statistical Significance",
+    "text": "Hypothesis Testing: Practical vs. Statistical Significance\n\nHypothesis testing depends on sample size.\nAs the sample size increases, our p-values decrease necessarily.\nAs p-values decrease, we are more likely to reject the null hypothesis.\nWe must ask ourselves if the value we are testing against makes practical sense.\n\nA new weight loss medication where the average amount of weight loss was 1 lb over 6 months.\nA new weight loss medication where the average amount of weight lost was 15 lb over 6 months.\nA new teaching method that raised final exam scores by 2 points.\nA new teaching method that raised final exam scores by 15 points."
+  },
+  {
+    "objectID": "files/lectures/W02-L1-two-sample-t.html#wrap-up",
+    "href": "files/lectures/W02-L1-two-sample-t.html#wrap-up",
+    "title": "Review: Inferential Statistics & Two-Sample t-Tests",
+    "section": "Wrap Up",
+    "text": "Wrap Up\n\nToday we reviewed statistical inference.\n\nConfidence intervals\nHypothesis testing\n\nGet to know you quiz - complete with RStudio - due today.\nNext meeting: how to conceptualize research questions; dependent t-test."
   }
 ]
