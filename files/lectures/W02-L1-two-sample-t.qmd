@@ -1,23 +1,22 @@
 ---
 title: "**Review: Inferential Statistics & Two-Sample *t*-Tests**"
 subtitle: "**STA4173: Biostatistics** <br> Spring 2025"
-execute:
-  echo: true
-  warning: false
-  message: false
-  error: true
 format: 
-  revealjs:
+  revealjs: 
     code-overflow: wrap
     df-print: paged
     embed-resources: true
-    slide-number: false
+    slide-number: true
     width: 1600
     height: 900
     html-math-method: katex
     theme:
       - default
-      - sp25.scss
+execute:
+  echo: true
+  warning: false
+  message: false
+  error: true
 editor: source
 ---
 

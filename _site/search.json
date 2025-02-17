@@ -467,5 +467,222 @@
     "title": "Review: Inferential Statistics & Two-Sample t-Tests",
     "section": "Wrap Up",
     "text": "Wrap Up\n\nToday we reviewed statistical inference.\n\nConfidence intervals\nHypothesis testing\n\nGet to know you quiz - complete with RStudio - due today.\nNext meeting: how to conceptualize research questions; dependent t-test."
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#introduction-anova-assumptions",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#introduction-anova-assumptions",
+    "title": "ANOVA Assumptions and  Kruskal-Wallis",
+    "section": "Introduction: ANOVA Assumptions",
+    "text": "Introduction: ANOVA Assumptions\n\nWe previously discussed testing three or more means using ANOVA.\nWe also discussed that ANOVA is an extension of the two-sample t-test.\nRecall that the t-test has two assumptions:\n\nEqual variance between groups.\nNormal distribution.\n\nWe will extend our knowledge of checking assumptions today."
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#anova-assumptions-definition",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#anova-assumptions-definition",
+    "title": "ANOVA Assumptions and  Kruskal-Wallis",
+    "section": "ANOVA Assumptions: Definition",
+    "text": "ANOVA Assumptions: Definition\n\nWe can represent ANOVA with the following model:\n\n y_{ij} = \\mu + \\tau_i + \\varepsilon_{ij} \n\nwhere:\n\ny_{ij} is the j^{\\text{th}} observation in the i^{\\text{th}} group,\n\\mu is the overall (grand) mean,\n\\tau_i is the treatment effect for group i, and\n\\varepsilon_{ij} is the error term for the j^{\\text{th}} observation in the i^{\\text{th}} group."
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#anova-assumptions-definition-1",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#anova-assumptions-definition-1",
+    "title": "ANOVA Assumptions and  Kruskal-Wallis",
+    "section": "ANOVA Assumptions: Definition",
+    "text": "ANOVA Assumptions: Definition\n\nWe assume that the error term follows a normal distribution with mean 0 and a constant variance, \\sigma^2. i.e., \\varepsilon_{ij} \\overset{\\text{iid}}{\\sim} N(0, \\sigma^2)\nVery important note: the assumption is on the error term and NOT on the outcome!\nWe will use the residual (the difference between the observed value and the predicted value) to assess assumptions:  e_{ij} = y_{ij} - \\hat{y}_{ij}"
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#anova-assumptions-graphical-assessment",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#anova-assumptions-graphical-assessment",
+    "title": "ANOVA Assumptions and  Kruskal-Wallis",
+    "section": "ANOVA Assumptions: Graphical Assessment",
+    "text": "ANOVA Assumptions: Graphical Assessment\n\nNormality: quantile-quantile plot\n\nShould have points close to the 45^\\circ line\nWe will focus on the “center” portion of the plot\n\nVariance: scatterplot of the residuals against the predicted values\n\nShould be “equal spread” between the groups\nNo “pattern”"
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#anova-assumptions-graphical-assessment-1",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#anova-assumptions-graphical-assessment-1",
+    "title": "ANOVA Assumptions and  Kruskal-Wallis",
+    "section": "ANOVA Assumptions: Graphical Assessment",
+    "text": "ANOVA Assumptions: Graphical Assessment\n\nLike with t-tests, we will assess these assumptions graphically.\nWe will return to the classpackage package and use the anova_check() function.\n\n\nlibrary(classpackage) \nanova_check(m)"
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#anova-assumptions-graphical-assessment-2",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#anova-assumptions-graphical-assessment-2",
+    "title": "ANOVA Assumptions and  Kruskal-Wallis",
+    "section": "ANOVA Assumptions: Graphical Assessment",
+    "text": "ANOVA Assumptions: Graphical Assessment\n\nRecall the dental example from last week,\n\n\nlibrary(tidyverse)\nstrength &lt;- c(15.4, 12.9, 17.2, 16.6, 19.3,\n              17.2, 14.3, 17.6, 21.6, 17.5,\n               5.5,  7.7, 12.2, 11.4, 16.4,\n              11.0, 12.4, 13.5,  8.9,  8.1)\nsystem &lt;- c(rep(\"Cojet\",5), rep(\"Silistor\",5), rep(\"Cimara\",5), rep(\"Ceramic\",5))\ndata &lt;- tibble(system, strength)\nm &lt;- aov(strength ~ system, data = data)\nsummary(m)\n\n            Df Sum Sq Mean Sq F value  Pr(&gt;F)   \nsystem       3  200.0   66.66   7.545 0.00229 **\nResiduals   16  141.4    8.84                   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1"
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#anova-assumptions-assessing-graphically",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#anova-assumptions-assessing-graphically",
+    "title": "ANOVA Assumptions and  Kruskal-Wallis",
+    "section": "ANOVA Assumptions: Assessing Graphically",
+    "text": "ANOVA Assumptions: Assessing Graphically\n\nLet’s assess the assumptions,\n\n\n\nlibrary(classpackage)\nanova_check(m)"
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#anova-assumptions-test-for-variance",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#anova-assumptions-test-for-variance",
+    "title": "ANOVA Assumptions and  Kruskal-Wallis",
+    "section": "ANOVA Assumptions: Test for Variance",
+    "text": "ANOVA Assumptions: Test for Variance\n\nWe can formally check the variance assumption with the Brown-Forsythe-Levine test.\n\nThis test transforms the data and then performs ANOVA!\n\nThe test statistic is calculated as follows,  F_0 = \\frac{\\sum_{i=1}^k n_i (\\bar{z}_i - \\bar{z})^2/(k-1)}{\\sum_{i=1}^k \\sum_{j=1}^{n_j}(z_{ij}-\\bar{z}_i)^2/(n-k) },  where\n\nk is the number of groups,\nn_i is the sample size of group i,\nn = \\sum_{i=1}^k n_i, and\nz_{ij} = |y_{ij} - \\text{median}(y_i)|"
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#anova-assumptions-brown-forsythe-levine-test-for-variance",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#anova-assumptions-brown-forsythe-levine-test-for-variance",
+    "title": "One-Way Analysis of Variance",
+    "section": "ANOVA Assumptions: Brown-Forsythe-Levine Test for Variance",
+    "text": "ANOVA Assumptions: Brown-Forsythe-Levine Test for Variance\n\nHypotheses\n\nH_0: \\ \\sigma^2_1 = ... = \\sigma^2_k\nH_1: at least one \\sigma^2_i is different\n\nTest Statistic\n\nF_0 (take from resulting ANOVA table)\n\np-Value\n\np = P[F_{\\text{df}_{\\text{Trt}}, \\text{df}_{\\text{E}}} \\ge F_0]\n\nRejection Region\n\nReject if p &lt; \\alpha."
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#anova-assumptions-test-for-variance-1",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#anova-assumptions-test-for-variance-1",
+    "title": "ANOVA Assumptions and  Kruskal-Wallis",
+    "section": "ANOVA Assumptions: Test for Variance",
+    "text": "ANOVA Assumptions: Test for Variance\n\nHypotheses\n\nH_0: \\ \\sigma^2_1 = ... = \\sigma^2_k\nH_1: at least one \\sigma^2_i is different\n\nTest Statistic\n\nF_0 (take from resulting ANOVA table)\n\np-Value\n\np = P[F_{\\text{df}_{\\text{Trt}}, \\text{df}_{\\text{E}}} \\ge F_0]\n\nRejection Region\n\nReject if p &lt; \\alpha."
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#anova-assumptions-test-for-variance-2",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#anova-assumptions-test-for-variance-2",
+    "title": "ANOVA Assumptions and  Kruskal-Wallis",
+    "section": "ANOVA Assumptions: Test for Variance",
+    "text": "ANOVA Assumptions: Test for Variance\n\nWe will use the leveneTest() function from the car package.\n\nNote: I do not load the car package because it overwrites a necessary function in tidyverse.\n\n\n\ncar::leveneTest(model_results)\n\n\nIn our dental example,\n\n\ncar::leveneTest(m)"
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#anova-assumptions-test-for-variance-3",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#anova-assumptions-test-for-variance-3",
+    "title": "ANOVA Assumptions and  Kruskal-Wallis",
+    "section": "ANOVA Assumptions: Test for Variance",
+    "text": "ANOVA Assumptions: Test for Variance\n\nHypotheses\n\nH_0: \\ \\sigma^2_1 = \\sigma^2_2 = \\sigma^2_3 = \\sigma^2_4\nH_1: at least one \\sigma^2_i is different\n\nTest Statistic and p-Value\n\nF_0 = 0.734\np = 0.547\n\nRejection Region\n\nReject if p &lt; \\alpha; \\alpha=0.01.\n\nConclusion/Interpretation\n\nFail to reject H_0. There is not sufficient evidence to suggest that the variances are different (i.e., the variance assumption is not broken)."
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#example-penguins",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#example-penguins",
+    "title": "ANOVA Assumptions and the Kruskal-Wallis",
+    "section": "Example: Penguins",
+    "text": "Example: Penguins\n\nRecall the Palmer Penguin data in R.\n\n\nBox PlotKruskal-Wallis: GlobalKruskal-Wallis: Pairwise\n\n\n\n\n\nError: object 'penguins' not found\n\n\n\n\n\n\nLet’s check the overall difference in bill lengths using the Kruskal-Wallis.\n\n\npenguins &lt;- palmerpenguins::penguins\nkruskal.test(bill_length_mm ~ species, data = penguins)\n\n\n    Kruskal-Wallis rank sum test\n\ndata:  bill_length_mm by species\nKruskal-Wallis chi-squared = 244.14, df = 2, p-value &lt; 2.2e-16\n\n\n\n\n\nLet’s check the pairwise differences in bill lengths using the Kruskal-Wallis approach.\n\n\nlibrary(pgirmess) \nkruskalmc(bill_length_mm ~ species, data = penguins)\n\nMultiple comparison test after Kruskal-Wallis \nalpha: 0.05 \nComparisons\n                   obs.dif critical.dif stat.signif\nAdelie-Chinstrap 184.14584     34.56759        TRUE\nAdelie-Gentoo    157.73868     28.74910        TRUE\nChinstrap-Gentoo  26.40716     35.76841       FALSE\n\n\n\nAdelies are different from both chinstraps and gentoos.\nChinstraps and gentoos are not different."
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#example-penguins-1",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#example-penguins-1",
+    "title": "ANOVA Assumptions and the Kruskal-Wallis",
+    "section": "Example: Penguins",
+    "text": "Example: Penguins\n\nFirst, the graphical assessment.\n\n\n\nanova_check(m1)"
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#example-penguins-2",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#example-penguins-2",
+    "title": "ANOVA Assumptions and the Kruskal-Wallis",
+    "section": "Example: Penguins",
+    "text": "Example: Penguins\n\nWe can also formally test the variance,\n\n\nleveneTest(m1)\n\nError in leveneTest(m1): could not find function \"leveneTest\""
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#example-penguins-3",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#example-penguins-3",
+    "title": "ANOVA Assumptions and the Kruskal-Wallis",
+    "section": "Example: Penguins",
+    "text": "Example: Penguins\n\nHypotheses\n\nH_0: \\ \\sigma^2_1 = \\sigma^2_2 = \\sigma^2_3\nH_1: at least one \\sigma^2_i is different\n\nTest Statistic and p-Value\n\nF_0 = 2.243\np = 0.108\n\nRejection Region\n\nReject if p &lt; \\alpha; \\alpha=0.05.\n\nConclusion/Interpretation\n\nFail to reject H_0.\nThere is not sufficient evidence to suggest that the variances are different.\ni.e., the variance assumption is not broken."
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#introduction-kruskal-wallis",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#introduction-kruskal-wallis",
+    "title": "ANOVA Assumptions and  Kruskal-Wallis",
+    "section": "Introduction: Kruskal-Wallis",
+    "text": "Introduction: Kruskal-Wallis\n\nWe just discussed the ANOVA assumptions.\n\n\\varepsilon_{ij} \\overset{\\text{iid}}{\\sim} N(0, \\sigma^2)\n\nWe also discussed how to assess the assumptions:\n\nGraphically using the anova_check() function.\nConfirming the variance assumption using the BFL.\n\nIf we break an assumption, we will turn to the nonparametric alternative, the Kruskal-Wallis."
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#kruskal-wallis-test",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#kruskal-wallis-test",
+    "title": "ANOVA Assumptions and  Kruskal-Wallis",
+    "section": "Kruskal-Wallis Test",
+    "text": "Kruskal-Wallis Test\n\nIf we break ANOVA assumptions, we should implement the nonparametric version, the Kruskal-Wallis.\nThe Kruskal-Wallis test determines if k independent samples come from populations with the same distribution.\nOur new hypotheses are\n\nH_0: M_1 = ... = M_k\nH_1: at least one M_i is different"
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#kruskal-wallis-test-1",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#kruskal-wallis-test-1",
+    "title": "ANOVA Assumptions and  Kruskal-Wallis",
+    "section": "Kruskal-Wallis Test",
+    "text": "Kruskal-Wallis Test\n\nThe test statistic is as follows:\n\n \\chi^2_0 = \\frac{12}{n(n+1)} \\sum_{i=1}^k \\frac{R_i^2}{n_i} - 3(n+1), \n\nwhere\n\nR_i is the sum of the ranks for group i,\nn_i is the sample size for group i,\nn = \\sum_{i=1}^k n_i = total sample size, and\nk is the number of groups.\n\nH follows a \\chi^2 distribution with k-1 degrees of freedom."
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#kruskal-wallis-test-2",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#kruskal-wallis-test-2",
+    "title": "ANOVA Assumptions and  Kruskal-Wallis",
+    "section": "Kruskal-Wallis Test",
+    "text": "Kruskal-Wallis Test\n\nHypotheses\n\nH_0: \\ M_1 =  ... = M_k\nH_1: at least one M_i is different\n\nTest Statistic\n\n\\chi^2_0 = \\frac{12}{n(n+1)} \\sum_{i=1}^k \\frac{R_i^2}{n_i} - 3(n+1)\n\np-Value\n\np = P[\\chi^2_{k-1} \\ge \\chi^2_0]\n\nRejection Region\n\nReject H_0 if p &lt; \\alpha"
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#kruskal-wallis-test-3",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#kruskal-wallis-test-3",
+    "title": "ANOVA Assumptions and  Kruskal-Wallis",
+    "section": "Kruskal-Wallis Test",
+    "text": "Kruskal-Wallis Test\n\nWe will use the kruskal.test() function to perform the Kruskal-Wallis test.\n\n\nkruskal.test(continuous_variable ~ grouping_variable, \n             data = dataset_name)\n\n\nApplying this to our dental dataset,\n\n\nkruskal.test(strength ~ system, data = data)\n\n\n    Kruskal-Wallis rank sum test\n\ndata:  strength by system\nKruskal-Wallis chi-squared = 12.515, df = 3, p-value = 0.005812"
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#example-hdl",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#example-hdl",
+    "title": "ANOVA Assumptions and  Kruskal-Wallis",
+    "section": "Example: HDL",
+    "text": "Example: HDL\n\nHypotheses\n\nH_0: \\ M_1 = M_2 = M_3 = M_4\nH_1: at least one M_i is different\n\nTest Statistic and p-Value\n\n\\chi_0^2 = 12.515\np = 0.006\n\nRejection Region\n\nReject H_0 if p &lt; \\alpha; \\alpha=0.01.\n\nConclusion/Interpretation\n\nReject H_0. There is sufficient evidence to suggest that there is a difference in strength between the four systems."
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#example-hdl-1",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#example-hdl-1",
+    "title": "ANOVA Assumptions and the Kruskal-Wallis",
+    "section": "Example: HDL",
+    "text": "Example: HDL\n\nSet UpCodeResults\n\n\n\nRevisiting our example,\n\nNote that if we were doing this “for real” we would not do the posthoc test since we did not see a difference between the three groups.\nWe are doing it here for demonstration purposes.\n\n\n\n\n\nlibrary(pgirmess) \nkruskalmc(HDL ~ age, data = data)\n\n\n\n\n\nError in eval(predvars, data, env): object 'HDL' not found\n\n\n\nThus, none of the groups are different from one another."
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#example-hdl-2",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#example-hdl-2",
+    "title": "ANOVA Assumptions and the Kruskal-Wallis",
+    "section": "Example: HDL",
+    "text": "Example: HDL\n\nRunning the test in R,\n\n\nkruskal.test(HDL ~ age, data = data)\n\n\n    Kruskal-Wallis rank sum test\n\ndata:  HDL by age\nKruskal-Wallis chi-squared = 1.0121, df = 2, p-value = 0.6029"
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#example-hdl-3",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#example-hdl-3",
+    "title": "ANOVA Assumptions and the Kruskal-Wallis",
+    "section": "Example: HDL",
+    "text": "Example: HDL\nHypotheses\n\nH_0: \\ M_1 = M_2 = M_3\nH_1: at least one M_i is different\n\nTest Statistic and p-Value\n\n\\chi_0^2 = 1.012\np = 0.602\n\nRejection Region\n\nReject H_0 if p &lt; \\alpha\n\nConclusion/Interpretation\n\nFail to reject H_0. There is not sufficient evidence to suggest that there is a difference between the three groups."
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#kruskal-wallis-posthoc-testing",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#kruskal-wallis-posthoc-testing",
+    "title": "ANOVA Assumptions and  Kruskal-Wallis",
+    "section": "Kruskal-Wallis: Posthoc Testing",
+    "text": "Kruskal-Wallis: Posthoc Testing\n\nWe can also perform posthoc testing in the Kruskal-Wallis setting.\nThe set up is just like Tukey’s – we can perform all pairwise comparisons and control for the Type I error rate.\nInstead of using |\\bar{y}_i - \\bar{y}_j|, we will use |\\bar{R}_i - \\bar{R}_j|, where \\bar{R}_i is the average rank of group i.\nThe comparison we are making:\n\nWe declare M_i \\ne M_j if |\\bar{R}_i - \\bar{R}_j| \\ge KW, where  KW = \\frac{q_{\\alpha}(k, \\infty)}{\\sqrt{2}} \\sqrt{\\frac{n(n+1)}{12} \\left( \\frac{1}{n_i} + \\frac{1}{n_j} \\right)}  and q_{\\alpha}(k, \\infty) is the critical value from the Studentized range distribution."
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#kruskal-wallis-posthoc-testing-1",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#kruskal-wallis-posthoc-testing-1",
+    "title": "ANOVA Assumptions and  Kruskal-Wallis",
+    "section": "Kruskal-Wallis: Posthoc Testing",
+    "text": "Kruskal-Wallis: Posthoc Testing\n\nWe will use the kruskalmc() function from the pgirmess package to perform the Kruskal-Wallis post-hoc test.\n\n\nkruskalmc(continuous_variable ~ grouping_variable, \n          data = dataset_name)\n\n\nIn our example,\n\n\nlibrary(pgirmess) \nkruskalmc(strength ~ system, data = data)\n\nMultiple comparison test after Kruskal-Wallis \nalpha: 0.05 \nComparisons\n                 obs.dif critical.dif stat.signif\nCeramic-Cimara       0.2     9.871455       FALSE\nCeramic-Cojet        7.9     9.871455       FALSE\nCeramic-Silistor    10.3     9.871455        TRUE\nCimara-Cojet         8.1     9.871455       FALSE\nCimara-Silistor     10.5     9.871455        TRUE\nCojet-Silistor       2.4     9.871455       FALSE\n\n\n\nWhich pairs are significantly different?"
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#example-hdl-4",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#example-hdl-4",
+    "title": "ANOVA Assumptions and the Kruskal-Wallis",
+    "section": "Example: HDL",
+    "text": "Example: HDL\n\nSet UpCodeResults\n\n\n\nRevisiting our example,\n\nNote that if we were doing this “for real” we would not do the posthoc test since we did not see a difference between the three groups.\nWe are doing it here for demonstration purposes.\n\n\n\n\n\nlibrary(pgirmess) \nkruskalmc(HDL ~ age, data = data)\n\n\n\n\n\nMultiple comparison test after Kruskal-Wallis \nalpha: 0.05 \nComparisons\n                   obs.dif critical.dif stat.signif\n20 to 29-40 to 49 2.583333      10.2969       FALSE\n20 to 29-60 to 69 4.291667      10.2969       FALSE\n40 to 49-60 to 69 1.708333      10.2969       FALSE\n\n\n\nThus, none of the groups are different from one another."
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#example-penguins-4",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#example-penguins-4",
+    "title": "ANOVA Assumptions and the Kruskal-Wallis",
+    "section": "Example: Penguins",
+    "text": "Example: Penguins\n\nRecall the Palmer Penguin data in R.\n\n\nBox PlotKruskal-Wallis: GlobalKruskal-Wallis: Pairwise\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nLet’s check the overall difference in bill lengths using the Kruskal-Wallis.\n\n\npenguins &lt;- palmerpenguins::penguins\nkruskal.test(bill_length_mm ~ species, data = penguins)\n\n\n    Kruskal-Wallis rank sum test\n\ndata:  bill_length_mm by species\nKruskal-Wallis chi-squared = 244.14, df = 2, p-value &lt; 2.2e-16\n\n\n\n\n\nLet’s check the pairwise differences in bill lengths using the Kruskal-Wallis approach.\n\n\nlibrary(pgirmess) \nkruskalmc(bill_length_mm ~ species, data = penguins)\n\nMultiple comparison test after Kruskal-Wallis \nalpha: 0.05 \nComparisons\n                   obs.dif critical.dif stat.signif\nAdelie-Chinstrap 184.14584     34.56759        TRUE\nAdelie-Gentoo    157.73868     28.74910        TRUE\nChinstrap-Gentoo  26.40716     35.76841       FALSE\n\n\n\nAdelies are different from both chinstraps and gentoos.\nChinstraps and gentoos are not different."
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#wrap-up",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#wrap-up",
+    "title": "ANOVA Assumptions and  Kruskal-Wallis",
+    "section": "Wrap Up",
+    "text": "Wrap Up\n\nToday we have talked about assessing ANOVA assumptions and performing the nonparametric alternative, the Kruskal-Wallis.\nPer usual, we should only look at posthoc testing when we’ve detected an overall difference with the Kruskal-Wallis.\nNext lecture: two-way ANOVA."
+  },
+  {
+    "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#example",
+    "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#example",
+    "title": "ANOVA Assumptions and  Kruskal-Wallis",
+    "section": "Example",
+    "text": "Example\n\nHypotheses\n\nH_0: \\ M_1 = M_2 = M_3 = M_4\nH_1: at least one M_i is different\n\nTest Statistic and p-Value\n\n\\chi_0^2 = 12.515\np = 0.006\n\nRejection Region\n\nReject H_0 if p &lt; \\alpha; \\alpha=0.01.\n\nConclusion/Interpretation\n\nReject H_0. There is sufficient evidence to suggest that there is a difference in strength between the four systems."
   }
 ]
