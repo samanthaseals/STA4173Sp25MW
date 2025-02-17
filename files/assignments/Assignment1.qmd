@@ -1,0 +1,172 @@
+---
+title: "Assignment 1 - Spring 2025"
+author: "Your Name Here"
+format: 
+  html:
+    self-contained: true
+    message: false
+    warning: false
+    error: true
+    code-overflow: wrap
+    code-annotations: hover
+execute:
+  echo: true
+  warning: false
+  message: false
+  error: true
+editor: source
+---
+
+<!-- Set up chunk. -->
+
+<!-- NOTE 1 -- you may need additional packages, depending on what is asked of you below :-) -->
+
+<!-- NOTE 2 -- you do *not* need to edit anything below this note in the code chunk. All of the data management has been done for you. Once you confirm that the data has pulled in properly, you are ready to begin the project. -->
+
+```{r}
+#| echo: false
+library(gsheet) 
+library(tidyverse)
+library(ggpubr)
+library(classpackage)
+
+data <- as_tibble(gsheet2tbl("https://docs.google.com/spreadsheets/d/1ByIX8wOJKk-CjtJ6XJcg1JyxJN6cJSWbvx6vxNoviDs/edit#gid=0"))
+
+# regions as defined by the Census Bureau
+data <- data %>%
+  mutate(Region = if_else(data$state %in% c("Connecticut", "Maine", "Massachusetts", "New Hampshire", "Rhode Island", "Vermont", "New Jersey", "New York", "Pennsylvania"), "Northeast",
+               if_else(data$state %in% c("Illinois", "Indiana", "Michigan", "Ohio", "Wisconsin", "Iowa", "Kansas", "Minnseota", "Missouri", "Nebraska", "North Dakota", "South Dakota"), "Midwest",
+               if_else(data$state %in% c("Delaware", "Florida", "Georgia", "Maryland", "North Carolina", "South Carolina", "Virginia", "District of Columbia", "West Virginia", "Alabama", "Kentucky", "Mississippi", "Tennessee", "Arkansas", "Louisiana", "Oklahoma", "Texas"), "South", "West"))))
+
+# filter to only South region
+data_south <- data %>% 
+  filter(Region == "South")
+
+# filter to only West region
+data_west <- data %>% 
+  filter(Region == "West")
+
+# filter to South and West regions
+data_south_west <- data %>% 
+  filter(Region %in% c("South", "West"))
+```
+
+**1. Describe the data by completing the following table:**
+
+|       |                           | 2000 | 2015 |
+|-------|---------------------------|------|------|
+| South  | Mean (Standard Deviation) | 132076.1	(109494.7) | INSERT FOR 2015 |
+| West  | Mean (Standard Deviation) | INSERT FOR 2000 | INSERT FOR 2015 |
+
+<!-- below is just starting you out for the summary statistics -- you must edit and add to the code in this chunk to get the summary statistics for the other years -->
+
+```{r}
+data %>% # pipe in data
+  group_by(Region) %>% # tell R we want this by "Region"
+  summarize(mean00 = mean(y2000), # request mean for 2000
+            sd00 = sd(y2000)) # request standard deviation for 2000
+```
+
+**2. Construct side-by-side boxplots comparing the West and Midwest regions for 2000 and 2015.**
+
+<!-- below is just starting you out for the graphs -- you must edit and add to the code in this chunk to get the final graph -->
+
+<!-- NOTE: I have commented out the ggarrange() line of code so that it will Render for us before we have this code completed; you must uncomment that line for the final graph to appear in your document -->
+
+```{r}
+bp00 <- data_south_west %>%
+  ggplot(aes(y= y2000, x=Region, fill=Region)) +
+          geom_boxplot() +
+          theme_minimal() +
+          labs(y = "Spending", x = "Region") +
+          ylim(min=0, max=1400000) +
+          ggtitle("2000")
+
+bp00 <- data_south_west %>%
+  ggplot(aes(y= y2000, x=Region, fill=Region)) +
+          geom_boxplot() +
+          theme_minimal() +
+          labs(y = "Spending", x = "Region") +
+          ylim(min=0, max=1400000) +
+          ggtitle("2000")
+
+ggarrange(bp00, bp15, ncol=2)
+```
+  
+**3. Describe the distributions. Are they skewed? Do you think there's a difference between the two regions?**
+
+
+  
+**4. Use the appropriate *t*-test to determine if there is a difference in library spending between the South and West regions in 2000. Test at the $\alpha=0.05$ level. Remember to typeset the results.**
+
+```{r}
+t.test(y2000 ~ Region,
+       data = data_south_west,
+       mu = 0,
+       alternative = "two")
+```
+
+**Hypotheses**
+
+- $H_0:$ $\mu_s-\mu_w = 0$
+- $H_1:$ $\mu_s-\mu_w \ne 0$ 
+
+**Test Statistic and *p*-Value**
+
+- $t_0 = -0.30$
+- $p = 0.7686$
+
+**Rejection Region**
+
+- Reject $H_0$ if $p < \alpha$; $\alpha=0.05$.
+
+**Conclusion/Interpretation**
+
+- Fail to reject $H_0$.
+
+- There is not sufficient evidence to suggest that the spending in the south and west regions is different.
+    
+  
+**5. Graphically assess the normality assumption associated with the *t*-test in Q4. Remember to state whether or not the assumption is broken.**
+
+```{r}
+
+```
+  
+**6. Use the appropriate nonparametric test to determine if there is a difference in library spending between the South and West regions in 2000. Test at the $\alpha=0.05$ level. Remember to typeset the results.**
+
+```{r}
+
+```
+  
+**7. Based on your answer to Q5, which test should be reported? Explain why you're choosing the test you're choosing. (Hint: you will either choose the *t*-test or the nonparametric test.)**
+
+
+
+**8. Use the appropriate *t*-test to determine if there is a difference in library spending between 2000 and 2015 for all states. Test at the $\alpha=0.05$ level. Remember to typeset the results.**
+
+```{r}
+
+```
+  
+**9. Assess the normality assumption associated with the *t*-test in Q8. Remember to state whether or not the assumption is broken.**
+
+```{r}
+
+```
+  
+**10. Use the appropriate nonparametric test to determine if there is a difference in library spending between 2000 and 2015 for all states. Test at the $\alpha=0.05$ level. Remember to typeset the results.**
+
+```{r}
+
+```
+  
+**11. Based on your answer to Q9, which test should be reported? Explain why you're choosing the test you're choosing. (Hint: you will either choose the *t*-test or the nonparametric test.)**
+
+
+
+
+
+
+
+

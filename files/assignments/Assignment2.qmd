@@ -1,0 +1,159 @@
+---
+title: "Assignment 2 - Spring 2025"
+author: "Your Name Here"
+format: 
+  html:
+    self-contained: true
+    message: false
+    warning: false
+    error: true
+    code-overflow: wrap
+    code-annotations: hover
+execute:
+  echo: true
+  warning: false
+  message: false
+  error: true
+editor: source
+---
+
+```{r setup} 
+## DO NOT EDIT THIS SECTION
+library(tidyverse)
+library(gsheet)
+data <- as_tibble(gsheet2tbl("https://docs.google.com/spreadsheets/d/1H3TP-2SBMGleriJLESOe1cdCjtSj2F76bUh5iBqC8tI/edit#gid=2142000894")) %>%
+  mutate(PA3cat = as.factor(PA3cat),
+         BMI3cat = as.factor(BMI3cat),
+         everSmoker = as.factor(everSmoker)) %>%
+  select(subjid, age, weight, BMI, BMI3cat, PA3cat, sbp, everSmoker) %>%
+  na.omit()
+## DO NOT EDIT THIS SECTION
+```
+
+**1. Consider a sample of data from the [Jackson Heart Study](https://www.jacksonheartstudy.org/). In this problem, we will be examining body mass index (*BMI*; kg/m<sup>2</sup>) as a function of health as categorized by physical activity (*PA3cat*: Ideal Health, Intermediate Health, and ).**
+
+**a. Find the appropriate summary statistics to fill in the table below; note that we are creating columns for each category of *PA3cat*. Continuous variables should be described using the mean and standard deviation while categorical variables should be described using the count and column percentage.**
+
+|        | Ideal Health (*n* = ?) | Intermediate Health (*n* = ?) | Poor Health (*n* = ?) |
+|--------|----------------------|-----------------------------|---------------------|
+| Age    | mean (sd)            |                             |                     |
+| Weight | mean (sd)            |                             |                     |
+| BMI    | mean (sd)            |                             |                     |
+| SBP    | mean (sd)            |                             |                     |
+| Current or Former Smoker |  n (column %)  |                 |                     |
+
+<!-- hint! 
+data %>% # for the continuous variables
+  group_by(PA3cat) %>% 
+  summarize(mean_age = mean(age, na.rm = TRUE), 
+            sd_age = sd(age, na.rm = TRUE),
+            mean_weight = mean(weight.na.rm = TRUE),
+            sd_weight = sd(weight, na.rm = TRUE),
+            ..... continue for the other variables)
+data %>% # for the categorical variable
+  group_by(PA3cat) %>% 
+  count(everSmoker)            
+-->
+
+```{r}
+
+```
+
+
+**b. Use ANOVA to determine if there is a difference in BMI (*BMI*) between the three levels of health as categorized by physical activity (*PA3cat*). Test at the $\alpha=0.01$ level. Remember to typeset your hypothesis test.**
+
+```{r}
+
+```
+
+**c. Use the Kruskal-Wallis to determine if there is a difference in BMI (*BMI*) between the three levels of health as categorized by physical activity (*PA3cat*). Test at the $\alpha=0.01$ level. Remember to typeset your hypothesis test.**
+
+```{r}
+
+```
+
+**d. State, explain, and assess the ANOVA assumptions. Remember to state your conclusion (that you either meet the ANOVA assumptions or you do not).**
+
+```{r}
+
+```
+
+**e. Based on your responses in part (d), which test's result are you going to present to the lead scientist at the JHS? (Hint: you will pick either the analysis (b) or (c)).**
+
+
+
+**f. Perform the appropriate posthoc test to determine pairwise differences between the three groups. Test at the $\alpha=0.01$ level. Make sure that you state the resulting pairwise differences.**
+
+```{r}
+
+```
+
+**g. Construct a(ny) graph to help explain the results from the analysis chosen in part (f).**
+
+```{r}
+
+```
+
+**h. Write a brief paragraph describing the results of your analysis. Include summary statistics, results of your chosen hypothesis test from part (f), and the graph from part (g).**
+
+
+
+
+**2. Again, consider the sample of data from the JHS. In this problem, we will be examining systolic blood pressure (*sbp*; mmHg) as a function of health as categorized by body mass index (*BMI3cat*), smoking status (*everSmoker*), and the interaction between health as categorized by body mass index and smoking status.**
+
+**a. Find the appropriate summary statistics to fill in the table below; note that we are creating columns for each category of *BMI3cat*. Continuous variables should be described using the mean and standard deviation while categorical variables should be described using the count and column percentage.**
+
+|        | Ideal Health (*n* = ?) | Intermediate Health (*n* = ?) | Poor Health (*n* = ?) |
+|--------|----------------------|-----------------------------|---------------------|
+| Age    |                      |                             |                     |
+| Weight |                      |                             |                     |
+| SBP    |                      |                             |                     |
+| Current or Former Smoker |          |                       |                     |
+
+<!-- hint!! copy/paste/reuse code from 1a :)
+            your variables have changed, though! -->
+
+```{r}
+
+```
+
+**b. Use ANOVA to determine if there is a difference in systolic blood pressure between health as categorized by body mass index, smoking status, and the interaction between health as categorized by body mass index and smoking status. Test at the $\alpha=0.01$ level. Remember to remove the interaction term if appropriate to do so.**
+
+```{r}
+
+```
+
+**c. Construct a profile plot to help explain results of part (b).**
+
+```{r}
+
+```
+
+**d. Use the appropriate posthoc test to determine differences in main effects or the interaction term, whichever is appropriate for the results in part (b). Test at the $\alpha=0.01$ level. Make sure that you state the resulting pairwise differences.**
+
+```{r}
+
+```
+
+**e. Write a brief paragraph describing the results of your analysis. Include summary statistics, results of the hypothesis testing in part (b), results of the posthoc test in part (d), and the profile plot in part (c) to help convey the results.**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
