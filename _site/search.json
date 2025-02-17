@@ -441,34 +441,6 @@
     "text": "Wrap Up\n\nToday we reviewed the Wilcoxon rank sum test.\n\nNonparametric alternative to the two-sample t-test.\n\nNext lecture:\n\nWilcoxon signed rank"
   },
   {
-    "objectID": "files/assignments/Assignment2.html",
-    "href": "files/assignments/Assignment2.html",
-    "title": "Assignment 2 - Spring 2025",
-    "section": "",
-    "text": "## DO NOT EDIT THIS SECTION\nlibrary(tidyverse)\nlibrary(gsheet)\ndata &lt;- as_tibble(gsheet2tbl(\"https://docs.google.com/spreadsheets/d/1H3TP-2SBMGleriJLESOe1cdCjtSj2F76bUh5iBqC8tI/edit#gid=2142000894\")) %&gt;%\n  mutate(PA3cat = as.factor(PA3cat),\n         BMI3cat = as.factor(BMI3cat),\n         everSmoker = as.factor(everSmoker)) %&gt;%\n  select(subjid, age, weight, BMI, BMI3cat, PA3cat, sbp, everSmoker) %&gt;%\n  na.omit()\n## DO NOT EDIT THIS SECTION\n\n1. Consider a sample of data from the Jackson Heart Study. In this problem, we will be examining body mass index (BMI; kg/m2) as a function of health as categorized by physical activity (PA3cat: Ideal Health, Intermediate Health, and ).\na. Find the appropriate summary statistics to fill in the table below; note that we are creating columns for each category of PA3cat. Continuous variables should be described using the mean and standard deviation while categorical variables should be described using the count and column percentage.\n\n\n\n\n\n\n\n\n\n\nIdeal Health (n = ?)\nIntermediate Health (n = ?)\nPoor Health (n = ?)\n\n\n\n\nAge\nmean (sd)\n\n\n\n\nWeight\nmean (sd)\n\n\n\n\nBMI\nmean (sd)\n\n\n\n\nSBP\nmean (sd)\n\n\n\n\nCurrent or Former Smoker\nn (column %)\n\n\n\n\n\n\nb. Use ANOVA to determine if there is a difference in BMI (BMI) between the three levels of health as categorized by physical activity (PA3cat). Test at the \\(\\alpha=0.01\\) level. Remember to typeset your hypothesis test.\nc. Use the Kruskal-Wallis to determine if there is a difference in BMI (BMI) between the three levels of health as categorized by physical activity (PA3cat). Test at the \\(\\alpha=0.01\\) level. Remember to typeset your hypothesis test.\nd. State, explain, and assess the ANOVA assumptions. Remember to state your conclusion (that you either meet the ANOVA assumptions or you do not).\ne. Based on your responses in part (d), which test’s result are you going to present to the lead scientist at the JHS? (Hint: you will pick either the analysis (b) or (c)).\nf. Perform the appropriate posthoc test to determine pairwise differences between the three groups. Test at the \\(\\alpha=0.01\\) level. Make sure that you state the resulting pairwise differences.\ng. Construct a(ny) graph to help explain the results from the analysis chosen in part (f).\nh. Write a brief paragraph describing the results of your analysis. Include summary statistics, results of your chosen hypothesis test from part (f), and the graph from part (g).\n2. Again, consider the sample of data from the JHS. In this problem, we will be examining systolic blood pressure (sbp; mmHg) as a function of health as categorized by body mass index (BMI3cat), smoking status (everSmoker), and the interaction between health as categorized by body mass index and smoking status.\na. Find the appropriate summary statistics to fill in the table below; note that we are creating columns for each category of BMI3cat. Continuous variables should be described using the mean and standard deviation while categorical variables should be described using the count and column percentage.\n\n\n\n\n\n\n\n\n\n\nIdeal Health (n = ?)\nIntermediate Health (n = ?)\nPoor Health (n = ?)\n\n\n\n\nAge\n\n\n\n\n\nWeight\n\n\n\n\n\nSBP\n\n\n\n\n\nCurrent or Former Smoker\n\n\n\n\n\n\n\nb. Use ANOVA to determine if there is a difference in systolic blood pressure between health as categorized by body mass index, smoking status, and the interaction between health as categorized by body mass index and smoking status. Test at the \\(\\alpha=0.01\\) level. Remember to remove the interaction term if appropriate to do so.\nc. Construct a profile plot to help explain results of part (b).\nd. Use the appropriate posthoc test to determine differences in main effects or the interaction term, whichever is appropriate for the results in part (b). Test at the \\(\\alpha=0.01\\) level. Make sure that you state the resulting pairwise differences.\ne. Write a brief paragraph describing the results of your analysis. Include summary statistics, results of the hypothesis testing in part (b), results of the posthoc test in part (d), and the profile plot in part (c) to help convey the results."
-  },
-  {
-    "objectID": "files/assignments/Assignment0.html",
-    "href": "files/assignments/Assignment0.html",
-    "title": "Introductions",
-    "section": "",
-    "text": "What is your name as it appears on my roster in Classmate? (We are using this assignment for attendance verification.)\nHow is your name pronounced?\nIs there another name you prefer to go by?\nWhat are your pronouns?\nWhat is your major(s) and minor(s)?\nWhat statistics courses have you taken previously?\nWhat environmental science courses have you taken previously?\nAre you familiar with statistical programming? (e.g., R, python, SAS, etc.)\nAre you familiar with Pensacola Beach?\nDo you have any questions or concerns about this course? If so, please list them and we will respond when we grade this assignment.\nWhat interests do you have, outside of school and work?\nWhat are three of your favorite things?\nIf you were independently wealthy, what would you do with your time?"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "<b>STA4173 - Biostatistics - Spring 2025</b>",
-    "section": "",
-    "text": "Tentative Schedule\n\n\n\n\n\n\n\n\n\nDay\nTopic\nSlides\nIn Class\n\n\n\n\nW 01/08\nReview of estimation\n \n \n\n\nM 01/13\nIndependent t test\n \n\n\n\nSnow & Illness\ndependent t-test\n \n\n\n\n\nt-test assumptions\n \n\n\n\n\nWilcoxon rank sum (independent)\n \n\n\n\n\nWilcoxon signed rank (dependent)\n \n\n\n\nM 02/03\nAssignment 1\n\n\n\n\nW 02/05\nProject: planning period\n\n\n\n\nM 02/10\nAssignment 1\n\n\n\n\nW 02/12\nOne-way ANOVA and posthoc\n \n\n\n\nM 02/17\nANOVA assumptions & Kruskal-Wallis\n \n\n\n\nW 02/19\nTwo-Way ANOVA\n\n\n\n\nM 02/24\nSimple linear regression and correlation\n\n\n\n\nW 02/26\nProject: planning meeting\n\n\n\n\nM 03/03\nMultiple regression\n\n\n\n\nW 03/05\nCategorical analysis\n\n\n\n\nM 03/10\nLogistic regression\n\n\n\n\nW 03/12\nProject: planning\n\n\n\n\nM 03/17\nSpring Break!\n\n\n\n\nW 03/19\nSpring Break!\n\n\n\n\nM 03/24\nProject: analysis\n\n\n\n\nW 03/26\nOUR: What is a Poster?\n\n\n\n\nM 03/31\nProject: analysis\n\n\n\n\nW 04/02\nProject: summary\n\n\n\n\nM 04/07\nProject: poster draft\n\n\n\n\nW 04/09\nProject: final poster draft\n\n\n\n\nM 04/14\nProject: individual group meetings with Dr. Seals & Dr. Schmutz\n\n\n\n\nW 04/16\nProject: Practice poster presentation\n\n\n\n\nT 04/17\nProject: OUR Symposium\n\n\n\n\nM 04/21\nCatch up!\n\n\n\n\nW 04/23\nProject: reflections"
-  },
-  {
-    "objectID": "files/assignments/Assignment1.html",
-    "href": "files/assignments/Assignment1.html",
-    "title": "Assignment 1 - Spring 2025",
-    "section": "",
-    "text": "1. Describe the data by completing the following table:\n\n\n\n\n\n\n\n\n\n\n\n2000\n2015\n\n\n\n\nSouth\nMean (Standard Deviation)\n132076.1 (109494.7)\nINSERT FOR 2015\n\n\nWest\nMean (Standard Deviation)\nINSERT FOR 2000\nINSERT FOR 2015\n\n\n\n\n\ndata %&gt;% # pipe in data\n  group_by(Region) %&gt;% # tell R we want this by \"Region\"\n  summarize(mean00 = mean(y2000), # request mean for 2000\n            sd00 = sd(y2000)) # request standard deviation for 2000\n\n# A tibble: 4 × 3\n  Region     mean00    sd00\n  &lt;chr&gt;       &lt;dbl&gt;   &lt;dbl&gt;\n1 Midwest   204973. 184965.\n2 Northeast 225918. 308950.\n3 South     132076. 109495.\n4 West      153955. 255145.\n\n\n2. Construct side-by-side boxplots comparing the West and Midwest regions for 2000 and 2015.\n\n\n\nbp00 &lt;- data_south_west %&gt;%\n  ggplot(aes(y= y2000, x=Region, fill=Region)) +\n          geom_boxplot() +\n          theme_minimal() +\n          labs(y = \"Spending\", x = \"Region\") +\n          ylim(min=0, max=1400000) +\n          ggtitle(\"2000\")\n\nbp00 &lt;- data_south_west %&gt;%\n  ggplot(aes(y= y2000, x=Region, fill=Region)) +\n          geom_boxplot() +\n          theme_minimal() +\n          labs(y = \"Spending\", x = \"Region\") +\n          ylim(min=0, max=1400000) +\n          ggtitle(\"2000\")\n\nggarrange(bp00, bp15, ncol=2)\n\nError: object 'bp15' not found\n\n\n3. Describe the distributions. Are they skewed? Do you think there’s a difference between the two regions?\n4. Use the appropriate t-test to determine if there is a difference in library spending between the South and West regions in 2000. Test at the \\(\\alpha=0.05\\) level. Remember to typeset the results.\n\nt.test(y2000 ~ Region,\n       data = data_south_west,\n       mu = 0,\n       alternative = \"two\")\n\n\n    Welch Two Sample t-test\n\ndata:  y2000 by Region\nt = -0.29898, df = 16.926, p-value = 0.7686\nalternative hypothesis: true difference in means between group South and group West is not equal to 0\n95 percent confidence interval:\n -176325.0  132566.6\nsample estimates:\nmean in group South  mean in group West \n           132076.1            153955.3 \n\n\nHypotheses\n\n\\(H_0:\\) \\(\\mu_s-\\mu_w = 0\\)\n\\(H_1:\\) \\(\\mu_s-\\mu_w \\ne 0\\)\n\nTest Statistic and p-Value\n\n\\(t_0 = -0.30\\)\n\\(p = 0.7686\\)\n\nRejection Region\n\nReject \\(H_0\\) if \\(p &lt; \\alpha\\); \\(\\alpha=0.05\\).\n\nConclusion/Interpretation\n\nFail to reject \\(H_0\\).\nThere is not sufficient evidence to suggest that the spending in the south and west regions is different.\n\n5. Graphically assess the normality assumption associated with the t-test in Q4. Remember to state whether or not the assumption is broken.\n6. Use the appropriate nonparametric test to determine if there is a difference in library spending between the South and West regions in 2000. Test at the \\(\\alpha=0.05\\) level. Remember to typeset the results.\n7. Based on your answer to Q5, which test should be reported? Explain why you’re choosing the test you’re choosing. (Hint: you will either choose the t-test or the nonparametric test.)\n8. Use the appropriate t-test to determine if there is a difference in library spending between 2000 and 2015 for all states. Test at the \\(\\alpha=0.05\\) level. Remember to typeset the results.\n9. Assess the normality assumption associated with the t-test in Q8. Remember to state whether or not the assumption is broken.\n10. Use the appropriate nonparametric test to determine if there is a difference in library spending between 2000 and 2015 for all states. Test at the \\(\\alpha=0.05\\) level. Remember to typeset the results.\n11. Based on your answer to Q9, which test should be reported? Explain why you’re choosing the test you’re choosing. (Hint: you will either choose the t-test or the nonparametric test.)"
-  },
-  {
     "objectID": "files/lectures/W02-L2-dependent-t.html#introduction",
     "href": "files/lectures/W02-L2-dependent-t.html#introduction",
     "title": "Dependent t-Tests",
@@ -551,6 +523,293 @@
     "title": "Dependent t-Tests",
     "section": "Wrap Up",
     "text": "Wrap Up\n\nToday we reviewed the dependent t-test.\n\nConfidence intervals\nHypothesis testing\n\nGet to know you quiz - complete with RStudio - was due Monday or Tuesday.\nCampus is closed on Monday!\n\nTuesday: optional session for Assignment 1 help.\nTR section: 2:30-3:45 pm, 4/310."
+  },
+  {
+    "objectID": "files/assignments/Assignment1.html",
+    "href": "files/assignments/Assignment1.html",
+    "title": "Assignment 1 - Spring 2025",
+    "section": "",
+    "text": "1. Describe the data by completing the following table:\n\n\n\n\n\n\n\n\n\n\n\n2000\n2015\n\n\n\n\nSouth\nMean (Standard Deviation)\n132076.1 (109494.7)\nINSERT FOR 2015\n\n\nWest\nMean (Standard Deviation)\nINSERT FOR 2000\nINSERT FOR 2015\n\n\n\n\n\ndata %&gt;% # pipe in data\n  group_by(Region) %&gt;% # tell R we want this by \"Region\"\n  summarize(mean00 = mean(y2000), # request mean for 2000\n            sd00 = sd(y2000)) # request standard deviation for 2000\n\n# A tibble: 4 × 3\n  Region     mean00    sd00\n  &lt;chr&gt;       &lt;dbl&gt;   &lt;dbl&gt;\n1 Midwest   204973. 184965.\n2 Northeast 225918. 308950.\n3 South     132076. 109495.\n4 West      153955. 255145.\n\n\n2. Construct side-by-side boxplots comparing the West and Midwest regions for 2000 and 2015.\n\n\n\nbp00 &lt;- data_south_west %&gt;%\n  ggplot(aes(y= y2000, x=Region, fill=Region)) +\n          geom_boxplot() +\n          theme_minimal() +\n          labs(y = \"Spending\", x = \"Region\") +\n          ylim(min=0, max=1400000) +\n          ggtitle(\"2000\")\n\nbp00 &lt;- data_south_west %&gt;%\n  ggplot(aes(y= y2000, x=Region, fill=Region)) +\n          geom_boxplot() +\n          theme_minimal() +\n          labs(y = \"Spending\", x = \"Region\") +\n          ylim(min=0, max=1400000) +\n          ggtitle(\"2000\")\n\nggarrange(bp00, bp15, ncol=2)\n\nError: object 'bp15' not found\n\n\n3. Describe the distributions. Are they skewed? Do you think there’s a difference between the two regions?\n4. Use the appropriate t-test to determine if there is a difference in library spending between the South and West regions in 2000. Test at the \\(\\alpha=0.05\\) level. Remember to typeset the results.\n\nt.test(y2000 ~ Region,\n       data = data_south_west,\n       mu = 0,\n       alternative = \"two\")\n\n\n    Welch Two Sample t-test\n\ndata:  y2000 by Region\nt = -0.29898, df = 16.926, p-value = 0.7686\nalternative hypothesis: true difference in means between group South and group West is not equal to 0\n95 percent confidence interval:\n -176325.0  132566.6\nsample estimates:\nmean in group South  mean in group West \n           132076.1            153955.3 \n\n\nHypotheses\n\n\\(H_0:\\) \\(\\mu_s-\\mu_w = 0\\)\n\\(H_1:\\) \\(\\mu_s-\\mu_w \\ne 0\\)\n\nTest Statistic and p-Value\n\n\\(t_0 = -0.30\\)\n\\(p = 0.7686\\)\n\nRejection Region\n\nReject \\(H_0\\) if \\(p &lt; \\alpha\\); \\(\\alpha=0.05\\).\n\nConclusion/Interpretation\n\nFail to reject \\(H_0\\).\nThere is not sufficient evidence to suggest that the spending in the south and west regions is different.\n\n5. Graphically assess the normality assumption associated with the t-test in Q4. Remember to state whether or not the assumption is broken.\n6. Use the appropriate nonparametric test to determine if there is a difference in library spending between the South and West regions in 2000. Test at the \\(\\alpha=0.05\\) level. Remember to typeset the results.\n7. Based on your answer to Q5, which test should be reported? Explain why you’re choosing the test you’re choosing. (Hint: you will either choose the t-test or the nonparametric test.)\n8. Use the appropriate t-test to determine if there is a difference in library spending between 2000 and 2015 for all states. Test at the \\(\\alpha=0.05\\) level. Remember to typeset the results.\n9. Assess the normality assumption associated with the t-test in Q8. Remember to state whether or not the assumption is broken.\n10. Use the appropriate nonparametric test to determine if there is a difference in library spending between 2000 and 2015 for all states. Test at the \\(\\alpha=0.05\\) level. Remember to typeset the results.\n11. Based on your answer to Q9, which test should be reported? Explain why you’re choosing the test you’re choosing. (Hint: you will either choose the t-test or the nonparametric test.)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "<b>STA4173 - Biostatistics - Spring 2025</b>",
+    "section": "",
+    "text": "Tentative Schedule\n\n\n\n\n\n\n\n\n\nDay\nTopic\nSlides\nIn Class\n\n\n\n\nW 01/08\nReview of estimation\n \n \n\n\nM 01/13\nIndependent t test\n \n\n\n\nSnow & Illness\ndependent t-test\n \n\n\n\n\nt-test assumptions\n \n\n\n\n\nWilcoxon rank sum (independent)\n \n\n\n\n\nWilcoxon signed rank (dependent)\n \n\n\n\nM 02/03\nAssignment 1\n\n\n\n\nW 02/05\nProject: planning period\n\n\n\n\nM 02/10\nAssignment 1\n\n\n\n\nW 02/12\nOne-way ANOVA and posthoc\n \n\n\n\nM 02/17\nANOVA assumptions & Kruskal-Wallis\n \n\n\n\nW 02/19\nTwo-Way ANOVA\n \n\n\n\nM 02/24\nSimple linear regression and correlation\n\n\n\n\nW 02/26\nProject: planning meeting\n\n\n\n\nM 03/03\nMultiple regression\n\n\n\n\nW 03/05\nCategorical analysis\n\n\n\n\nM 03/10\nLogistic regression\n\n\n\n\nW 03/12\nProject: planning\n\n\n\n\nM 03/17\nSpring Break!\n\n\n\n\nW 03/19\nSpring Break!\n\n\n\n\nM 03/24\nProject: analysis\n\n\n\n\nW 03/26\nOUR: What is a Poster?\n\n\n\n\nM 03/31\nProject: analysis\n\n\n\n\nW 04/02\nProject: summary\n\n\n\n\nM 04/07\nProject: poster draft\n\n\n\n\nW 04/09\nProject: final poster draft\n\n\n\n\nM 04/14\nProject: individual group meetings with Dr. Seals & Dr. Schmutz\n\n\n\n\nW 04/16\nProject: Practice poster presentation\n\n\n\n\nT 04/17\nProject: OUR Symposium\n\n\n\n\nM 04/21\nCatch up!\n\n\n\n\nW 04/23\nProject: reflections"
+  },
+  {
+    "objectID": "files/assignments/Assignment0.html",
+    "href": "files/assignments/Assignment0.html",
+    "title": "Introductions",
+    "section": "",
+    "text": "What is your name as it appears on my roster in Classmate? (We are using this assignment for attendance verification.)\nHow is your name pronounced?\nIs there another name you prefer to go by?\nWhat are your pronouns?\nWhat is your major(s) and minor(s)?\nWhat statistics courses have you taken previously?\nWhat environmental science courses have you taken previously?\nAre you familiar with statistical programming? (e.g., R, python, SAS, etc.)\nAre you familiar with Pensacola Beach?\nDo you have any questions or concerns about this course? If so, please list them and we will respond when we grade this assignment.\nWhat interests do you have, outside of school and work?\nWhat are three of your favorite things?\nIf you were independently wealthy, what would you do with your time?"
+  },
+  {
+    "objectID": "files/assignments/Assignment2.html",
+    "href": "files/assignments/Assignment2.html",
+    "title": "Assignment 2 - Spring 2025",
+    "section": "",
+    "text": "## DO NOT EDIT THIS SECTION\nlibrary(tidyverse)\nlibrary(gsheet)\ndata &lt;- as_tibble(gsheet2tbl(\"https://docs.google.com/spreadsheets/d/1H3TP-2SBMGleriJLESOe1cdCjtSj2F76bUh5iBqC8tI/edit#gid=2142000894\")) %&gt;%\n  mutate(PA3cat = as.factor(PA3cat),\n         BMI3cat = as.factor(BMI3cat),\n         everSmoker = as.factor(everSmoker)) %&gt;%\n  select(subjid, age, weight, BMI, BMI3cat, PA3cat, sbp, everSmoker) %&gt;%\n  na.omit()\n## DO NOT EDIT THIS SECTION\n\n1. Consider a sample of data from the Jackson Heart Study. In this problem, we will be examining body mass index (BMI; kg/m2) as a function of health as categorized by physical activity (PA3cat: Ideal Health, Intermediate Health, and ).\na. Find the appropriate summary statistics to fill in the table below; note that we are creating columns for each category of PA3cat. Continuous variables should be described using the mean and standard deviation while categorical variables should be described using the count and column percentage.\n\n\n\n\n\n\n\n\n\n\nIdeal Health (n = ?)\nIntermediate Health (n = ?)\nPoor Health (n = ?)\n\n\n\n\nAge\nmean (sd)\n\n\n\n\nWeight\nmean (sd)\n\n\n\n\nBMI\nmean (sd)\n\n\n\n\nSBP\nmean (sd)\n\n\n\n\nCurrent or Former Smoker\nn (column %)\n\n\n\n\n\n\nb. Use ANOVA to determine if there is a difference in BMI (BMI) between the three levels of health as categorized by physical activity (PA3cat). Test at the \\(\\alpha=0.01\\) level. Remember to typeset your hypothesis test.\nc. Use the Kruskal-Wallis to determine if there is a difference in BMI (BMI) between the three levels of health as categorized by physical activity (PA3cat). Test at the \\(\\alpha=0.01\\) level. Remember to typeset your hypothesis test.\nd. State, explain, and assess the ANOVA assumptions. Remember to state your conclusion (that you either meet the ANOVA assumptions or you do not).\ne. Based on your responses in part (d), which test’s result are you going to present to the lead scientist at the JHS? (Hint: you will pick either the analysis (b) or (c)).\nf. Perform the appropriate posthoc test to determine pairwise differences between the three groups. Test at the \\(\\alpha=0.01\\) level. Make sure that you state the resulting pairwise differences.\ng. Construct a(ny) graph to help explain the results from the analysis chosen in part (f).\nh. Write a brief paragraph describing the results of your analysis. Include summary statistics, results of your chosen hypothesis test from part (f), and the graph from part (g).\n2. Again, consider the sample of data from the JHS. In this problem, we will be examining systolic blood pressure (sbp; mmHg) as a function of health as categorized by body mass index (BMI3cat), smoking status (everSmoker), and the interaction between health as categorized by body mass index and smoking status.\na. Find the appropriate summary statistics to fill in the table below; note that we are creating columns for each category of BMI3cat. Continuous variables should be described using the mean and standard deviation while categorical variables should be described using the count and column percentage.\n\n\n\n\n\n\n\n\n\n\nIdeal Health (n = ?)\nIntermediate Health (n = ?)\nPoor Health (n = ?)\n\n\n\n\nAge\n\n\n\n\n\nWeight\n\n\n\n\n\nSBP\n\n\n\n\n\nCurrent or Former Smoker\n\n\n\n\n\n\n\nb. Use ANOVA to determine if there is a difference in systolic blood pressure between health as categorized by body mass index, smoking status, and the interaction between health as categorized by body mass index and smoking status. Test at the \\(\\alpha=0.01\\) level. Remember to remove the interaction term if appropriate to do so.\nc. Construct a profile plot to help explain results of part (b).\nd. Use the appropriate posthoc test to determine differences in main effects or the interaction term, whichever is appropriate for the results in part (b). Test at the \\(\\alpha=0.01\\) level. Make sure that you state the resulting pairwise differences.\ne. Write a brief paragraph describing the results of your analysis. Include summary statistics, results of the hypothesis testing in part (b), results of the posthoc test in part (d), and the profile plot in part (c) to help convey the results."
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#introduction-two-way-anova",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#introduction-two-way-anova",
+    "title": "Two-Way ANOVA",
+    "section": "Introduction: Two-Way ANOVA",
+    "text": "Introduction: Two-Way ANOVA\n\nRecall that ANOVA allows us to compare the means of three or more groups.\nIn one-way ANOVA, we are only considering one factor (grouping variable).\nNow, we will discuss two-way ANOVA, which allows us to consider a second factor (grouping variable).\nWe now partition the SSTrt into the different factors under consideration.\nRecall that SSE is the “catch all” for unexplained variance.\n\nWhen we add factors to our model, we are moving part of the SSE into the SSTrt."
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#introduction-two-way-anova-1",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#introduction-two-way-anova-1",
+    "title": "Two-Way ANOVA",
+    "section": "Introduction: Two-Way ANOVA",
+    "text": "Introduction: Two-Way ANOVA\n\nLet’s discuss some of the language used in two-way ANOVA.\nFactor A has a levels.\n\nSmoking status: non-smoker and smoker\n\nFactor B has b levels.\n\nHypertension: normotensive and hypertensive\n\nThere are ab treatment groups.\n\nNon-smoker, normotensive\nNon-smoker, hypertensive\nSmoker, normotensive\nSmoker, hypertensive"
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#introduction-two-way-anova-2",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#introduction-two-way-anova-2",
+    "title": "Two-Way ANOVA",
+    "section": "Introduction: Two-Way ANOVA",
+    "text": "Introduction: Two-Way ANOVA\n\nNow that we are including two factors, we must consider the interaction between the two.\n\nInteraction: The relationship between [outcome] and [factor 1] depends on the level of [factor 2].\n\nIn our example, suppose we are looking at weight as the outcome. If an interaction is detected,\n\nthe relationship between weight and hypertension status depends on smoking status, OR\nthe relationship between weight and smoking status depends on hypertension status."
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#introduction-two-way-anova-3",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#introduction-two-way-anova-3",
+    "title": "Two-Way ANOVA",
+    "section": "Introduction: Two-Way ANOVA",
+    "text": "Introduction: Two-Way ANOVA\n\nThe ANOVA table that we are working to construct:\n\n\n\n\n\n\n\n\n\n\n\nSource\nSum of Squares\ndf\nMean Square\nF\n\n\n\n\nA\nSSA\ndfA\nMSA\nFA\n\n\nB\nSSB\ndfB\nMSB\nFB\n\n\nAB\nSSAB\ndfAB\nMSAB\nFAB\n\n\nError\nSSE\ndfE\nMSE\n\n\n\nTotal\nSSTot\ndfTot"
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#computation",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#computation",
+    "title": "Two-Way ANOVA",
+    "section": "Computation",
+    "text": "Computation\n\nLet there be a levels of factor A and b levels of factor B.\n\ny_{ijk} is the observation on the k^{th} experimental unit receiving the i^{th} level of factor A and the j^{th} level of factor B\ny_{i.} is the sum for all observations at the i^{th} level of factor A,\ny_{.j} is the sum for all observations at the j^{th} level of factor B,\ny_{ij} is the sum for observations at the i^{th} level of factor A and the j^{th} level of factor B,\ny_{..} is the sum of all observations,\n(y^2)_{..} is the sum of the squared observations,\nn is the number in each group (of a \\times b treatments)"
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#computation-1",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#computation-1",
+    "title": "Two-Way ANOVA",
+    "section": "Computation",
+    "text": "Computation\n\nTo find the SS and df: \n\\begin{align*}\n\\text{SS}_{\\text{A}} &= \\frac{\\sum_i y_{i.}^2}{bn}  - \\frac{(y_{..})^2}{abn} & \\text{df}_{\\text{A}} &= a-1 \\\\\n\\text{SS}_{\\text{B}} &= \\frac{\\sum_j y_{.j}^2}{an} - \\frac{(y_{..})^2}{abn} & \\text{df}_{\\text{B}} &= b-1 \\\\\n\\text{SS}_{\\text{AB}}&= \\frac{\\sum_{ij} y_{ij}^2}{n} - \\frac{(y_{..})^2}{abn} - \\text{SS}_{\\text{A}} - \\text{SS}_{\\text{B}} & \\text{df}_{\\text{AB}} &= (a-1)(b-1) \\\\\n\\text{SS}_{\\text{E}} &= \\text{SS}_{\\text{Tot}} - \\text{SS}_{\\text{A}} - \\text{SS}_{\\text{B}} - \\text{SS}_{\\text{AB}} & \\text{df}_{\\text{E}} &= ab(n-1)  \\\\\n\\text{SS}_{\\text{Tot}} &= (y^2)_{..} - \\frac{(y_{..})^2}{abn} & \\text{df}_{\\text{Tot}} &= abn-1\n\\end{align*}"
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#computation-2",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#computation-2",
+    "title": "Two-Way ANOVA",
+    "section": "Computation",
+    "text": "Computation\n\nTo find the MS:\n\n\\text{MS}_{\\text{X}} = \\frac{\\text{SS}_{\\text{X}}}{\\text{df}_{\\text{X}}}\n\nTo find the test statistic:\n\n\\text{F}_{\\text{X}} = \\frac{\\text{MS}_{\\text{X}}}{\\text{MS}_{\\text{E}}}"
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#r-syntax",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#r-syntax",
+    "title": "Two-Way ANOVA",
+    "section": "R Syntax",
+    "text": "R Syntax\n\nWe will again use lm() and anova() OR aov() and summary() to analyze the data.\n\nFor reasons covered in one-way ANOVA, we will focus on using aov().\n\nAs we are specifying our model, we will:\n\ninclude additional terms with +\ninclude interaction terms with :\n\n\n\nm &lt;- aov(continuous_variable ~ factor_A + factor_B + factor_A:factor_B,\n         data = dataset_name)\nsummary(m)"
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#example",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#example",
+    "title": "Two-Way ANOVA",
+    "section": "Example",
+    "text": "Example\n\nSuppose we want to examine the effect of diet and age of mothers on the average birth weight (in ounces). Consider the following data,\n\n\n\n\n\nWhat is the outcome?\nWhat are the two factors?\nWhat is the interaction term?"
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#example-1",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#example-1",
+    "title": "Two-Way ANOVA",
+    "section": "Example",
+    "text": "Example\n\nlibrary(tidyverse)\nexample &lt;- tibble(birthweight = c(157.78, 136.79, 138.84, # age 20-29, diet 1\n                                  139.72, 125.47, 117.14, # age 20-29, diet 2\n                                  129.35, 110.73, 118.38, # age 20-29, diet 3\n                                  137.07, 146.28, 130.27, # age 30-39, diet 1\n                                  117.46, 128.54, 99.16, # age 30-39, diet 2\n                                  97.43, 125.26, 115.42), # age 30-39, diet 3\n                  diet = as.factor(c(1, 1, 1, \n                                     2, 2, 2, \n                                     3, 3, 3, \n                                     1, 1, 1, \n                                     2, 2, 2, \n                                     3, 3, 3)),\n                  age = as.factor(c(20, 20, 20, \n                                    20, 20, 20, \n                                    20, 20, 20, \n                                    30, 30, 30, \n                                    30, 30, 30, \n                                    30, 30, 30)))"
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#example-2",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#example-2",
+    "title": "Two-Way ANOVA",
+    "section": "Example",
+    "text": "Example\n\nLet’s find the ANOVA table,\n\n\nm &lt;- aov(birthweight ~ diet + age + diet:age, data = example)\nsummary(m)\n\n            Df Sum Sq Mean Sq F value  Pr(&gt;F)   \ndiet         2 2104.7  1052.3   7.555 0.00752 **\nage          1  332.0   332.0   2.384 0.14855   \ndiet:age     2   32.5    16.3   0.117 0.89083   \nResiduals   12 1671.5   139.3                   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1"
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#testing-interactions",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#testing-interactions",
+    "title": "Two-Way ANOVA",
+    "section": "Testing Interactions",
+    "text": "Testing Interactions\n\nHypotheses\n\nH_0: there is not an interaction between [factor A] and [factor B]\nH_1: there is an interaction between [factor A] and [factor B]\n\nTest Statistic and p-Value\n\nF_{\\text{AB}} (pull from ANOVA table)\np = P[F_{\\text{df}_{\\text{AB}}, \\text{df}_{\\text{E}}} \\ge F_{\\text{AB}}]\n\nRejection Region\n\nReject H_0 if p&lt;\\alpha."
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#example-3",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#example-3",
+    "title": "Two-Way ANOVA",
+    "section": "Example",
+    "text": "Example\n\nLet’s now test the interaction between age and diet. Test at the \\alpha=0.05 level.\nHere’s the information we need:\n\n\nsummary(m)\n\n            Df Sum Sq Mean Sq F value  Pr(&gt;F)   \ndiet         2 2104.7  1052.3   7.555 0.00752 **\nage          1  332.0   332.0   2.384 0.14855   \ndiet:age     2   32.5    16.3   0.117 0.89083   \nResiduals   12 1671.5   139.3                   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1"
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#example-4",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#example-4",
+    "title": "Two-Way ANOVA",
+    "section": "Example",
+    "text": "Example\n\nHypotheses\n\nH_0: there is not an interaction between age and diet\nH_1: there is an interaction between age and diet\n\nTest Statistic\n\nF_{\\text{AB}} = 0.117\np = 0.891\n\nRejection Region\n\nReject H_0 if p&lt;\\alpha; \\alpha=0.05.\n\nConclusion/Interpretation\n\nFail to reject H_0. There is not sufficient evidence to suggest that the relationship between average birth weight and age depends on the mother’s diet."
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#testing-interactions-1",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#testing-interactions-1",
+    "title": "Two-Way ANOVA",
+    "section": "Testing Interactions",
+    "text": "Testing Interactions\n\nWhat happens after testing for an interaction?\n\nIf significant (reject H_0), we can:\n\nConstruct a profile plot to visualize what’s going on and help explain the effect.\nExamine posthoc testing to further examine the interaction.\n\nIf not significant (FTR H_0), we should remove the interaction term so that we can test and interpret the main effects.\n\nRemember that we cannot look at main effects (A and B alone) when the interaction is included in the model!"
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#removing-interactions",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#removing-interactions",
+    "title": "Two-Way ANOVA",
+    "section": "Removing Interactions",
+    "text": "Removing Interactions\n\nIf the interaction term is not significant, it should be removed from the ANOVA table so that we can test and interpret the main effects.\nHow to remove an interaction:\n\nRewrite ANOVA table without interaction; do not change SS, df, and MS for the main effects and total.\nUpdate the error term: add the SS_{\\text{AB}} to SS_{\\text{E}} and df_{\\text{AB}} to df_{\\text{E}}.\nRecalculate MS_{\\text{E}}.\nRecalculate F statistics for the main effects and perform appropriate hypothesis tests.\n\nIn R, we just literally remove the interaction term.\n\n\nm &lt;- aov(continuous_variable ~ factor_A + factor_B,\n         data = dataset_name)\nsummary(m)"
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#example-5",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#example-5",
+    "title": "Two-Way ANOVA",
+    "section": "Example",
+    "text": "Example\n\nLet’s now remove the interaction between diet and maternal age.\n\n\n#m &lt;- aov(birthweight ~ diet + age + diet:age, data = example)\nm &lt;- aov(birthweight ~ diet + age, data = example)\nsummary(m)\n\n            Df Sum Sq Mean Sq F value  Pr(&gt;F)   \ndiet         2   2105  1052.3   8.646 0.00359 **\nage          1    332   332.0   2.728 0.12085   \nResiduals   14   1704   121.7                   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1"
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#testing-main-effects",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#testing-main-effects",
+    "title": "Two-Way ANOVA",
+    "section": "Testing Main Effects",
+    "text": "Testing Main Effects\n\nNow that we have removed the interaction term, we can test for main effects.\nHypotheses\n\nH_0: there is not a main effect of [factor X]\nH_1: there not a main effect of [factor X]\n\nTest Statistic and p-Value\n\nF_{\\text{X}} (pull from ANOVA table)\np = P[F_{\\text{df}_{\\text{X}}, \\text{df}_{\\text{E}}} \\ge F_{\\text{X}}]\n\nRejection Region\n\nReject H_0 if p&lt;\\alpha."
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#testing-main-effects-1",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#testing-main-effects-1",
+    "title": "Two-Way ANOVA",
+    "section": "Testing Main Effects",
+    "text": "Testing Main Effects\n\nA note on hypotheses – we are writing them in sentence form here, however, we can write them mathematically.\nFor Factor A with a levels,\n\nH_0: \\mu_1 = \\mu_2 = ... = \\mu_a\nH_1: at least one is different\n\nFor Factor B with b levels,\n\nH_0: \\mu_1 = \\mu_2 = ... = \\mu_b\nH_1: at least one is different"
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#example-6",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#example-6",
+    "title": "Two-Way ANOVA",
+    "section": "Example",
+    "text": "Example\n\nWe now want to determine if there are main effects of age and diet. Test at the \\alpha=0.05 level.\nThe ANOVA table without the interaction term:\n\n\nsummary(m)\n\n            Df Sum Sq Mean Sq F value  Pr(&gt;F)   \ndiet         2   2105  1052.3   8.646 0.00359 **\nage          1    332   332.0   2.728 0.12085   \nResiduals   14   1704   121.7                   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1"
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#example-7",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#example-7",
+    "title": "Two-Way ANOVA",
+    "section": "Example",
+    "text": "Example\n\nHypotheses\n\nH_0: there is not a main effect of diet (\\mu_1 = \\mu_2 = \\mu_3)\nH_1: there is a main effect of diet (at least one \\mu_i is different)\n\nTest Statistic and p-Value\n\nF_{\\text{diet}} = 8.646\np = 0.004\n\nRejection Region\n\nReject H_0 if p&lt;\\alpha; \\alpha=0.05.\n\nConclusion/Interpretation\n\nReject H_0. There is sufficient evidence to suggest that at least one diet reults in a different birth weight."
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#example-8",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#example-8",
+    "title": "Two-Way ANOVA",
+    "section": "Example",
+    "text": "Example\n\nHypotheses\n\nH_0: there is not a main effect of age (\\mu_1 = \\mu_2)\nH_1: there is a main effect of age (\\mu_1 \\ne \\mu_2)\n\nTest Statistic and p-Value\n\nF_{\\text{age}} = 2.728\np = 0.121\n\nRejection Region\n\nReject H_0 if p&lt;\\alpha; \\alpha=0.05.\n\nConclusion/Interpretation\n\nFail to reject H_0. There is not sufficient evidence to suggest that there is a difference in birth weights across the age groups."
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#introduction-beyond-the-f-test",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#introduction-beyond-the-f-test",
+    "title": "Two-Way ANOVA",
+    "section": "Introduction: Beyond the F Test",
+    "text": "Introduction: Beyond the F Test\n\nIn this lecture, we are discussing two-way ANOVA.\nSo far, we have learned how to:\n\nCreate an ANOVA model with an interaction term\nTest the interaction term\nCreate an ANOVA model without an interaction term\nTest the main effects\n\nNow we will learn how to best communicate results, whether it’s the resulting interaction term or main effects."
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#profile-plots",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#profile-plots",
+    "title": "Two-Way ANOVA",
+    "section": "Profile Plots",
+    "text": "Profile Plots\n\nIf we detect an interaction term, we must give meaning to it.\nAn easy way to do this is to plot the treatment group means to visualize the interaction. This is called a profile plot.\n\ny-axis: always the average outcome\nx-axis: either factor A or B\n\nif only one factor is ordinal, use it for the x-axis\nif there are two ordinal or two nominal factors, select the factor with the largest number of levels for the x-axis\n\nlines on the plot: the factor that was not selected for the x-axis\n\nNote that this is just a graph of the means – it’s valid to construct a profile plot even if the interaction is not sigificant."
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#example-9",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#example-9",
+    "title": "Two-Way ANOVA",
+    "section": "Example",
+    "text": "Example\n\nLet’s first find the treatment means for the birth weight data,\n\n\nmeans &lt;- example %&gt;%\n  group_by(diet, age) %&gt;%\n  summarize(mean = mean(birthweight)) %&gt;%\n  ungroup()\nhead(means)"
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#example-10",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#example-10",
+    "title": "Two-Way ANOVA",
+    "section": "Example",
+    "text": "Example\n\nThe average birth weight will go on our y-axis.\nBecause only maternal age is ordinal, it will go on our x-axis.\nThus, the lines will represent the diet\n\nThis means I want to restructure the dataset with the means to have a column for each of the diets\n\n\n\nA &lt;- means %&gt;% filter(diet == 1) %&gt;% rename(d1 = mean) %&gt;% select(-diet)\nB &lt;- means %&gt;% filter(diet == 2) %&gt;% rename(d2 = mean) %&gt;% select(-diet)\nC &lt;- means %&gt;% filter(diet == 3) %&gt;% rename(d3 = mean) %&gt;% select(-diet)\ngraph &lt;- full_join(A, B, by = \"age\")\ngraph &lt;- full_join(graph, C, by = \"age\")"
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#example-11",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#example-11",
+    "title": "Two-Way ANOVA",
+    "section": "Example",
+    "text": "Example\n\ngraph"
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#example-12",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#example-12",
+    "title": "Two-Way ANOVA",
+    "section": "Example",
+    "text": "Example\n\nBuilding profile plots using ggplot() is a process.\n\nFirst, include a geom_line() for each level of the factor creating the lines.\n\n\n\ngraph %&gt;% \n  ggplot(aes(x = age, group = 1)) +\n  geom_line(aes(y = d1), color = \"pink\") + # diet 1\n  geom_line(aes(y = d2), color = \"purple\") + # diet 2\n  geom_line(aes(y = d3), color = \"blue\") + # diet 3\n  theme_bw()"
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#example-13",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#example-13",
+    "title": "Two-Way ANOVA",
+    "section": "Example",
+    "text": "Example\n\nBuilding profile plots using ggplot() is a process.\n\nFirst, include a geom_line() for each level of the factor creating the lines."
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#example-14",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#example-14",
+    "title": "Two-Way ANOVA",
+    "section": "Example",
+    "text": "Example\n\nBuilding profile plots using ggplot() is a process.\n\nThen, add geom_text() to label each line (use the line colors to make sure everything is labeled properly).\n\n\n\ngraph %&gt;% \n  ggplot(aes(x = age, group = 1)) +\n  geom_line(aes(y = d1), color = \"pink\") + # diet 1\n  geom_line(aes(y = d2), color = \"purple\") + # diet 2\n  geom_line(aes(y = d3), color = \"blue\") + # diet 3 \n  geom_text(aes(x = \"30\" , y = 137, label = \"Diet 1\"), color = \"pink\")  + # diet 1\n  geom_text(aes(x = \"30\" , y = 115, label = \"Diet 2\"), color = \"purple\")  + # diet 2\n  geom_text(aes(x = \"30\" , y = 110, label = \"Diet 3\"), color = \"blue\")  + # diet 3\n  theme_bw()"
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#example-15",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#example-15",
+    "title": "Two-Way ANOVA",
+    "section": "Example",
+    "text": "Example\n\nBuilding profile plots using ggplot() is a process.\n\nThen, add geom_text() to label each line (use the line colors to make sure everything is labeled properly)."
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#example-16",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#example-16",
+    "title": "Two-Way ANOVA",
+    "section": "Example",
+    "text": "Example\n\nBuilding profile plots using ggplot() is a process.\n\nThen, clean up time: fix axis titles and change line colors to black*\n\n\n\ngraph %&gt;% \n  ggplot(aes(x = age, group = 1)) +\n  geom_line(aes(y = d1), color = \"black\") + # diet 1\n  geom_line(aes(y = d2), color = \"black\") + # diet 2\n  geom_line(aes(y = d3), color = \"black\") + # diet 3+ \n  geom_text(aes(x = \"30\" , y = 137, label = \"Diet 1\"), color = \"black\")  + # diet 1\n  geom_text(aes(x = \"30\" , y = 115, label = \"Diet 2\"), color = \"black\")  + # diet 2\n  geom_text(aes(x = \"30\" , y = 110, label = \"Diet 3\"), color = \"black\")  + # diet 3\n  labs(x = \"Maternal Age\",\n       y = \"Average Birth Weight\") +\n  theme_bw()"
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#example-17",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#example-17",
+    "title": "Two-Way ANOVA",
+    "section": "Example",
+    "text": "Example"
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#posthoc-tests",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#posthoc-tests",
+    "title": "Two-Way ANOVA",
+    "section": "Posthoc Tests",
+    "text": "Posthoc Tests\n\nWe can also apply posthoc testing to two-way ANOVA.\n\nIf the interaction is significant, we can compare all treatment groups.\nIf the interaction is not significant, we can look at the main effects.\n\nFor simplicity, we will only look at Tukey’s and Fisher’s.\nWhat is the difference between Tukey’s and Fisher’s?"
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#example-18",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#example-18",
+    "title": "Two-Way ANOVA",
+    "section": "Example",
+    "text": "Example\n\nLet’s apply Tukey’s to the model with the interaction term.\n\nImportant!! Remember that we are only doing this for illustration purposes - we should not perform posthoc testing on something non-significant.\n\n\n\nm &lt;- aov(birthweight ~ diet + age + diet:age, data = example)\nTukeyHSD(m)$\"diet:age\"\n\n                diff       lwr       upr      p adj\n2:20-1:20 -17.026667 -49.39499 15.341659 0.51846118\n3:20-1:20 -24.983333 -57.35166  7.384992 0.17257865\n1:30-1:20  -6.596667 -38.96499 25.771659 0.98037295\n2:30-1:20 -29.416667 -61.78499  2.951659 0.08309462\n3:30-1:20 -31.766667 -64.13499  0.601659 0.05550164\n3:20-2:20  -7.956667 -40.32499 24.411659 0.95688090\n1:30-2:20  10.430000 -21.93833 42.798326 0.87931551\n2:30-2:20 -12.390000 -44.75833 19.978326 0.78717713\n3:30-2:20 -14.740000 -47.10833 17.628326 0.65386678\n1:30-3:20  18.386667 -13.98166 50.754992 0.44210449\n2:30-3:20  -4.433333 -36.80166 27.934992 0.99674874\n3:30-3:20  -6.783333 -39.15166 25.584992 0.97786517\n2:30-1:30 -22.820000 -55.18833  9.548326 0.24087234\n3:30-1:30 -25.170000 -57.53833  7.198326 0.16754036\n3:30-2:30  -2.350000 -34.71833 30.018326 0.99984711"
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#example-19",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#example-19",
+    "title": "Two-Way ANOVA",
+    "section": "Example",
+    "text": "Example\n\nLet’s apply Tukey’s to the model without the interaction term.\n\n\nm &lt;- aov(birthweight ~ diet + age, data = example)\nTukeyHSD(m)$diet\n\n          diff       lwr       upr      p adj\n2-1 -19.923333 -36.59450 -3.252169 0.01902981\n3-1 -25.076667 -41.74783 -8.405502 0.00397944\n3-2  -5.153333 -21.82450 11.517831 0.70372399\n\n\n\nWhich diets are significantly different? Use \\alpha=0.05."
+  },
+  {
+    "objectID": "files/lectures/W07-L2-two-way-ANOVA.html#wrap-up",
+    "href": "files/lectures/W07-L2-two-way-ANOVA.html#wrap-up",
+    "title": "Two-Way ANOVA",
+    "section": "Wrap Up",
+    "text": "Wrap Up\n\nWe did not explicitly discuss assumptions, but they are the same as in one-way ANOVA.\nFrom here, ANOVA can be used to specify any model.\n\nWe stopped with two-way interactions, but you could have three-way interactions, four-way interactions, etc.\nAs you can see, interactions quickly complicate the interpretation, so I try to stay away from anything higher than a two-way interaction.\n\nOur next module is regression analysis, which is the same as ANOVA, but represents the results differently.\n\nWe can quantify the relationship between two variables using regression."
   },
   {
     "objectID": "files/lectures/W01-L1-review-of-estimation.html#introduction",

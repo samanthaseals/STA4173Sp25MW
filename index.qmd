@@ -22,7 +22,7 @@ title-block-banner: false
 | M 02/10 | Assignment 1 | | |
 | W 02/12 | One-way ANOVA and posthoc | <a href="files/lectures/W06-L1-one-way-ANOVA-posthoc.html"><i class="fa fa-display fa-s" style="color: #8DC8E8;"></i></a> <a href="https://github.com/samanthaseals/STA4173Sp25MW/blob/main/files/lectures/W06-L1-one-way-ANOVA-posthoc.qmd"><i class="fa fa-paperclip" style="color: #8DC8E8;"></i></a> |
 | M 02/17 | ANOVA assumptions & Kruskal-Wallis | <a href="files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html"><i class="fa fa-display fa-s" style="color: #8DC8E8;"></i></a> <a href="https://github.com/samanthaseals/STA4173Sp25MW/blob/main/files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.qmd"><i class="fa fa-paperclip" style="color: #8DC8E8;"></i></a>
-| W 02/19 | Two-Way ANOVA | | |
+| W 02/19 | Two-Way ANOVA | <a href="files/lectures/W07-L2-two-way-ANOVA.html"><i class="fa fa-display fa-s" style="color: #8DC8E8;"></i></a> <a href="https://github.com/samanthaseals/STA4173Sp25MW/blob/main/files/lectures/W07-L2-two-way-ANOVA.qmd"><i class="fa fa-paperclip" style="color: #8DC8E8;"></i></a>
 | M 02/24 | Simple linear regression and correlation | | |
 | W 02/26 | Project: planning meeting | | |
 | M 03/03 | Multiple regression | | |
