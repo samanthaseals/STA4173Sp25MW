@@ -1,0 +1,208 @@
+---
+title: "**Wilcoxon Rank Sum**"
+subtitle: "**STA4173: Biostatistics** <br> Spring 2025"
+format: 
+  revealjs: 
+    code-overflow: wrap
+    df-print: paged
+    embed-resources: true
+    slide-number: true
+    width: 1600
+    height: 900
+    html-math-method: katex
+    theme:
+      - default
+execute:
+  echo: true
+  warning: false
+  message: false
+  error: true
+editor: source
+---
+
+## Introduction
+
+- We last discussed assumptions on *t*-tests
+
+    - Dependent / paired *t*-test: normality
+    
+    - Independent two-sample *t*-test: normality and variance
+  
+- If we break the normality assumption, we must look to nonparametric methods.
+
+```{r}
+#| echo: false
+library(tidyverse)
+```
+
+## Introduction
+
+- The *t*-tests we have already learned are considered *parametric* methods.
+
+    - There is a distributional assumption on the test.
+    
+- *Nonparametric* methods do not have distributional assumptions.
+
+    - We typically transform the data to their ranks and then perform calculations.
+
+- Why don't we always use nonparametric methods?
+
+    - They are often less efficient: a larger sample size is required to achieve the same probability of a Type I error.
+    
+    - They discard useful information :(
+    
+## Ranking Data
+
+- In the nonparametric tests we will be learning, the data will be ranked.
+
+- Let us first consider a simple example, $$x: \ 1, 7, 10, 2, 6, 8$$
+
+- Our first step is to reorder the data:$$x: \ 1, 2, 6, 7, 8, 10$$
+
+- Then, we replace with the ranks:$$R: \ 1, 2, 3, 4, 5, 6$$
+
+## Ranking Data
+
+- What if all data values are not unique?
+
+    - We will assign the average ranks.
+
+- For example, $$x: \ 9, 8, 8, 0, 3, 4, 4, 8$$
+
+- Let's reorder:$$x: \ 0, 3, 4, 4, 8, 8, 8, 9$$
+
+- Rank ignoring ties:$$R: \ 1, 2, 3, 4, 5, 6, 7, 8$$
+
+- Now, the final rank:$$R: \ 1, 2, 3.5, 3.5, 6, 6, 6, 8$$
+
+## Wilcoxon Rank Sum{.smaller}
+
+**Hypotheses**
+
+- $H_0:$ $M_1 - M_2 = M_0$ | $H_0:$ $M_1 - M_2 \le M_0$ | $H_0:$ $M_1 - M_2 \ge M_0$
+- $H_1:$ $M_1 - M_2 \ne M_0$ | $H_1:$ $M_1 - M_2 > M_0$ | $H_1:$ $M_1 - M_2 < M_0$
+
+**Test Statistic & *p*-Value**
+
+- $T = \sum R_{\text{sample 1}} - \frac{n_1(n_1+1)}{2}$
+- $p =$ (calculated by R :))
+
+**Rejection Region**
+
+- Reject $H_0$ if $p < \alpha$.
+
+**Conclusion/Interpretation**
+
+- [Reject or fail to reject] $H_0$.
+
+- There [is or is not] sufficient evidence to suggest [alternative hypothesis in words].
+
+## Wilcoxon Rank Sum
+
+-   We will use the [`wilcox.test()`](https://www.rdocumentation.org/packages/stats/versions/3.6.1/topics/wilcox.test) function to perform the test,
+
+```{r}
+#| eval: false
+wilcox.test(continuous_variable ~ grouping_variable,
+            data = dataset_name,
+            alternative = "alternative",
+            mu = hypothesized_value,
+            exact = FALSE)
+```
+
+- Like before, R will use the group that is "first" in the grouping variable.
+
+    - "First" is in terms of numeric or alphabetical.
+
+## Wilcoxon Rank Sum
+
+- When exposed to an infection, a person typically develops antibodies. The extent to which the antibodies respond can be measured by looking at a person’s titer, which is a measure of the number of antibodies present. The higher the titer is, the more antibodies that are present. 
+
+- The following data represent the titers of 11 ill people and 11 healthy people exposed to the tularemia virus in Vermont. 
+
+- Is the level of titer in the ill group greater than the level of titer in the healthy group? Use the $\alpha = 0.10$ level of significance.
+
+```{r}
+titer_levels <- tibble(level = c(640, 160, 1280, 320, 80, 640, 640, 160, 1280, 640, 160, 
+                                  10, 320, 160, 160, 320, 320, 10, 320, 320, 80, 640),
+                       group = c(rep("ill",11), rep("healthy",11)))
+```
+
+- Recall the R syntax,
+
+```{r}
+#| eval: false
+wilcox.test(continuous_variable ~ grouping_variable,
+            data = dataset_name,
+            alternative = "alternative",
+            mu = hypothesized_value,
+            exact = FALSE)
+```
+
+## Wilcoxon Rank Sum
+
+- Is the level of titer in the ill group greater than the level of titer in the healthy group?
+
+```{r}
+wilcox.test(level ~ group, 
+            data = titer_levels,
+            alternative = "less",
+            exact = FALSE)
+```
+
+## Wilcoxon Rank Sum{.smaller}
+
+**Hypotheses**
+
+- $H_0: \ M_{\text{ill}} \le M_{\text{healthy}}$ 
+- $H_1: \ M_{\text{ill}} > M_{\text{healthy}}$
+    
+**Test Statistic and *p*-Value**
+
+- $W_0 = 35$
+- $p = 0.047$
+    
+**Rejection Region**
+
+- Reject $H_0$ if $p < \alpha$; $\alpha = 0.10$.
+
+**Conclusion/Interpretation**
+
+- Reject $H_0$.
+    
+- There is sufficient evidence to suggest that the level of titer in the ill group is greater than the level of titer in the healthy group.
+
+## **Wrap Up**
+
+- Today we reviewed the Wilcoxon rank sum test.
+    - Nonparametric alternative to the two-sample *t*-test.
+
+- Next lecture:
+    - Wilcoxon signed rank
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

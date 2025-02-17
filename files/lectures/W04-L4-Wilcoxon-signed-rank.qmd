@@ -1,0 +1,185 @@
+---
+title: "**Wilcoxon Signed Rank**"
+subtitle: "**STA4173: Biostatistics** <br> Spring 2025"
+format: 
+  revealjs: 
+    code-overflow: wrap
+    df-print: paged
+    embed-resources: true
+    slide-number: true
+    width: 1600
+    height: 900
+    html-math-method: katex
+    theme:
+      - default
+execute:
+  echo: true
+  warning: false
+  message: false
+  error: true
+editor: source
+---
+
+## Introduction
+
+- Today we have discussed that we turn to nonparametric tests when we do not meet distributional assumptions for *t*-tests.
+
+- If we do not meet the normality assumption for the paired *t*-test, we turn to the Wilcoxon signed rank.
+
+- Like in the dependent *t*-test, we will analyze the *difference* between two values.
+
+- Like in the Wilcoxon rank sum, we will be analyzing ranks.
+
+## Wilcoxon Signed Rank
+
+- Before ranking, we will find the difference between the paired observations and eliminate any 0 differences.
+
+    - Note 1: elimniating 0 differences is the big difference between the other tests! 
+    
+    - Note 2: because we are eliminating 0 differences, this means that our sample size will update to the number of pairs with a non-0 difference.
+    
+- When ranking, we the differences are ranked based on the absolute value of the difference.
+
+- We also keep the sign of the difference.
+
+    - We will have positive ranks and negative ranks.
+
+| *X* | *Y* | *D* | \|*D*\| | Rank |
+|-----|-----|-----|---------|------|
+| 5   | 8   | -3  | 3       | $-$ 1.5 |
+| 8   | 5   | 3   | 3       | $+$ 1.5  |
+| 4   | 4   | 0   | 0       | ---------   |
+
+## Wilcoxon Signed Rank{.smaller}
+
+**Hypotheses**
+
+- $H_0:$ $M_d = M_0$ | $H_0:$ $M_d \le M_0$ | $H_0:$ $M_d \ge M_0$
+- $H_1:$ $M_d \ne M_0$ | $H_1:$ $M_d > M_0$ | $H_1:$ $M_d < M_0$
+
+**Test Statistic & *p*-Value**
+
+- $T_0 = \min(T+,|T_-|)$ if two-tailed, $T_0 = T_+$ if left-tailed, and $T_0 = |T_-|$ if right-tailed.
+- $p =$ (calculated by R :))
+
+**Rejection Region**
+
+- Reject $H_0$ if $p < \alpha$.
+
+**Conclusion/Interpretation**
+
+- [Reject or fail to reject] $H_0$.
+
+- There [is or is not] sufficient evidence to suggest [alternative hypothesis in words].
+
+## Wilcoxon Signed Rank
+
+-   We will again use the [`wilcox.test()`](https://www.rdocumentation.org/packages/stats/versions/3.6.1/topics/wilcox.test) function to perform the test,
+
+```{r}
+#| eval: false
+wilcox.test(dataset$variable1, dataset$variable2,
+       alternative = "alternative",
+       mu = hypothesized_value,
+       paired = TRUE,
+       exact = FALSE)
+```
+
+## Wilcoxon Signed Rank
+
+- A stock analyst believes the median number of shares traded in Walgreens Boots Alliance (WBA) stock is greater than that in McDonald’s (MCD). Test the analyst’s belief at the $\alpha=0.05$ level of significance.
+
+```{r}
+#| echo: false
+library(tidyverse)
+```
+
+```{r}
+stocks <- tibble(WBA = c(8.9, 6.3, 6.2, 7.2, 2.8, 3.3, 23.6, 
+                         6.0, 15.6, 5.2, 6.3, 10.1, 4.0, 8.4),
+                 MCD = c(8.5, 7.6, 8.3, 10.4, 2.5, 2.6, 3.5, 
+                         4.7, 9.0, 6.0, 5.6, 5.0, 4.4, 5.6))
+```
+
+- Recall the R syntax,
+
+```{r}
+#| eval: false
+wilcox.test(dataset$variable1, dataset$variable2,
+       alternative = "alternative",
+       mu = hypothesized_value,
+       paired = TRUE,
+       exact = FALSE)
+```
+
+## Wilcoxon Signed Rank
+
+- From the problem statement: *A stock analyst believes the median number of shares traded in Walgreens Boots Alliance (WBA) stock is greater than that in McDonald’s (MCD).*
+
+```{r}
+wilcox.test(stocks$WBA, stocks$MCD,
+       alternative = "greater",
+       paired = TRUE, 
+       exact = FALSE)
+```
+
+## Wilcoxon Signed Rank{.smaller}
+
+- **Hypotheses**
+
+    - $H_0: \ M_{\text{WBA}} \le M_{\text{MCD}}$ OR $M_d \le 0$, where $d = \text{WBA} - \text{MCD}$
+    - $H_1: \ M_{\text{WBA}} > M_{\text{MCD}}$ OR $M_d > 0$
+    
+- **Test Statistic and *p*-Value**
+
+    - $V_0 = 69$
+    - $p = 0.158$
+    
+- **Rejection Region**
+
+    - Reject $H_0$ if $p < \alpha$; $\alpha = 0.05$.
+    
+- **Conclusion/Interpretation**
+
+    - Fail to reject $H_0$.
+    
+    - There is not sufficient evidence to suggest that the median stock shares traded is greater for WBA than for MCD.
+
+## **Wrap Up**
+
+- Today we reviewed the Wilcoxon signed rank test.
+    - Nonparametric alternative to the paired *t*-test.
+
+- This completes Module 1.
+
+- Next: comparing three or more groups.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

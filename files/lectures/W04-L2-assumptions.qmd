@@ -1,0 +1,218 @@
+---
+title: "***t*-Test Assumptions**"
+subtitle: "**STA4173: Biostatistics** <br> Spring 2025"
+format: 
+  revealjs: 
+    code-overflow: wrap
+    df-print: paged
+    embed-resources: true
+    slide-number: true
+    width: 1600
+    height: 900
+    html-math-method: katex
+    theme:
+      - default
+execute:
+  echo: true
+  warning: false
+  message: false
+  error: true
+editor: source
+---
+
+## Introduction: Assumptions
+
+- We have now learned one- and two-sample *t*-tests.
+
+- Recall, when we have two samples, they can be independent samples or dependent samples.
+
+    - Independent samples: two-sample *t*-test
+    
+    - Dependent samples: paired *t*-test (one-sample *t*-test on difference)
+    
+- Today we will discuss how to assess the assumptions on *t*-tests.
+
+## Normality Assumption: Set Up
+
+- All *t*-tests assume approximate normality of the data.
+
+    - In the case of one-sample *t*-tests, the measure of interest must somewhat follow a normal distribution.
+
+    - In the case of two-sample *t*-tests, the measure of interest *in each group* must somewhat follow a normal distribution.
+    
+- Note that a paired *t*-test is technically a one-sample *t*-test, so we will examine normality of the difference. 
+
+## Normality Assumption: Set Up
+
+- There are formal tests for normality ([see article here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3693611/)), however, we will not use them.
+
+    - Tests for normality are not well-endorsed by statisticians.
+    
+- Instead, we will assess normality using a quantile-quantile (q-q) plot.
+
+    - This is a scatterplot that will form a 45&deg; line if the assumed distribution is correct.
+    
+    - [Here is more information about q-q plots](https://data.library.virginia.edu/understanding-q-q-plots/).
+
+- We will create q-q plots for:
+
+    - The measurements in the case of the one-sample *t*-test.
+
+    - The measurements from each group in the case of the two-sample *t*-test.
+    
+    - The difference between the groups in the case of the paired *t*-test.
+    
+## Normality Assumption: R Syntax
+
+- We will assess the normality assumption graphically using a q-q plot
+    
+- A package was written by a former student, [`classpackage`](https://github.com/ieb2/classpackage).
+
+    - If you **are** working on the server, the package is already installed.
+
+    - If you are **not** working on the server, please ask me for the code needed to install.
+    
+```{r}
+#| echo: false
+#| eval: false
+# install.packages("devtools") - use this if R tells you it can't find install_github()
+devtools::install_github("ieb2/classpackage", force = TRUE)
+```
+
+## Normality Assumption: Independent Data - R Syntax
+
+- Once installed, we call the package,
+
+```{r}
+library(classpackage)
+```
+
+- While there are several functions in this package, we are currently interested in the `independent_qq_plot()` function.
+
+```{r}
+#| eval: false
+dataset_name %>% independent_qq_plot(variable = "continuous variable",
+                                     grouping_variable = "grouping variable")
+```
+
+- This will provide the the q-q plot for the two-sample *t*-test (i.e., for independent data).
+
+## Normality Assumption: Independent Data - Example
+
+- Recall the penguin example for the two-sample *t*-test.
+
+    - Is the body mass different for males and females?
+
+```{r}
+penguins <- palmerpenguins::penguins
+head(penguins, n=3)
+```
+
+- Requesting the q-q plot,
+
+```{r}
+#| eval: false
+penguins %>% independent_qq_plot(variable = "body_mass_g",
+                                 grouping_variable = "sex")
+```
+
+## Normality Assumption: Independent Data - Example
+
+<center>
+```{r}
+#| echo: false
+penguins %>% na.omit(sex) %>% independent_qq_plot(variable = "body_mass_g",
+                                 grouping_variable = "sex")
+```
+</center>
+
+
+## Normality Assumption: Dependent Data - R Syntax
+
+- While there are several functions in the `classpackage` package, we are now interested in the `dependent_qq_plot()` function.
+
+```{r}
+#| eval: false
+wide_data %>% dependent_qq_plot(variable = "Display Name of Continuous Variable",
+                                grouping_variable = " ", # do not edit this line
+                                first_group = "first_variable", # first column for comparison
+                                second_group = "second_variable") # second column for comparison
+```
+
+- This will provide the the q-q plot for the paired *t*-test (i.e., for dependent data).
+
+## Normality Assumption: Repair Estimates
+
+- Recall the repair estimate example for the dependent *t*-test.
+
+```{r}
+garage <- tibble(g1 = c(17.6, 20.2, 19.5, 11.3, 13.0, 
+                        16.3, 15.3, 16.2, 12.2, 14.8,
+                        21.3, 22.1, 16.9, 17.6, 18.4), 
+                 g2 = c(17.3, 19.1, 18.4, 11.5, 12.7, 
+                        15.8, 14.9, 15.3, 12.0, 14.2, 
+                        21.0, 21.0, 16.1, 16.7, 17.5))
+```
+
+- Requesting the q-q plot,
+
+```{r}
+#| eval: false
+garage %>% dependent_qq_plot(variable = "estimate",
+                             grouping_variable = "garage",
+                             first_group = "g1",
+                             second_group = "g2")
+```
+
+## Normality Assumption: Repair Estimates
+
+<center>
+```{r}
+#| echo: false
+garage %>% dependent_qq_plot(variable = "estimate",
+                             grouping_variable = "garage",
+                             first_group = "g1",
+                             second_group = "g2")
+```
+</center>
+
+
+## Wrap Up
+
+- **Important note!!** 
+
+    - *I do not expect you to agree with my assessment of q-q plots!* 
+    - What I do expect is that you know what to do after making your assessment.
+
+- Next up: 
+
+    - What happens if we do not meet the assumption for a *t*-test....?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
