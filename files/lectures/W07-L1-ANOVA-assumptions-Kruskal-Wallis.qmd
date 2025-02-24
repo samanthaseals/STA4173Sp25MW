@@ -302,7 +302,9 @@ kruskalmc(continuous_variable ~ grouping_variable,
 
 ```{r}
 library(pgirmess) 
-kruskalmc(strength ~ system, data = data)
+kruskalmc(strength ~ system, 
+          alpha = 0.01,
+          data = data)
 ```
 
 - Which pairs are significantly different?

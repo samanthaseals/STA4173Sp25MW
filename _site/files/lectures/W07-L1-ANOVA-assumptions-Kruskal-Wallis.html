@@ -2690,18 +2690,20 @@ Kruskal-Wallis chi-squared = 12.515, df = 3, p-value = 0.005812</code></pre>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">library</span>(pgirmess) </span>
-<span id="cb11-2"><a></a><span class="fu">kruskalmc</span>(strength <span class="sc">~</span> system, <span class="at">data =</span> data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-2"><a></a><span class="fu">kruskalmc</span>(strength <span class="sc">~</span> system, </span>
+<span id="cb11-3"><a></a>          <span class="at">alpha =</span> <span class="fl">0.01</span>,</span>
+<span id="cb11-4"><a></a>          <span class="at">data =</span> data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Multiple comparison test after Kruskal-Wallis 
-alpha: 0.05 
+alpha: 0.01 
 Comparisons
                  obs.dif critical.dif stat.signif
-Ceramic-Cimara       0.2     9.871455       FALSE
-Ceramic-Cojet        7.9     9.871455       FALSE
-Ceramic-Silistor    10.3     9.871455        TRUE
-Cimara-Cojet         8.1     9.871455       FALSE
-Cimara-Silistor     10.5     9.871455        TRUE
-Cojet-Silistor       2.4     9.871455       FALSE</code></pre>
+Ceramic-Cimara       0.2      11.7637       FALSE
+Ceramic-Cojet        7.9      11.7637       FALSE
+Ceramic-Silistor    10.3      11.7637       FALSE
+Cimara-Cojet         8.1      11.7637       FALSE
+Cimara-Silistor     10.5      11.7637       FALSE
+Cojet-Silistor       2.4      11.7637       FALSE</code></pre>
 </div>
 </div>
 <ul>

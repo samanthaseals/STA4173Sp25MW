@@ -9,36 +9,36 @@ title-block-banner: false
 
 ### Tentative Schedule 
 
-| Day | Topic | Slides | In Class |
-|----|-------------|:--:|:--:|
-| W 01/08 | Review of estimation | <a href="files/lectures/W01-L1-review-of-estimation.html"><i class="fa fa-display fa-s" style="color: #8DC8E8;"></i></a> <a href="https://github.com/samanthaseals/STA4173Sp25MW/blob/main/files/lectures/W01-L1-review-of-estimation.qmd"><i class="fa fa-paperclip" style="color: #8DC8E8;"></i></a> | <a href="files/assignments/Assignment0.html"><i class="fa fa-display fa-s" style="color: #8DC8E8;"></i></a> <a href="https://github.com/samanthaseals/STA4173Sp25MW/blob/main/files/assignments/Assignment0.qmd"><i class="fa fa-paperclip" style="color: #8DC8E8;"></i></a> |
+| Day | Topic | Slides | 
+|----|-------------|:--:|
+| W 01/08 | Review of estimation | <a href="files/lectures/W01-L1-review-of-estimation.html"><i class="fa fa-display fa-s" style="color: #8DC8E8;"></i></a> <a href="https://github.com/samanthaseals/STA4173Sp25MW/blob/main/files/lectures/W01-L1-review-of-estimation.qmd"><i class="fa fa-paperclip" style="color: #8DC8E8;"></i></a> | 
 | M 01/13 | Independent *t* test | <a href="files/lectures/W02-L1-two-sample-t.html"><i class="fa fa-display fa-s" style="color: #8DC8E8;"></i></a> <a href="https://github.com/samanthaseals/STA4173Sp25MW/blob/main/files/lectures/W02-L1-two-sample-t.qmd"><i class="fa fa-paperclip" style="color: #8DC8E8;"></i></a> |
 | Snow & Illness | dependent t-test | <a href="files/lectures/W04-L1-dependent-t.html"><i class="fa fa-display fa-s" style="color: #8DC8E8;"></i></a> <a href="https://github.com/samanthaseals/STA4173Sp25MW/blob/main/files/lectures/W04-L1-dependent-t.qmd"><i class="fa fa-paperclip" style="color: #8DC8E8;"></i></a> |
 | | t-test assumptions | <a href="files/lectures/W04-L2-assumptions.html"><i class="fa fa-display fa-s" style="color: #8DC8E8;"></i></a> <a href="https://github.com/samanthaseals/STA4173Sp25MW/blob/main/files/lectures/W04-L2-assumptions.qmd"><i class="fa fa-paperclip" style="color: #8DC8E8;"></i></a> |
 | | Wilcoxon rank sum (independent) | <a href="files/lectures/W04-L3-Wilcoxon-rank-sum.html"><i class="fa fa-display fa-s" style="color: #8DC8E8;"></i></a> <a href="https://github.com/samanthaseals/STA4173Sp25MW/blob/main/files/lectures/W04-L3-Wilcoxon-rank-sum.qmd"><i class="fa fa-paperclip" style="color: #8DC8E8;"></i></a> |
 | | Wilcoxon signed rank (dependent) | <a href="files/lectures/W04-L4-Wilcoxon-signed-rank.html"><i class="fa fa-display fa-s" style="color: #8DC8E8;"></i></a> <a href="https://github.com/samanthaseals/STA4173Sp25MW/blob/main/files/lectures/W04-L4-Wilcoxon-signed-rank.qmd"><i class="fa fa-paperclip" style="color: #8DC8E8;"></i></a> |
-| M 02/03 | Assignment 1 | | |
-| W 02/05 | Project: planning period | | |
-| M 02/10 | Assignment 1 | | |
+| M 02/03 | Assignment 1 | | 
+| W 02/05 | Project: planning period | | 
+| M 02/10 | Assignment 1 | | 
 | W 02/12 | One-way ANOVA and posthoc | <a href="files/lectures/W06-L1-one-way-ANOVA-posthoc.html"><i class="fa fa-display fa-s" style="color: #8DC8E8;"></i></a> <a href="https://github.com/samanthaseals/STA4173Sp25MW/blob/main/files/lectures/W06-L1-one-way-ANOVA-posthoc.qmd"><i class="fa fa-paperclip" style="color: #8DC8E8;"></i></a> |
 | M 02/17 | ANOVA assumptions & Kruskal-Wallis | <a href="files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html"><i class="fa fa-display fa-s" style="color: #8DC8E8;"></i></a> <a href="https://github.com/samanthaseals/STA4173Sp25MW/blob/main/files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.qmd"><i class="fa fa-paperclip" style="color: #8DC8E8;"></i></a>
 | W 02/19 | Two-Way ANOVA | <a href="files/lectures/W07-L2-two-way-ANOVA.html"><i class="fa fa-display fa-s" style="color: #8DC8E8;"></i></a> <a href="https://github.com/samanthaseals/STA4173Sp25MW/blob/main/files/lectures/W07-L2-two-way-ANOVA.qmd"><i class="fa fa-paperclip" style="color: #8DC8E8;"></i></a>
-| M 02/24 | Simple linear regression and correlation | | |
-| W 02/26 | Project: planning meeting | | |
-| M 03/03 | Multiple regression | | |
-| W 03/05 | Categorical analysis | | |
-| M 03/10 | Logistic regression | | |
-| W 03/12 | Project: planning | | |
-| M 03/17 | Spring Break! | | |
-| W 03/19 | Spring Break! | | | 
-| M 03/24 | Project: analysis | | |
-| W 03/26 | OUR: What is a Poster? | | |
-| M 03/31 | Project: analysis | | |
-| W 04/02 | Project: summary | | |
-| M 04/07 | Project: poster draft | | |
-| W 04/09 | Project: final poster draft | | |
-| M 04/14 | Project: individual group meetings with Dr. Seals & Dr. Schmutz | | |
-| W 04/16 | Project: Practice poster presentation |||
-| T 04/17 | Project: OUR Symposium | | | |
-| M 04/21 | Catch up! | | |
-| W 04/23 | Project: reflections | | |
+| M 02/24 | Simple linear regression and correlation | <a href="files/lectures/W08-L1-simple-linear-regression.html"><i class="fa fa-display fa-s" style="color: #8DC8E8;"></i></a> <a href="https://github.com/samanthaseals/STA4173Sp25MW/blob/main/files/lectures/W08-L1-simple-linear-regression.qmd"><i class="fa fa-paperclip" style="color: #8DC8E8;"></i></a> 
+| W 02/26 | Project: data collection reflection | | 
+| M 03/03 | Multiple regression | <a href="files/lectures/W09-L1-multiple-regression.html"><i class="fa fa-display fa-s" style="color: #8DC8E8;"></i></a> <a href="https://github.com/samanthaseals/STA4173Sp25MW/blob/main/files/lectures/W09-L1-multiple-regression.qmd"><i class="fa fa-paperclip" style="color: #8DC8E8;"></i></a> 
+| W 03/05 | Categorical analysis | | 
+| M 03/10 | Logistic regression | | 
+| W 03/12 | Project: planning | | 
+| M 03/17 | Spring Break! | | 
+| W 03/19 | Spring Break! | | 
+| M 03/24 | Project: analysis | | 
+| W 03/26 | OUR: What is a Poster? | | 
+| M 03/31 | Project: analysis | | 
+| W 04/02 | Project: summary | | 
+| M 04/07 | Project: poster draft | | 
+| W 04/09 | Project: final poster draft | | 
+| M 04/14 | Project: individual group meetings with Dr. Seals & Dr. Schmutz | | 
+| W 04/16 | Project: Practice poster presentation ||
+| T 04/17 | Project: OUR Symposium | | | 
+| M 04/21 | Catch up! | | 
+| W 04/23 | Project: reflections | | 
