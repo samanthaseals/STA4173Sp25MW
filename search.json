@@ -294,81 +294,410 @@
     "text": "Wrap Up\n\nToday we reviewed the dependent t-test.\n\nConfidence intervals\nHypothesis testing\n\nNext lectures:\n\nAssumptions on t-tests.\nWilcoxon rank sum\nWilcoxon signed rank"
   },
   {
-    "objectID": "files/lectures/W04-L2-assumptions.html#introduction-assumptions",
-    "href": "files/lectures/W04-L2-assumptions.html#introduction-assumptions",
-    "title": "t-Test Assumptions",
-    "section": "Introduction: Assumptions",
-    "text": "Introduction: Assumptions\n\nWe have now learned one- and two-sample t-tests.\nRecall, when we have two samples, they can be independent samples or dependent samples.\n\nIndependent samples: two-sample t-test\nDependent samples: paired t-test (one-sample t-test on difference)\n\nToday we will discuss how to assess the assumptions on t-tests."
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#introduction",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#introduction",
+    "title": "Multiple Regression",
+    "section": "Introduction",
+    "text": "Introduction\n\nWe have learned simple linear regression, y = \\beta_0 + \\beta_1 x + \\varepsilon\nToday, we will expand to multiple regression, which allows us to include multiple predictors, y = \\beta_0 + \\beta_1 x_1 + \\beta_2 x_2 + ... + \\beta_k x_k + \\varepsilon\n\nSimple linear regression is just a special case of multiple regression, where k=1.\n\nThe good news is that all things we learned for simple linear regression hold true for multiple regression! 😎"
   },
   {
-    "objectID": "files/lectures/W04-L2-assumptions.html#normality-assumption-set-up",
-    "href": "files/lectures/W04-L2-assumptions.html#normality-assumption-set-up",
-    "title": "t-Test Assumptions",
-    "section": "Normality Assumption: Set Up",
-    "text": "Normality Assumption: Set Up\n\nAll t-tests assume approximate normality of the data.\n\nIn the case of one-sample t-tests, the measure of interest must somewhat follow a normal distribution.\nIn the case of two-sample t-tests, the measure of interest in each group must somewhat follow a normal distribution.\n\nNote that a paired t-test is technically a one-sample t-test, so we will examine normality of the difference."
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#r-syntax",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#r-syntax",
+    "title": "Multiple Regression",
+    "section": "R Syntax",
+    "text": "R Syntax\n\nWe again use the lm() function to define the model and summary() to see the results.\n\n\nm &lt;- lm(outcome ~ predictor_1 + predcitor_2 + ... + predictor_k, \n        data = dataset_name)\nsummary(m)\n\n\nAdditionally, we will find the confidence intervals for the \\beta_i using confint().\n\n\nconfint(m) # for 95% CI\nconfint(m, level = conf_level) # for other levels"
   },
   {
-    "objectID": "files/lectures/W04-L2-assumptions.html#normality-assumption-set-up-1",
-    "href": "files/lectures/W04-L2-assumptions.html#normality-assumption-set-up-1",
-    "title": "t-Test Assumptions",
-    "section": "Normality Assumption: Set Up",
-    "text": "Normality Assumption: Set Up\n\nThere are formal tests for normality (see article here), however, we will not use them.\n\nTests for normality are not well-endorsed by statisticians.\n\nInstead, we will assess normality using a quantile-quantile (q-q) plot.\n\nThis is a scatterplot that will form a 45° line if the assumed distribution is correct.\nHere is more information about q-q plots.\n\nWe will create q-q plots for:\n\nThe measurements in the case of the one-sample t-test.\nThe measurements from each group in the case of the two-sample t-test.\nThe difference between the groups in the case of the paired t-test."
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#interpretations",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#interpretations",
+    "title": "Multiple Regression",
+    "section": "Interpretations",
+    "text": "Interpretations\n\nWe interpret coefficients much the same as in simple linear regression.\n\nIntercept: when [all predictors = 0], the average [outcome] is [\\hat{\\beta}_0].\nSlope: For a 1 [units of predictor i] increase in [predictor i], we expect [outcome] to [increase or decrease] by [|\\hat{\\beta}_i|] [units of outcome], after controlling for [all other predictors in the model].\n\nIf \\hat{\\beta}_i &gt; 0, there is an increase.\nIf \\hat{\\beta}_i &lt; 0, there is a decrease."
   },
   {
-    "objectID": "files/lectures/W04-L2-assumptions.html#normality-assumption-r-syntax",
-    "href": "files/lectures/W04-L2-assumptions.html#normality-assumption-r-syntax",
-    "title": "t-Test Assumptions",
-    "section": "Normality Assumption: R Syntax",
-    "text": "Normality Assumption: R Syntax\n\nWe will assess the normality assumption graphically using a q-q plot\nA package was written by a former student, classpackage.\n\nIf you are working on the server, the package is already installed.\nIf you are not working on the server, please ask me for the code needed to install."
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#example",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#example",
+    "title": "Multiple Regression",
+    "section": "Example",
+    "text": "Example\n\nA family doctor wishes to further examine the variables that affect their female patients’ total cholesterol.\nThey randomly select 14 female patients, measure their total cholesterol, and asks the patients to determine their average daily consumption of saturated fat.\nThe data is as follows,\n\n\nlibrary(tidyverse)\ndata &lt;- tibble(age = c(25, 25, 28, 32, 32, 32, 38, 42, 48, 51, 51, 58, 62, 65), \n               chol = c(180, 195, 186, 180, 210, 197, 239, 183, 204, 221, 243, 208, 228, 269), \n               fat = c(19, 28, 19, 16, 24, 20, 31, 20, 26, 24, 32, 21, 21, 30))\nhead(data, n = 2)"
   },
   {
-    "objectID": "files/lectures/W04-L2-assumptions.html#normality-assumption-independent-data---r-syntax",
-    "href": "files/lectures/W04-L2-assumptions.html#normality-assumption-independent-data---r-syntax",
-    "title": "t-Test Assumptions",
-    "section": "Normality Assumption: Independent Data - R Syntax",
-    "text": "Normality Assumption: Independent Data - R Syntax\n\nOnce installed, we call the package,\n\n\nlibrary(classpackage)\n\n\nWhile there are several functions in this package, we are currently interested in the independent_qq_plot() function.\n\n\ndataset_name %&gt;% independent_qq_plot(variable = \"continuous variable\",\n                                     grouping_variable = \"grouping variable\")\n\n\nThis will provide the the q-q plot for the two-sample t-test (i.e., for independent data)."
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#example-1",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#example-1",
+    "title": "Multiple Regression",
+    "section": "Example",
+    "text": "Example\n\nModel total cholesterol (y) as a function of age (x_1) and daily consumption of saturated fat (x_2).\n\n\nm &lt;- lm(chol ~ age + fat, data = data)\nsummary(m)\n\n\nCall:\nlm(formula = chol ~ age + fat, data = data)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-19.874  -8.192   3.479   8.151  14.907 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  90.8415    15.9887   5.682 0.000142 ***\nage           1.0142     0.2427   4.179 0.001540 ** \nfat           3.2443     0.6632   4.892 0.000478 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 11.42 on 11 degrees of freedom\nMultiple R-squared:  0.8473,    Adjusted R-squared:  0.8196 \nF-statistic: 30.53 on 2 and 11 DF,  p-value: 3.239e-05\n\n\n\nThe resulting model is \\hat{\\text{cholesterol}}_i = 90.842 + 1.014 \\text{ age}_i + 3.244 \\text{ fat}_i"
   },
   {
-    "objectID": "files/lectures/W04-L2-assumptions.html#normality-assumption-independent-data---example",
-    "href": "files/lectures/W04-L2-assumptions.html#normality-assumption-independent-data---example",
-    "title": "t-Test Assumptions",
-    "section": "Normality Assumption: Independent Data - Example",
-    "text": "Normality Assumption: Independent Data - Example\n\nRecall the penguin example for the two-sample t-test.\n\nIs the body mass different for males and females?\n\n\n\npenguins &lt;- palmerpenguins::penguins\nhead(penguins, n=3)\n\n\n  \n\n\n\n\nRequesting the q-q plot,\n\n\npenguins %&gt;% independent_qq_plot(variable = \"body_mass_g\",\n                                 grouping_variable = \"sex\")"
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#example-2",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#example-2",
+    "title": "Multiple Regression",
+    "section": "Example",
+    "text": "Example\n\nLet’s now interpret the slopes from the cholesterol example. \\hat{\\text{cholesterol}}_i = 90.842 + 1.014 \\text{ age}_i + 3.244 \\text{ fat}_i\n\nFor a 1 year increase in age, the cholesterol level is expected to increase by 1.014 mg/dL, after adjusting for the average daily consumption of saturated fat. \\vskip1em\nFor a 1 gram increase in average daily consumption of saturated fat, the total cholesterol is expected to increase by 3.244 mg/dL, after adjusting for age."
   },
   {
-    "objectID": "files/lectures/W04-L2-assumptions.html#normality-assumption-independent-data---example-1",
-    "href": "files/lectures/W04-L2-assumptions.html#normality-assumption-independent-data---example-1",
-    "title": "t-Test Assumptions",
-    "section": "Normality Assumption: Independent Data - Example",
-    "text": "Normality Assumption: Independent Data - Example"
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#significance-of-beta_i",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#significance-of-beta_i",
+    "title": "Multiple Regression",
+    "section": "Significance of \\beta_i",
+    "text": "Significance of \\beta_i\n\nHypotheses\n\nH_0: \\ \\beta_i = 0\nH_1: \\ \\beta_i \\ne 0\n\nTest Statistic\n\nt_0 = \\frac{\\hat{\\beta}_i}{\\text{SE of }\\hat{\\beta}_i}\n\np-Value\n\np = 2 \\times P[t_{n-k-1} \\ge |t_0|]\n\nRejection Region\n\nReject H_0 if p&lt;\\alpha."
   },
   {
-    "objectID": "files/lectures/W04-L2-assumptions.html#normality-assumption-dependent-data---r-syntax",
-    "href": "files/lectures/W04-L2-assumptions.html#normality-assumption-dependent-data---r-syntax",
-    "title": "t-Test Assumptions",
-    "section": "Normality Assumption: Dependent Data - R Syntax",
-    "text": "Normality Assumption: Dependent Data - R Syntax\n\nWhile there are several functions in the classpackage package, we are now interested in the dependent_qq_plot() function.\n\n\nwide_data %&gt;% dependent_qq_plot(variable = \"Display Name of Continuous Variable\",\n                                grouping_variable = \" \", # do not edit this line\n                                first_group = \"first_variable\", # first column for comparison\n                                second_group = \"second_variable\") # second column for comparison\n\n\nThis will provide the the q-q plot for the paired t-test (i.e., for dependent data)."
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#example-3",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#example-3",
+    "title": "Multiple Regression",
+    "section": "Example",
+    "text": "Example\n\nWhich, if any, are significant predictors of cholesterol?\n\n\nsummary(m)\n\n\nCall:\nlm(formula = chol ~ age + fat, data = data)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-19.874  -8.192   3.479   8.151  14.907 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  90.8415    15.9887   5.682 0.000142 ***\nage           1.0142     0.2427   4.179 0.001540 ** \nfat           3.2443     0.6632   4.892 0.000478 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 11.42 on 11 degrees of freedom\nMultiple R-squared:  0.8473,    Adjusted R-squared:  0.8196 \nF-statistic: 30.53 on 2 and 11 DF,  p-value: 3.239e-05"
   },
   {
-    "objectID": "files/lectures/W04-L2-assumptions.html#normality-assumption-repair-estimates",
-    "href": "files/lectures/W04-L2-assumptions.html#normality-assumption-repair-estimates",
-    "title": "t-Test Assumptions",
-    "section": "Normality Assumption: Repair Estimates",
-    "text": "Normality Assumption: Repair Estimates\n\nRecall the repair estimate example for the dependent t-test.\n\n\ngarage &lt;- tibble(g1 = c(17.6, 20.2, 19.5, 11.3, 13.0, \n                        16.3, 15.3, 16.2, 12.2, 14.8,\n                        21.3, 22.1, 16.9, 17.6, 18.4), \n                 g2 = c(17.3, 19.1, 18.4, 11.5, 12.7, \n                        15.8, 14.9, 15.3, 12.0, 14.2, \n                        21.0, 21.0, 16.1, 16.7, 17.5))\n\n\nRequesting the q-q plot,\n\n\ngarage %&gt;% dependent_qq_plot(variable = \"estimate\",\n                             grouping_variable = \"garage\",\n                             first_group = \"g1\",\n                             second_group = \"g2\")"
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#example-4",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#example-4",
+    "title": "Multiple Regression",
+    "section": "Example",
+    "text": "Example\n\nHypotheses\n\nH_0: \\ \\beta_{\\text{age}} = 0\nH_1: \\ \\beta_{\\text{age}} \\ne 0\n\nTest Statistic and p-Value\n\nt_0 = 4.179\np = 0.002\n\nRejection Region\n\nReject H_0 if p&lt;\\alpha; \\alpha=0.05\n\nConclusion/Interpretation\n\nReject H_0.\nThere is sufficient evidence to suggest that there is a relationship between age and cholesterol."
   },
   {
-    "objectID": "files/lectures/W04-L2-assumptions.html#normality-assumption-repair-estimates-1",
-    "href": "files/lectures/W04-L2-assumptions.html#normality-assumption-repair-estimates-1",
-    "title": "t-Test Assumptions",
-    "section": "Normality Assumption: Repair Estimates",
-    "text": "Normality Assumption: Repair Estimates"
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#example-5",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#example-5",
+    "title": "Multiple Regression",
+    "section": "Example",
+    "text": "Example\n\nHypotheses\n\nH_0: \\ \\beta_{\\text{fat}} = 0\nH_1: \\ \\beta_{\\text{fat}} \\ne 0\n\nTest Statistic and p-Value\n\nt_0 = 4.892\np &lt; 0.001\n\nRejection Region\n\nReject H_0 if p&lt;\\alpha; \\alpha=0.05\n\nConclusion/Interpretation\n\nReject H_0.\nThere is sufficient evidence to suggest that there is a relationship between fat and cholesterol."
   },
   {
-    "objectID": "files/lectures/W04-L2-assumptions.html#wrap-up",
-    "href": "files/lectures/W04-L2-assumptions.html#wrap-up",
-    "title": "t-Test Assumptions",
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#example-6",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#example-6",
+    "title": "Multiple Regression",
+    "section": "Example",
+    "text": "Example\n\nLet’s find the 95% confidence intervals for the regression coefficients.\n\n\nconfint(m)\n\n                 2.5 %     97.5 %\n(Intercept) 55.6507255 126.032306\nage          0.4800054   1.548405\nfat          1.7845942   4.703937\n\n\n\nThe 95% CI for \\beta_{\\text{age}} is (0.48, 1.55).\nThe 95% CI for \\beta_{\\text{fat}} is (1.78, 4.70)."
+  },
+  {
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#reporting-results",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#reporting-results",
+    "title": "Multiple Regression",
+    "section": "Reporting Results",
+    "text": "Reporting Results\n\nHow do I report regression models in the real world?\n\nI always give a table of \\hat{\\beta}_i, (95% CI), and p-values.\n\nIn our example,\n\n\n\n\nPredictor\nEstimate (95% CI)\np-Value\n\n\n\n\nAge\n1.01 (0.48, 1.55)\n0.002\n\n\nFat\n3.24 (1.78, 4.70)\n&lt; 0.001"
+  },
+  {
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#significant-regression-line",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#significant-regression-line",
+    "title": "Multiple Regression",
+    "section": "Significant Regression Line",
+    "text": "Significant Regression Line\n\nWe can use an F-test to test for a significant regression line.\n\nA significant regression line means that there is a non-zero slope among all slopes.\nThis makes use of an ANOVA table, however, we will not concern ourselves with the computation.\n\nThe results can be found at the bottom of the summary() output."
+  },
+  {
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#significant-regression-line-1",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#significant-regression-line-1",
+    "title": "Multiple Regression",
+    "section": "Significant Regression Line",
+    "text": "Significant Regression Line\n\nHypotheses\n\nH_0: \\ \\beta_1 = ... = \\beta_k = 0\nH_1: at least one is different\n\nTest Statistic\n\nF_0 (pulled from the summary() output)\n\np-Value\n\np = \\text{P}[F_{k, n-k-1} \\ge F_0]\n\nRejection Region\n\nReject H_0 if p &lt; \\alpha."
+  },
+  {
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#example-7",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#example-7",
+    "title": "Multiple Regression",
+    "section": "Example",
+    "text": "Example\n\nIs this a significant regression line?\n\nIs at least one of the x_i a significant predictor?\nIs at least one slope non-zero?"
+  },
+  {
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#example-8",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#example-8",
+    "title": "Multiple Regression",
+    "section": "Example",
+    "text": "Example\n\nHypotheses\n\nH_0: \\ \\beta_1 = \\beta_2 = 0\nH_1: at least one is different\n\nTest Statistic and p-Value\n\nF_0 = 30.53\np &lt; 0.001\n\nRejection Region\n\nReject H_0 if p &lt; \\alpha; \\alpha=0.05.\n\nConclusion/Interpretation\n\nReject H_0.\nThere is sufficient evidence to suggest that at least one slope is non-zero."
+  },
+  {
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#line-fit",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#line-fit",
+    "title": "Multiple Regression",
+    "section": "Line Fit",
+    "text": "Line Fit\n\nWe can assess how well the regression model fits the data using R^2.  R^2 = \\frac{\\text{SS}_{\\text{Reg}}}{\\text{SS}_{\\text{Tot}}} \nThus, R^2 is the proportion of variation explained by the model (i.e., predictor set).\nR^2 \\in [0, 1]\n\nR^2 \\to 0 indicates that the model fits “poorly.”\nR^2 \\to 1 indicates that the model fits “well.”\nR^2 = 1 indicates that all points fall on the response surface."
+  },
+  {
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#line-fit-1",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#line-fit-1",
+    "title": "Multiple Regression",
+    "section": "Line Fit",
+    "text": "Line Fit\n\nRecall that the error term in ANOVA is the “catch all” …\n\nThe SSTot is constant for the outcome of interest.\nAs we add predictors to the model, we are necessarily increasing SSReg\n\nThe variance is moving from SSE to SSReg\n\n\nWe do not want to arbitrarily increase R^2, so we will use an adjusted version: R^2_{\\text{adj}} = 1 - \\frac{\\text{MS}_{\\text{E}}}{\\text{SS}_{\\text{Tot}}/\\text{df}_{\\text{Tot}}}"
+  },
+  {
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#example-9",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#example-9",
+    "title": "Multiple Regression",
+    "section": "Example",
+    "text": "Example\n\nThe R^2 and R^2_{\\text{adj}} both come out of the summary() function.\n\n\n\n\n\nR^2 is 0.847.\nR^2_{\\text{adj}} is 0.820 – 82.0% of the variability in cholesterol is explained by the model with age and fat."
+  },
+  {
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#outliers",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#outliers",
+    "title": "Multiple Regression",
+    "section": "Outliers",
+    "text": "Outliers\n\nDefinition: data values that are much larger or smaller than the rest of the values in the dataset.\nWe will look at the standardized residuals,  e_{i_{\\text{standardized}}} = \\frac{e_i}{\\sqrt{\\text{MSE}(1-h_i)}},  where\n\ne_i = y_i - \\hat{y}_i is the residual of the ith observation\nh_i is the leverage of the ith observation\n\nIf |e_{i_{\\text{standardized}}}| &gt; 2.5 \\ \\to \\  outlier.\nIf |e_{i_{\\text{standardized}}}| &gt; 3 \\ \\to \\  extreme outlier."
+  },
+  {
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#outliers-1",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#outliers-1",
+    "title": "Multiple Regression",
+    "section": "Outliers",
+    "text": "Outliers\n\nWe will use the rstandard() function to find the residuals, then we will count the outliers,\n\n\ndataset_name %&gt;% count(abs(rstandard(m))&gt;2.5)\n\n\nIn our example data,\n\n\ndata %&gt;% count(abs(rstandard(m))&gt;2.5)\n\n\n  \n\n\n\n\nThere are no outliers.\n\n(This is Happy Textbook Land!)"
+  },
+  {
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#multicollinearity",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#multicollinearity",
+    "title": "Multiple Regression",
+    "section": "Multicollinearity",
+    "text": "Multicollinearity\n\nCollinearity/multicollinearity: a correlation between two or more predictor variables affects the estimation procedure.\nWe will use the variance inflation factor (VIF) to check for multicollinearity.  \\text{VIF}_j = \\frac{1}{1-R^2_j}, \nwhere\n\nj = the predictor of interest and j \\in \\{1, 2, ..., k \\},\nR^2_j results from regressing x_j on the remaining (k-1) predictors.\n\nWe say that multicollinearity is present if VIF &gt; 10."
+  },
+  {
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#multicollinearity-1",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#multicollinearity-1",
+    "title": "Multiple Regression",
+    "section": "Multicollinearity",
+    "text": "Multicollinearity\n\nHow do we deal with multicollinearity?\n\nEasy answer: remove at least one predictor from the collinear set, then reassess VIF.\nMore complicated: how do we know which predictor should be the one removed?\n\n(We will likely need to consult with the research team.)"
+  },
+  {
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#multicollinearity-2",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#multicollinearity-2",
+    "title": "Multiple Regression",
+    "section": "Multicollinearity",
+    "text": "Multicollinearity\n\nWe will use the vif() function from the car package.\n\n\ncar::vif(m)\n\n\nThere will be a value for each predictor in the model.\nIn our cholesterol model,\n\n\ncar::vif(m)\n\n     age      fat \n1.117404 1.117404 \n\n\n\nNo multicollinearity is present."
+  },
+  {
+    "objectID": "files/lectures/W09-L1-multiple-linear-regression.html#conclusions",
+    "href": "files/lectures/W09-L1-multiple-linear-regression.html#conclusions",
+    "title": "Multiple Regression",
+    "section": "Conclusions",
+    "text": "Conclusions\n\nThis is just scratching the surface for multiple regression.\nOther statistics courses go deeper into regression topics.\n\nCategorical predictors.\nInteraction terms.\nOther regression diagnostics.\nHow to handle non-continuous outcomes."
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#introduction-correlation",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#introduction-correlation",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Introduction: Correlation",
+    "text": "Introduction: Correlation\n\nBefore today, we discussed methods for comparing continuous outcomes across two or more groups.\nWe now will begin exploring the relationships between two continuous variables.\nWe will first focus on data visualization and correlation.\nThe we will quantify the relationship using regression analysis."
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#scatterplot",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#scatterplot",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Scatterplot",
+    "text": "Scatterplot\n\nScatterplot or scatter diagram:\n\nA graph that shows the relationship between two quantitative variables measured on the same subject.\n\nEach individual in the dataset is represented by a point on the scatterplot.\nThe explanatory variable is on the x-axis and the response variable is on the y-axis.\nIt is super important for us to plot the data!\n\nPlotting the data is a first step in identifying issues or potential relationships."
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#scatterplots",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#scatterplots",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Scatterplots",
+    "text": "Scatterplots\n\nPositive relationship: As x increases, y increases.\nNegative relationship: As x increases, y decreases."
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#example",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#example",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Example",
+    "text": "Example\n\nA golf pro wants to investigate the relation between the club-head speed of a golf club (measured in miles per hour) and the distance (in yards) that the ball will travel.\nThe pro uses a single model of club and ball, one golfer, and a clear, 70-degree day with no wind.\nThe pro records the club-head speed, measures the distance the ball travels, and collected the data below.\n\n\nlibrary(tidyverse)\ngolf &lt;- tibble(speed = c(100, 102, 103, 101, 105, 100, 99, 105),\n               distance = c(257, 264, 274, 266, 277, 263, 258, 275))\n  head(golf, n=3)"
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#example-1",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#example-1",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Example",
+    "text": "Example\n\nLike we have done before, we will graph using the ggplot2 package.\n\n\n\ngolf %&gt;% ggplot(aes(x = speed, y = distance)) + \n  geom_point(size = 5) + # plot points; make dots bigger\n  labs(x = \"Club Head Speed (mph)\",\n       y = \"Distance (yards)\") + # define labels \n  theme_bw() # change background color"
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#correlation",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#correlation",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Correlation",
+    "text": "Correlation\n\nCreating the scatterplot allows us to visualize a potential relationship.\n\ne.g., we know from the scatterplot for the golf data, as speed increases, distance increases.\n\nNow, let’s talk about how to quantify that relationship.\n\nInitial quantification: correlation.\nFurther quantification: regression."
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#correlation-1",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#correlation-1",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Correlation",
+    "text": "Correlation\n\nCorrelation: A measure of the strength and direction of the linear relationship between two quantitative variables.\n\n\\rho represents the population correlation coefficient.\nr represents the sample correlation coefficient.\n\nCorrelation is bounded to [-1, 1].\n\nr=-1 represents perfect negative correlation.\nr=1 represents perfect positive correlation.\nr=0 represents no correlation."
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#pearsonss-correlation",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#pearsonss-correlation",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Pearsons’s Correlation",
+    "text": "Pearsons’s Correlation\n\nPearson’s correlation coefficient:\n\nr = \\frac{\\sum_{i=1}^n \\left( \\frac{x_i - \\bar{x}}{s_x} \\right)\\left( \\frac{y_i - \\bar{y}}{s_y} \\right)}{n-1}\n\nx_i is the ith observation of x; y_i is the ith observation of y\n\\bar{x} is the sample mean of x; \\bar{y} is the sample mean of y\ns_x is the sample standard deviation of x; s_y is the sample standard deviation of y\nn is the sample size (number of paired observations)"
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#pearsonss-correlation-1",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#pearsonss-correlation-1",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Pearsons’s Correlation",
+    "text": "Pearsons’s Correlation\n\nIn R, we will use the cor() function to find the correlation.\n\nWe can plug in the two specific variables we are interested in.\nWe can also plug in the dataset we are working with and all pairwise correlations will be reporeted.\n\n(This will be useful later!)\n\n\n\n\ncor(dataset_name$variable_1, dataset_name$variable_2) # request correlation between two values \ncor(dataset_name) # request correlation from a tibble (dataset)"
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#example-2",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#example-2",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Example",
+    "text": "Example\n\nLet’s find the correlation of the golf data.\nFirst, let’s plug in the specific variables we are interested in.\n\n\ncor(golf$distance, golf$speed)\n\n[1] 0.9386958\n\n\n\nLooking at the correlation coefficient for distance and speed, r = 0.94.\n\nThis is a strong positive correlation."
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#example-3",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#example-3",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Example",
+    "text": "Example\n\nNow, let’s plug the whole dataset in.\n\n\ncor(golf)\n\n             speed  distance\nspeed    1.0000000 0.9386958\ndistance 0.9386958 1.0000000\n\n\n\nNotes:\n\nThe correlation between a variable and itself is 1.\n\nWe can see this above: r_{\\text{speed, speed}} = 1 and r_{\\text{distance, distance}} = 1.\n\nThe correlation between x and y is the same as the correlation between y and x.\n\nWe can see this above: r_{\\text{speed, distance}} = r_{\\text{distance, speed}}"
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#spearmans-correlation",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#spearmans-correlation",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Spearman’s Correlation",
+    "text": "Spearman’s Correlation\n\nAn assumption for Pearson’s correlation is that both x and y are normally distributed.\nWhat do we do when we do not meet the normality assumption?\nSpearman’s Correlation: A measure of the strength and direction of the monotone relationship between two variables.\n\nSpearman’s correlation only assumes that the data is ordinal.\nIt does not work for nominal data!\n\nSpearman’s correlation is interpreted the same as Pearson’s correlation.\nTo find Spearman’s correlation, the following algorithm is followed:\n\nRank the x and y values.\n\n(x, y) \\to (R_x, R_y)\n\nFind Pearson’s correlation for the ranked data."
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#spearmans-correlation-1",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#spearmans-correlation-1",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Spearman’s Correlation",
+    "text": "Spearman’s Correlation\n\nWe will again use the cor() function, but now we will specify Spearman.\n\n\ncor(dataset_name$variable_1, dataset_name$variable_2, method = \"spearman\") \ncor(dataset_name, method = \"spearman\")"
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#example-4",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#example-4",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Example",
+    "text": "Example\n\nLet’s find the Spearman correlation of the golf data.\n\n\ncor(golf$distance, golf$speed, method = \"spearman\")\n\n[1] 0.9277782\n\n\n\nSpearman’s correlation is r_{\\text{S}} = 0.93.\n\nThis is still a strong, positive correlation.\n\nCompare this to Pearson’s correlation, r = 0.94.\n\nIn this dataset, Spearman’s correlation is not vastly different.\nWhile we see that Spearman’s correlation is smaller than Pearson’s correlation, this is not always the case."
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#conclusions",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#conclusions",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Conclusions",
+    "text": "Conclusions\n\nCorrelation allows us to quantify the relationship between two variables without units.\n\nIt does not matter if x and y have the same units! Correlation is unitless.\n\nThe closer to -1 or 1, the stronger the relationship.\n\nAs correlation approaches -1 or 1, x is better at predicting y.\n\nFor fun: play Guess the Correlation."
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#introduction-simple-linear-regression",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#introduction-simple-linear-regression",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Introduction: Simple Linear Regression",
+    "text": "Introduction: Simple Linear Regression\n\nWe have discussed quantifying the relationship between two continuous variables.\nRecall that the correlation describes the strength and the direction of the relationship.\n\nPearson’s correlation: describes the linear relationship; assumes normality of both variables.\nSpearman’s correlation: describes the monotone relationship; assumes both variables are at least ordinal.\n\nFurther, recall that correlation is unitless and bounded to [-1, 1]."
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#introduction-simple-linear-regression-1",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#introduction-simple-linear-regression-1",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Introduction: Simple Linear Regression",
+    "text": "Introduction: Simple Linear Regression\n\nNow we will discuss a different way of representing/quantifying the relationship.\n\nWe will now construct a line of best fit, called the ordinary least squares (OLS) regression line.\n\nUsing simple linear regression, we will model y (the outcome) as a function of x (the predictor).\n\nThis is called simple linear regression becaause there is only one predictor.\nNext week, we will venture into multiple regression, which has mulitple predictors."
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#simple-linear-regression",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#simple-linear-regression",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Simple Linear Regression",
+    "text": "Simple Linear Regression\n\nPopulation regression line:\n\n y = \\beta_0 + \\beta_1 x + \\varepsilon \n\n\\beta_0 is the y-intercept.\n\\beta_1 is the slope describing the relationship between x and y.\n\\varepsilon (estimated by e) is the error term; remember, from ANOVA (😱):\n\n\\varepsilon \\overset{\\text{iid}}{\\sim} N(0, \\sigma^2)"
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#simple-linear-regression-1",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#simple-linear-regression-1",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Simple Linear Regression",
+    "text": "Simple Linear Regression\n\nPopulation regression line:\n\n y = \\beta_0 + \\beta_1 x + \\varepsilon \n\nSample regression line:\n\n\\hat{y} = \\hat{\\beta}_0 + \\hat{\\beta}_1 x + e\n\n\\hat{y} estimates y.\n\\hat{\\beta}_0 estimates \\beta_0.\n\\hat{\\beta}_1 estimates \\beta_1.\ne estimates \\varepsilon."
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#simple-linear-regression-2",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#simple-linear-regression-2",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Simple Linear Regression",
+    "text": "Simple Linear Regression\n\nWe first calculate the slope, \\hat{\\beta}_1\n\n \\hat{\\beta}_1 = \\frac{\\sum_{i=1}^n x_i y_i - \\frac{\\sum_{i=1}^n x_i \\sum_{i=1}^n y_i}{n}}{\\sum_{i=1}^n x_i^2 - \\frac{\\left(\\sum_{i=1}^n x_i\\right)^2}{n}} = r \\frac{s_y}{s_x} \n\nr is the Pearson correlation,\ns_x is the standard deviation of x, and\ns_y is the standard deviation of y"
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#simple-linear-regression-3",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#simple-linear-regression-3",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Simple Linear Regression",
+    "text": "Simple Linear Regression\n\nThen we can calculate the intercept, \\hat{\\beta}_0\n\n \\hat{\\beta}_0 = \\bar{y} - \\hat{\\beta}_1 \\bar{x} where\n\n\\bar{x} is the mean of x, and\n\\bar{y} is the mean of y."
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#simple-linear-regression-4",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#simple-linear-regression-4",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Simple Linear Regression",
+    "text": "Simple Linear Regression\n\nWe already know the syntax for modeling!\n\nANOVA = regression 😎\n\nWe will use the lm() function to define the model and summary() to see the results.\n\n\nm &lt;- lm(outcome_variable ~ predictor_variable, data = dataset_name)\nsummary(m)"
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#example-5",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#example-5",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Example",
+    "text": "Example\n\nRecall the golf data,\n\n\nlibrary(tidyverse)\ngolf &lt;- tibble(speed = c(100, 102, 103, 101, 105, 100, 99, 105), \n               distance = c(257, 264, 274, 266, 277, 263, 258, 275))\nhead(golf, n=3)"
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#example-6",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#example-6",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Example",
+    "text": "Example\n\nLet’s now construct the simple linear regression model.\n\nWe want to model distance as a function of speed.\n\n\n\nm &lt;- lm(distance ~ speed, data = golf)\nsummary(m)\n\n\nCall:\nlm(formula = distance ~ speed, data = golf)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-3.8136 -2.0195  0.3542  2.0619  3.6881 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -55.7966    48.3713  -1.154  0.29257    \nspeed         3.1661     0.4747   6.670  0.00055 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 2.883 on 6 degrees of freedom\nMultiple R-squared:  0.8811,    Adjusted R-squared:  0.8613 \nF-statistic: 44.48 on 1 and 6 DF,  p-value: 0.0005498\n\n\n\nThis results in the model,\n\n\\hat{\\text{distance}} = -55.80 + 3.17 \\text{ speed}"
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#interpretations",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#interpretations",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Interpretations",
+    "text": "Interpretations\n\nWe need to provide interpretations of\nInterpretation of the slope, \\hat{\\beta}_1\n\nFor a [k] [units of x] increase in [x], we expect [y] to [increase or decrease] by [k \\times |\\hat{\\beta}_1|] [units of y].\n\nInterpretation of the y-intercept, \\hat{\\beta}_0\n\nWhen [x] is 0, we expect the mean of [y] to be [\\hat{\\beta}_0].\nCaveat:\n\nIt does not always make sense for x=0. In this situation, we do not interpret the y-intercept.\nSome applications (e.g., psychology) will center the x variable around its mean. Then, when x=0, we are interpreting in terms of the “average value of x.”"
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#example-7",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#example-7",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Example",
+    "text": "Example\n\nRecall the regression line from the golf pro example, \\hat{\\text{distance}} = -55.80 + 3.17 \\text{ speed}\n\nFor a 1 mph increase in club-head speed, we expect the distance the golf ball travels to increase by 3.17 yards.\nFor a 5 mph increase in club-head speed, we expect the distance the golf ball travels to increase by 15.83 yards.\nWhen the club-head speed is 0 mph, the average distance the golf ball travels is -55.797 yards."
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#hypothesis-testing-for-beta_1",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#hypothesis-testing-for-beta_1",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Hypothesis Testing for \\beta_1",
+    "text": "Hypothesis Testing for \\beta_1\n\nFirst, the residual:\n\ne_i = y_i - \\hat{y}_i\n\nThen, we find the standard error of the estimate, s_e,\n\ns_e = \\sqrt{\\frac{\\sum_{i=1}^n e_i^2}{n-2}}\n\nFinally, we can find the standard error of \\hat{\\beta}_1, s_{\\hat{\\beta}_1},\n\ns_{\\hat{\\beta}_1} = \\frac{s_e}{\\sqrt{\\sum_{i=1}^n (x_i - \\bar{x})^2}} = \\frac{s_e}{s_x \\sqrt{n-1}}"
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#hypothesis-testing-for-beta_1-1",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#hypothesis-testing-for-beta_1-1",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Hypothesis Testing for \\beta_1",
+    "text": "Hypothesis Testing for \\beta_1\n\nHypotheses\n\nH_0: \\ \\beta_1 = 0\nH_1: \\ \\beta_1 \\ne 0\n\nTest Statistic\n\nt_0 = \\frac{\\hat{\\beta}_1}{s_{\\hat{\\beta}_1}} = \\frac{\\hat{\\beta}_1}{\\text{SE of }\\hat{\\beta}_1}\n\np-Value\n\np = 2 \\times P[t_{n-2} \\ge |t_0|]\n\nRejection Region\n\nReject H_0 if p&lt;\\alpha."
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#example-8",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#example-8",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Example",
+    "text": "Example\n\nFrom the golf example,\n\n\nsummary(m)\n\n\nCall:\nlm(formula = distance ~ speed, data = golf)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-3.8136 -2.0195  0.3542  2.0619  3.6881 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -55.7966    48.3713  -1.154  0.29257    \nspeed         3.1661     0.4747   6.670  0.00055 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 2.883 on 6 degrees of freedom\nMultiple R-squared:  0.8811,    Adjusted R-squared:  0.8613 \nF-statistic: 44.48 on 1 and 6 DF,  p-value: 0.0005498\n\n\n\nt_0 for speed is 6.67\n\nSlope for speed is 3.1661 and the SE of the slope for speed is 0.4747\nWe can see that 3.1661/0.4747 = 6.67\n\nThe corresponding p-value is p = 0.00055, which we will represent as p &lt; 0.001."
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#example-9",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#example-9",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Example",
+    "text": "Example\n\nHypotheses\n\nH_0: \\ \\beta_{\\text{speed}} = 0\nH_1: \\ \\beta_{\\text{speed}} \\ne 0\n\nTest Statistic\n\nt_0 = 6.67\n\np-Value\n\np &lt; 0.001\n\nRejection Region\n\nReject H_0 if p&lt;\\alpha; \\alpha=0.05"
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#confidence-interval-for-beta_1",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#confidence-interval-for-beta_1",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Confidence Interval for \\beta_1",
+    "text": "Confidence Interval for \\beta_1\n\nRecall that a point estimate by itself does not tell us how good our estimation is.\nThus, we are also interested in finding the confidence interval for \\beta_1.\n(1-\\alpha)100\\% CI for \\beta_1:  \\hat{\\beta}_1 \\pm t_{\\alpha/2,n-2} s_{\\hat{\\beta}_1} where the SE of the slope, s_{\\hat{\\beta}_1}, is as defined earlier.\nThe R syntax also reuses the model results in the confint() function.\n\n\nconfint(m) # for 95% CI\nconfint(m, level = conf_level) # for other levels"
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#example-10",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#example-10",
+    "title": "Correlation and Simple Linear Regression",
+    "section": "Example",
+    "text": "Example\n\nLet’s find the confidence intervals for the golf data,\n\n\nconfint(m) # 95% CI\n\n                  2.5 %    97.5 %\n(Intercept) -174.157039 62.563818\nspeed          2.004539  4.327664\n\nconfint(m, level = 0.90) # 90% CI\n\n                    5 %     95 %\n(Intercept) -149.790863 38.19764\nspeed          2.243664  4.08854\n\n\n\nThe 95% CI for \\beta_{\\text{speed}} is (2.00, 4.33).\nThe 90% CI for \\beta_{\\text{speed}} is (2.24, 4.09)."
+  },
+  {
+    "objectID": "files/lectures/W08-L1-simple-linear-regression.html#wrap-up",
+    "href": "files/lectures/W08-L1-simple-linear-regression.html#wrap-up",
+    "title": "Correlation and Simple Linear Regression",
     "section": "Wrap Up",
-    "text": "Wrap Up\n\nImportant note!!\n\nI do not expect you to agree with my assessment of q-q plots!\nWhat I do expect is that you know what to do after making your assessment.\n\nNext up:\n\nWhat happens if we do not meet the assumption for a t-test….?"
+    "text": "Wrap Up\n\nToday we discussed the modeling of continuous data.\nWe have discussed simple linear regression, which means we have a single predictor in the model.\nNext week, we will extend to multiple regression (more than one predictor).\nRegression is ANOVA; ANOVA is regression.\n\nKeep this in mind if you are asked to assess assumptions."
   },
   {
     "objectID": "files/lectures/W04-L3-Wilcoxon-rank-sum.html#introduction",
@@ -525,18 +854,11 @@
     "text": "Wrap Up\n\nToday we reviewed the dependent t-test.\n\nConfidence intervals\nHypothesis testing\n\nGet to know you quiz - complete with RStudio - was due Monday or Tuesday.\nCampus is closed on Monday!\n\nTuesday: optional session for Assignment 1 help.\nTR section: 2:30-3:45 pm, 4/310."
   },
   {
-    "objectID": "files/assignments/Assignment1.html",
-    "href": "files/assignments/Assignment1.html",
-    "title": "Assignment 1 - Spring 2025",
+    "objectID": "files/assignments/Assignment3.html",
+    "href": "files/assignments/Assignment3.html",
+    "title": "Assignment 3 - Spring 2025",
     "section": "",
-    "text": "1. Describe the data by completing the following table:\n\n\n\n\n\n\n\n\n\n\n\n2000\n2015\n\n\n\n\nSouth\nMean (Standard Deviation)\n132076.1 (109494.7)\nINSERT FOR 2015\n\n\nWest\nMean (Standard Deviation)\nINSERT FOR 2000\nINSERT FOR 2015\n\n\n\n\n\ndata %&gt;% # pipe in data\n  group_by(Region) %&gt;% # tell R we want this by \"Region\"\n  summarize(mean00 = mean(y2000), # request mean for 2000\n            sd00 = sd(y2000)) # request standard deviation for 2000\n\n# A tibble: 4 × 3\n  Region     mean00    sd00\n  &lt;chr&gt;       &lt;dbl&gt;   &lt;dbl&gt;\n1 Midwest   204973. 184965.\n2 Northeast 225918. 308950.\n3 South     132076. 109495.\n4 West      153955. 255145.\n\n\n2. Construct side-by-side boxplots comparing the West and Midwest regions for 2000 and 2015.\n\n\n\nbp00 &lt;- data_south_west %&gt;%\n  ggplot(aes(y= y2000, x=Region, fill=Region)) +\n          geom_boxplot() +\n          theme_minimal() +\n          labs(y = \"Spending\", x = \"Region\") +\n          ylim(min=0, max=1400000) +\n          ggtitle(\"2000\")\n\nbp00 &lt;- data_south_west %&gt;%\n  ggplot(aes(y= y2000, x=Region, fill=Region)) +\n          geom_boxplot() +\n          theme_minimal() +\n          labs(y = \"Spending\", x = \"Region\") +\n          ylim(min=0, max=1400000) +\n          ggtitle(\"2000\")\n\nggarrange(bp00, bp15, ncol=2)\n\nError: object 'bp15' not found\n\n\n3. Describe the distributions. Are they skewed? Do you think there’s a difference between the two regions?\n4. Use the appropriate t-test to determine if there is a difference in library spending between the South and West regions in 2000. Test at the \\(\\alpha=0.05\\) level. Remember to typeset the results.\n\nt.test(y2000 ~ Region,\n       data = data_south_west,\n       mu = 0,\n       alternative = \"two\")\n\n\n    Welch Two Sample t-test\n\ndata:  y2000 by Region\nt = -0.29898, df = 16.926, p-value = 0.7686\nalternative hypothesis: true difference in means between group South and group West is not equal to 0\n95 percent confidence interval:\n -176325.0  132566.6\nsample estimates:\nmean in group South  mean in group West \n           132076.1            153955.3 \n\n\nHypotheses\n\n\\(H_0:\\) \\(\\mu_s-\\mu_w = 0\\)\n\\(H_1:\\) \\(\\mu_s-\\mu_w \\ne 0\\)\n\nTest Statistic and p-Value\n\n\\(t_0 = -0.30\\)\n\\(p = 0.7686\\)\n\nRejection Region\n\nReject \\(H_0\\) if \\(p &lt; \\alpha\\); \\(\\alpha=0.05\\).\n\nConclusion/Interpretation\n\nFail to reject \\(H_0\\).\nThere is not sufficient evidence to suggest that the spending in the south and west regions is different.\n\n5. Graphically assess the normality assumption associated with the t-test in Q4. Remember to state whether or not the assumption is broken.\n6. Use the appropriate nonparametric test to determine if there is a difference in library spending between the South and West regions in 2000. Test at the \\(\\alpha=0.05\\) level. Remember to typeset the results.\n7. Based on your answer to Q5, which test should be reported? Explain why you’re choosing the test you’re choosing. (Hint: you will either choose the t-test or the nonparametric test.)\n8. Use the appropriate t-test to determine if there is a difference in library spending between 2000 and 2015 for all states. Test at the \\(\\alpha=0.05\\) level. Remember to typeset the results.\n9. Assess the normality assumption associated with the t-test in Q8. Remember to state whether or not the assumption is broken.\n10. Use the appropriate nonparametric test to determine if there is a difference in library spending between 2000 and 2015 for all states. Test at the \\(\\alpha=0.05\\) level. Remember to typeset the results.\n11. Based on your answer to Q9, which test should be reported? Explain why you’re choosing the test you’re choosing. (Hint: you will either choose the t-test or the nonparametric test.)"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "<b>STA4173 - Biostatistics - Spring 2025</b>",
-    "section": "",
-    "text": "Tentative Schedule\n\n\n\n\n\n\n\n\n\nDay\nTopic\nSlides\nIn Class\n\n\n\n\nW 01/08\nReview of estimation\n \n \n\n\nM 01/13\nIndependent t test\n \n\n\n\nSnow & Illness\ndependent t-test\n \n\n\n\n\nt-test assumptions\n \n\n\n\n\nWilcoxon rank sum (independent)\n \n\n\n\n\nWilcoxon signed rank (dependent)\n \n\n\n\nM 02/03\nAssignment 1\n\n\n\n\nW 02/05\nProject: planning period\n\n\n\n\nM 02/10\nAssignment 1\n\n\n\n\nW 02/12\nOne-way ANOVA and posthoc\n \n\n\n\nM 02/17\nANOVA assumptions & Kruskal-Wallis\n \n\n\n\nW 02/19\nTwo-Way ANOVA\n \n\n\n\nM 02/24\nSimple linear regression and correlation\n\n\n\n\nW 02/26\nProject: planning meeting\n\n\n\n\nM 03/03\nMultiple regression\n\n\n\n\nW 03/05\nCategorical analysis\n\n\n\n\nM 03/10\nLogistic regression\n\n\n\n\nW 03/12\nProject: planning\n\n\n\n\nM 03/17\nSpring Break!\n\n\n\n\nW 03/19\nSpring Break!\n\n\n\n\nM 03/24\nProject: analysis\n\n\n\n\nW 03/26\nOUR: What is a Poster?\n\n\n\n\nM 03/31\nProject: analysis\n\n\n\n\nW 04/02\nProject: summary\n\n\n\n\nM 04/07\nProject: poster draft\n\n\n\n\nW 04/09\nProject: final poster draft\n\n\n\n\nM 04/14\nProject: individual group meetings with Dr. Seals & Dr. Schmutz\n\n\n\n\nW 04/16\nProject: Practice poster presentation\n\n\n\n\nT 04/17\nProject: OUR Symposium\n\n\n\n\nM 04/21\nCatch up!\n\n\n\n\nW 04/23\nProject: reflections"
+    "text": "A regional airline transfers passengers from small airports to a larger regional hub airport. The airline’s data analyst was assigned to estimate the revenue (in thousands of dollars) generated by each of the 22 small airports based on two variables: the distance from each airport (in miles) to the hub and the population (in hundreds) of the cities in which each of the 22 airports is located. The data are given here: Google Sheet.\n\nlibrary(gsheet)\nairline_data &lt;- gsheet2tbl('https://docs.google.com/spreadsheets/d/10ZN0jMYdVsG2ucIJFSTquVRW916Jj-JmZIGQuqSQhy0/edit?usp=sharing')\n\n1. Model the revenue as a function of distance and population. Remember to state the resulting model.\n2. Provide brief interpretations for the slopes in the model.\n\n2a: distance -\n2b: population -\n\n3. Use the appropriate hypothesis test to determine if distance is a significant predictor of revenue. Test at the \\(\\alpha=0.05\\) level. Remember to typeset your results.\n4. Use the appropriate hypothesis test to determine if population is a significant predictor of revenue. Test at the \\(\\alpha=0.05\\) level. Remember to typeset your results.\n5. Use the appropriate hypothesis test to determine if this is a significant regression line. Test at the \\(\\alpha=0.05\\) level.\n6. How well does the data fit the line? Find the adjusted \\(R^2\\) value and comment on it.\n7. How many observations are considered outliers?\n8. Create a second dataset that contains observations that are not classified as outliers.\n\nairline_no_outliers &lt;- airline_data %&gt;%\n  filter(abs(rstandard(model_name))&gt;2.5)\n\nError in airline_data %&gt;% filter(abs(rstandard(model_name)) &gt; 2.5): could not find function \"%&gt;%\"\n\n\n9. Using the second dataset, model the revenue as a function of distance and population. Remember to state the resulting model.\n10. Provide brief interpretations for the slopes in the model.\n\n10a: distance -\n10b: population -\n\n11. How different are the interpretations from those in Q2?\n12. Use the appropriate hypothesis test to determine if distance is a significant predictor of revenue. Test at the \\(\\alpha=0.05\\) level. Remember to typeset your results.\n13. Use the appropriate hypothesis test to determine if population is a significant predictor of revenue. Test at the \\(\\alpha=0.05\\) level. Remember to typeset your results.\n14. How different are the results for Q12 and Q13 as compared to the full dataset’s analysis in Q3 and Q4?\n15. Use the appropriate hypothesis test to determine if this is a significant regression line. Test at the \\(\\alpha=0.05\\) level.\n16. How different are the results for Q15 as compared to the full dataset’s analysis in Q5?\n17. Check the model assumptions - is our model valid?\n18. Why do you think I chose this as your project? What are you taking away from the analyses you have done?"
   },
   {
     "objectID": "files/assignments/Assignment0.html",
@@ -544,6 +866,20 @@
     "title": "Introductions",
     "section": "",
     "text": "What is your name as it appears on my roster in Classmate? (We are using this assignment for attendance verification.)\nHow is your name pronounced?\nIs there another name you prefer to go by?\nWhat are your pronouns?\nWhat is your major(s) and minor(s)?\nWhat statistics courses have you taken previously?\nWhat environmental science courses have you taken previously?\nAre you familiar with statistical programming? (e.g., R, python, SAS, etc.)\nAre you familiar with Pensacola Beach?\nDo you have any questions or concerns about this course? If so, please list them and we will respond when we grade this assignment.\nWhat interests do you have, outside of school and work?\nWhat are three of your favorite things?\nIf you were independently wealthy, what would you do with your time?"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "<b>STA4173 - Biostatistics - Spring 2025</b>",
+    "section": "",
+    "text": "Tentative Schedule\n\n\n\n\n\n\n\n\nDay\nTopic\nSlides\n\n\n\n\nW 01/08\nReview of estimation\n \n\n\nM 01/13\nIndependent t test\n \n\n\nSnow & Illness\ndependent t-test\n \n\n\n\nt-test assumptions\n \n\n\n\nWilcoxon rank sum (independent)\n \n\n\n\nWilcoxon signed rank (dependent)\n \n\n\nM 02/03\nAssignment 1\n\n\n\nW 02/05\nProject: planning period\n\n\n\nM 02/10\nAssignment 1\n\n\n\nW 02/12\nOne-way ANOVA and posthoc\n \n\n\nM 02/17\nANOVA assumptions & Kruskal-Wallis\n \n\n\nW 02/19\nTwo-Way ANOVA\n \n\n\nM 02/24\nSimple linear regression and correlation\n \n\n\nW 02/26\nProject: data collection reflection\n\n\n\nM 03/03\nMultiple regression\n \n\n\nW 03/05\nCategorical analysis\n\n\n\nM 03/10\nLogistic regression\n\n\n\nW 03/12\nProject: planning\n\n\n\nM 03/17\nSpring Break!\n\n\n\nW 03/19\nSpring Break!\n\n\n\nM 03/24\nProject: analysis\n\n\n\nW 03/26\nOUR: What is a Poster?\n\n\n\nM 03/31\nProject: analysis\n\n\n\nW 04/02\nProject: summary\n\n\n\nM 04/07\nProject: poster draft\n\n\n\nW 04/09\nProject: final poster draft\n\n\n\nM 04/14\nProject: individual group meetings with Dr. Seals & Dr. Schmutz\n\n\n\nW 04/16\nProject: Practice poster presentation\n\n\n\nT 04/17\nProject: OUR Symposium\n\n\n\nM 04/21\nCatch up!\n\n\n\nW 04/23\nProject: reflections"
+  },
+  {
+    "objectID": "files/assignments/Assignment1.html",
+    "href": "files/assignments/Assignment1.html",
+    "title": "Assignment 1 - Spring 2025",
+    "section": "",
+    "text": "1. Describe the data by completing the following table:\n\n\n\n\n\n\n\n\n\n\n\n2000\n2015\n\n\n\n\nSouth\nMean (Standard Deviation)\n132076.1 (109494.7)\nINSERT FOR 2015\n\n\nWest\nMean (Standard Deviation)\nINSERT FOR 2000\nINSERT FOR 2015\n\n\n\n\n\ndata %&gt;% # pipe in data\n  group_by(Region) %&gt;% # tell R we want this by \"Region\"\n  summarize(mean00 = mean(y2000), # request mean for 2000\n            sd00 = sd(y2000)) # request standard deviation for 2000\n\n# A tibble: 4 × 3\n  Region     mean00    sd00\n  &lt;chr&gt;       &lt;dbl&gt;   &lt;dbl&gt;\n1 Midwest   204973. 184965.\n2 Northeast 225918. 308950.\n3 South     132076. 109495.\n4 West      153955. 255145.\n\n\n2. Construct side-by-side boxplots comparing the West and Midwest regions for 2000 and 2015.\n\n\n\nbp00 &lt;- data_south_west %&gt;%\n  ggplot(aes(y= y2000, x=Region, fill=Region)) +\n          geom_boxplot() +\n          theme_minimal() +\n          labs(y = \"Spending\", x = \"Region\") +\n          ylim(min=0, max=1400000) +\n          ggtitle(\"2000\")\n\nbp00 &lt;- data_south_west %&gt;%\n  ggplot(aes(y= y2000, x=Region, fill=Region)) +\n          geom_boxplot() +\n          theme_minimal() +\n          labs(y = \"Spending\", x = \"Region\") +\n          ylim(min=0, max=1400000) +\n          ggtitle(\"2000\")\n\nggarrange(bp00, bp15, ncol=2)\n\nError: object 'bp15' not found\n\n\n3. Describe the distributions. Are they skewed? Do you think there’s a difference between the two regions?\n4. Use the appropriate t-test to determine if there is a difference in library spending between the South and West regions in 2000. Test at the \\(\\alpha=0.05\\) level. Remember to typeset the results.\n\nt.test(y2000 ~ Region,\n       data = data_south_west,\n       mu = 0,\n       alternative = \"two\")\n\n\n    Welch Two Sample t-test\n\ndata:  y2000 by Region\nt = -0.29898, df = 16.926, p-value = 0.7686\nalternative hypothesis: true difference in means between group South and group West is not equal to 0\n95 percent confidence interval:\n -176325.0  132566.6\nsample estimates:\nmean in group South  mean in group West \n           132076.1            153955.3 \n\n\nHypotheses\n\n\\(H_0:\\) \\(\\mu_s-\\mu_w = 0\\)\n\\(H_1:\\) \\(\\mu_s-\\mu_w \\ne 0\\)\n\nTest Statistic and p-Value\n\n\\(t_0 = -0.30\\)\n\\(p = 0.7686\\)\n\nRejection Region\n\nReject \\(H_0\\) if \\(p &lt; \\alpha\\); \\(\\alpha=0.05\\).\n\nConclusion/Interpretation\n\nFail to reject \\(H_0\\).\nThere is not sufficient evidence to suggest that the spending in the south and west regions is different.\n\n5. Graphically assess the normality assumption associated with the t-test in Q4. Remember to state whether or not the assumption is broken.\n6. Use the appropriate nonparametric test to determine if there is a difference in library spending between the South and West regions in 2000. Test at the \\(\\alpha=0.05\\) level. Remember to typeset the results.\n7. Based on your answer to Q5, which test should be reported? Explain why you’re choosing the test you’re choosing. (Hint: you will either choose the t-test or the nonparametric test.)\n8. Use the appropriate t-test to determine if there is a difference in library spending between 2000 and 2015 for all states. Test at the \\(\\alpha=0.05\\) level. Remember to typeset the results.\n9. Assess the normality assumption associated with the t-test in Q8. Remember to state whether or not the assumption is broken.\n10. Use the appropriate nonparametric test to determine if there is a difference in library spending between 2000 and 2015 for all states. Test at the \\(\\alpha=0.05\\) level. Remember to typeset the results.\n11. Based on your answer to Q9, which test should be reported? Explain why you’re choosing the test you’re choosing. (Hint: you will either choose the t-test or the nonparametric test.)"
   },
   {
     "objectID": "files/assignments/Assignment2.html",
@@ -980,6 +1316,83 @@
     "text": "Wrap Up\n\nToday we reviewed estimation.\nNext week, we will review statistical inference.\n\nConfidence intervals\nHypothesis testing\n\nGet to know you quiz - complete with RStudio.\n\n.qmd \\to Quarto\n.R \\to R script\n\nJoin the Discord server!\n\nIf you are already a Discord user, this is a friendly reminder that you can change your display name…"
   },
   {
+    "objectID": "files/lectures/W04-L2-assumptions.html#introduction-assumptions",
+    "href": "files/lectures/W04-L2-assumptions.html#introduction-assumptions",
+    "title": "t-Test Assumptions",
+    "section": "Introduction: Assumptions",
+    "text": "Introduction: Assumptions\n\nWe have now learned one- and two-sample t-tests.\nRecall, when we have two samples, they can be independent samples or dependent samples.\n\nIndependent samples: two-sample t-test\nDependent samples: paired t-test (one-sample t-test on difference)\n\nToday we will discuss how to assess the assumptions on t-tests."
+  },
+  {
+    "objectID": "files/lectures/W04-L2-assumptions.html#normality-assumption-set-up",
+    "href": "files/lectures/W04-L2-assumptions.html#normality-assumption-set-up",
+    "title": "t-Test Assumptions",
+    "section": "Normality Assumption: Set Up",
+    "text": "Normality Assumption: Set Up\n\nAll t-tests assume approximate normality of the data.\n\nIn the case of one-sample t-tests, the measure of interest must somewhat follow a normal distribution.\nIn the case of two-sample t-tests, the measure of interest in each group must somewhat follow a normal distribution.\n\nNote that a paired t-test is technically a one-sample t-test, so we will examine normality of the difference."
+  },
+  {
+    "objectID": "files/lectures/W04-L2-assumptions.html#normality-assumption-set-up-1",
+    "href": "files/lectures/W04-L2-assumptions.html#normality-assumption-set-up-1",
+    "title": "t-Test Assumptions",
+    "section": "Normality Assumption: Set Up",
+    "text": "Normality Assumption: Set Up\n\nThere are formal tests for normality (see article here), however, we will not use them.\n\nTests for normality are not well-endorsed by statisticians.\n\nInstead, we will assess normality using a quantile-quantile (q-q) plot.\n\nThis is a scatterplot that will form a 45° line if the assumed distribution is correct.\nHere is more information about q-q plots.\n\nWe will create q-q plots for:\n\nThe measurements in the case of the one-sample t-test.\nThe measurements from each group in the case of the two-sample t-test.\nThe difference between the groups in the case of the paired t-test."
+  },
+  {
+    "objectID": "files/lectures/W04-L2-assumptions.html#normality-assumption-r-syntax",
+    "href": "files/lectures/W04-L2-assumptions.html#normality-assumption-r-syntax",
+    "title": "t-Test Assumptions",
+    "section": "Normality Assumption: R Syntax",
+    "text": "Normality Assumption: R Syntax\n\nWe will assess the normality assumption graphically using a q-q plot\nA package was written by a former student, classpackage.\n\nIf you are working on the server, the package is already installed.\nIf you are not working on the server, please ask me for the code needed to install."
+  },
+  {
+    "objectID": "files/lectures/W04-L2-assumptions.html#normality-assumption-independent-data---r-syntax",
+    "href": "files/lectures/W04-L2-assumptions.html#normality-assumption-independent-data---r-syntax",
+    "title": "t-Test Assumptions",
+    "section": "Normality Assumption: Independent Data - R Syntax",
+    "text": "Normality Assumption: Independent Data - R Syntax\n\nOnce installed, we call the package,\n\n\nlibrary(classpackage)\n\n\nWhile there are several functions in this package, we are currently interested in the independent_qq_plot() function.\n\n\ndataset_name %&gt;% independent_qq_plot(variable = \"continuous variable\",\n                                     grouping_variable = \"grouping variable\")\n\n\nThis will provide the the q-q plot for the two-sample t-test (i.e., for independent data)."
+  },
+  {
+    "objectID": "files/lectures/W04-L2-assumptions.html#normality-assumption-independent-data---example",
+    "href": "files/lectures/W04-L2-assumptions.html#normality-assumption-independent-data---example",
+    "title": "t-Test Assumptions",
+    "section": "Normality Assumption: Independent Data - Example",
+    "text": "Normality Assumption: Independent Data - Example\n\nRecall the penguin example for the two-sample t-test.\n\nIs the body mass different for males and females?\n\n\n\npenguins &lt;- palmerpenguins::penguins\nhead(penguins, n=3)\n\n\n  \n\n\n\n\nRequesting the q-q plot,\n\n\npenguins %&gt;% independent_qq_plot(variable = \"body_mass_g\",\n                                 grouping_variable = \"sex\")"
+  },
+  {
+    "objectID": "files/lectures/W04-L2-assumptions.html#normality-assumption-independent-data---example-1",
+    "href": "files/lectures/W04-L2-assumptions.html#normality-assumption-independent-data---example-1",
+    "title": "t-Test Assumptions",
+    "section": "Normality Assumption: Independent Data - Example",
+    "text": "Normality Assumption: Independent Data - Example"
+  },
+  {
+    "objectID": "files/lectures/W04-L2-assumptions.html#normality-assumption-dependent-data---r-syntax",
+    "href": "files/lectures/W04-L2-assumptions.html#normality-assumption-dependent-data---r-syntax",
+    "title": "t-Test Assumptions",
+    "section": "Normality Assumption: Dependent Data - R Syntax",
+    "text": "Normality Assumption: Dependent Data - R Syntax\n\nWhile there are several functions in the classpackage package, we are now interested in the dependent_qq_plot() function.\n\n\nwide_data %&gt;% dependent_qq_plot(variable = \"Display Name of Continuous Variable\",\n                                grouping_variable = \" \", # do not edit this line\n                                first_group = \"first_variable\", # first column for comparison\n                                second_group = \"second_variable\") # second column for comparison\n\n\nThis will provide the the q-q plot for the paired t-test (i.e., for dependent data)."
+  },
+  {
+    "objectID": "files/lectures/W04-L2-assumptions.html#normality-assumption-repair-estimates",
+    "href": "files/lectures/W04-L2-assumptions.html#normality-assumption-repair-estimates",
+    "title": "t-Test Assumptions",
+    "section": "Normality Assumption: Repair Estimates",
+    "text": "Normality Assumption: Repair Estimates\n\nRecall the repair estimate example for the dependent t-test.\n\n\ngarage &lt;- tibble(g1 = c(17.6, 20.2, 19.5, 11.3, 13.0, \n                        16.3, 15.3, 16.2, 12.2, 14.8,\n                        21.3, 22.1, 16.9, 17.6, 18.4), \n                 g2 = c(17.3, 19.1, 18.4, 11.5, 12.7, \n                        15.8, 14.9, 15.3, 12.0, 14.2, \n                        21.0, 21.0, 16.1, 16.7, 17.5))\n\n\nRequesting the q-q plot,\n\n\ngarage %&gt;% dependent_qq_plot(variable = \"estimate\",\n                             grouping_variable = \"garage\",\n                             first_group = \"g1\",\n                             second_group = \"g2\")"
+  },
+  {
+    "objectID": "files/lectures/W04-L2-assumptions.html#normality-assumption-repair-estimates-1",
+    "href": "files/lectures/W04-L2-assumptions.html#normality-assumption-repair-estimates-1",
+    "title": "t-Test Assumptions",
+    "section": "Normality Assumption: Repair Estimates",
+    "text": "Normality Assumption: Repair Estimates"
+  },
+  {
+    "objectID": "files/lectures/W04-L2-assumptions.html#wrap-up",
+    "href": "files/lectures/W04-L2-assumptions.html#wrap-up",
+    "title": "t-Test Assumptions",
+    "section": "Wrap Up",
+    "text": "Wrap Up\n\nImportant note!!\n\nI do not expect you to agree with my assessment of q-q plots!\nWhat I do expect is that you know what to do after making your assessment.\n\nNext up:\n\nWhat happens if we do not meet the assumption for a t-test….?"
+  },
+  {
     "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#introduction-anova-assumptions",
     "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#introduction-anova-assumptions",
     "title": "ANOVA Assumptions and  Kruskal-Wallis",
@@ -1110,7 +1523,7 @@
     "href": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#kruskal-wallis-posthoc-testing-1",
     "title": "ANOVA Assumptions and  Kruskal-Wallis",
     "section": "Kruskal-Wallis: Posthoc Testing",
-    "text": "Kruskal-Wallis: Posthoc Testing\n\nWe will use the kruskalmc() function from the pgirmess package to perform the Kruskal-Wallis post-hoc test.\n\n\nkruskalmc(continuous_variable ~ grouping_variable, \n          data = dataset_name)\n\n\nIn our example,\n\n\nlibrary(pgirmess) \nkruskalmc(strength ~ system, data = data)\n\nMultiple comparison test after Kruskal-Wallis \nalpha: 0.05 \nComparisons\n                 obs.dif critical.dif stat.signif\nCeramic-Cimara       0.2     9.871455       FALSE\nCeramic-Cojet        7.9     9.871455       FALSE\nCeramic-Silistor    10.3     9.871455        TRUE\nCimara-Cojet         8.1     9.871455       FALSE\nCimara-Silistor     10.5     9.871455        TRUE\nCojet-Silistor       2.4     9.871455       FALSE\n\n\n\nWhich pairs are significantly different?"
+    "text": "Kruskal-Wallis: Posthoc Testing\n\nWe will use the kruskalmc() function from the pgirmess package to perform the Kruskal-Wallis post-hoc test.\n\n\nkruskalmc(continuous_variable ~ grouping_variable, \n          data = dataset_name)\n\n\nIn our example,\n\n\nlibrary(pgirmess) \nkruskalmc(strength ~ system, \n          alpha = 0.01,\n          data = data)\n\nMultiple comparison test after Kruskal-Wallis \nalpha: 0.01 \nComparisons\n                 obs.dif critical.dif stat.signif\nCeramic-Cimara       0.2      11.7637       FALSE\nCeramic-Cojet        7.9      11.7637       FALSE\nCeramic-Silistor    10.3      11.7637       FALSE\nCimara-Cojet         8.1      11.7637       FALSE\nCimara-Silistor     10.5      11.7637       FALSE\nCojet-Silistor       2.4      11.7637       FALSE\n\n\n\nWhich pairs are significantly different?"
   },
   {
     "objectID": "files/lectures/W07-L1-ANOVA-assumptions-Kruskal-Wallis.html#wrap-up",
