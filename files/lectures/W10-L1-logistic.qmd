@@ -1,0 +1,273 @@
+---
+title: "**Logistic Regression**"
+subtitle: "**STA4173: Biostatistics** <br> Spring 2025"
+format: 
+  revealjs: 
+    code-overflow: wrap
+    df-print: paged
+    embed-resources: true
+    slide-number: true
+    width: 1600
+    height: 900
+    html-math-method: katex
+    theme:
+      - default
+execute:
+  echo: true
+  warning: false
+  message: false
+  error: true
+editor: source
+---
+
+## Introduction  
+
+- We have previously discussed continuous outcomes and the normal distribution.
+
+- Let's now consider categorical outcomes:
+
+    - **Binary**
+    
+    - Ordinal
+    
+    - Multinomial
+    
+## Binary Logistic Regression  
+
+- We model binary outcomes using logistic regression,
+
+$$\ln \left( \frac{\pi}{1-\pi} \right) = \beta_0 + \beta_1 x_1 + ... + \beta_k x_k,$$
+
+- where $\pi = \text{P}[Y = 1]$ = the probability of the outcome/event.
+
+- How is this different from linear regression?
+
+$$ y = \beta_0 + \beta_1 x_1 + ... + \beta_k x_k $$
+
+## Binary Logistic Regression 
+
+- Why isn't linear regression appropriate?
+
+## R Syntax  
+
+- In the [`glm()`](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/glm) function, we specify the binomial [`family`](https://www.rdocumentation.org/packages/stats/versions/3.6.2/topics/family).
+
+```{r}
+#| eval: false
+m <- glm(binary_outcome ~ predictor_1 + predictor_2 + ... + predictor_k, 
+         data = dataset_name, 
+         family = "binomial")
+```
+
+## Today's Data  
+
+- Today we will be using the [Roy Kent](https://github.com/rfordatascience/tidytuesday/blob/master/data/2023/2023-09-26/readme.md) dataset from [Tidy Tuesday](https://github.com/rfordatascience/tidytuesday).
+
+```{r}
+#| echo: false
+library(tidyverse)
+richmondway <- read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2023/2023-09-26/richmondway.csv') %>%
+  mutate(dating = if_else(Dating_flag == "Yes", 1, 0),
+         IMDB = if_else(Imdb_rating >= 8.5, 1, 0)) %>%
+  select(Season, Episode, F_count_RK, F_perc, dating, IMDB) 
+head(richmondway)
+```
+
+## Example: Roy Kent's F-Bombs  
+
+- Let's model the odds of Roy Kent and Keeley Jones dating in a particular episode (*dating*) as a function of the percentage of F-bombs that belong to Roy Kent (*F_perc*) and if the IMDB rating is an 8.5 or better (*IMDB*).
+
+```{r}
+m1 <- glm(dating ~ F_perc + IMDB, 
+          data = richmondway, 
+          family = "binomial"(link="logit"))
+summary(m1)
+```
+
+## Example: Roy Kent's F-Bombs  
+
+```{r}
+coefficients(m1)
+```
+
+- The model is as follows,
+
+$$\ln \left( \frac{\hat{\pi}}{1-\hat{\pi}} \right) = -1.76 + 0.03 x_1 + 0.38 x_2,$$ 
+
+- where 
+
+    - $x_1$ is the episode's percentage of the F-bombs from Roy Kent
+    - $x_2$ is the IMDB rating categorization of the episode
+    
+        - 0 = IMDB rating < 8.5
+        - 1 = IMDB rating $\ge$ 8.5
+    
+## Odds Ratios  
+
+- Recall the binary logistic regression model,
+
+$$ \ln \left( \frac{\pi}{1-\pi} \right) = \beta_0 + \beta_1 x_1 + ... + \beta_k x_k, $$
+
+- We are modeling the log odds, which are not intuitive with interpretations.
+
+- To be able to discuss the odds, we will "undo" the natural log by exponentiation. 
+
+- i.e., if we want to interpret the slope for $x_i$, we will look at $e^{\hat{\beta}_i}$.
+
+- When interpreting $\hat{\beta}_i$, it is an additive effect on the log odds. 
+
+- When interpreting $e^{\hat{\beta}_i}$, it is a multiplicative effect on the odds.
+
+## Odds Ratios  
+
+- Why is it a multiplicative effect?
+
+$$
+\begin{align*}
+  \ln \left( \frac{\pi}{1-\pi} \right) &= \beta_0 + \beta_1 x_1 + ... + \beta_k x_k \\
+  \exp\left\{ \ln \left( \frac{\pi}{1-\pi} \right) \right\} &= \exp\left\{ \beta_0 + \beta_1 x_1 + ... + \beta_k x_k \right\} \\
+  \frac{\pi}{1-\pi}  &= e^{\beta_0} e^{\beta_1 x_1} \cdots e^{\beta_k x_k}
+\end{align*}
+$$
+
+## Odds Ratios  
+
+- Odds ratios:
+
+    - For a 1 [unit of predictor] increase in [predictor name], the odds of [outcome] are multiplied by  [$e^{\hat{\beta}_i}$]. 
+    - For a 1 [unit of predictor] increase in [predictor name], the odds of [outcome] are [increased or decreased] by [100(e$^{\hat{\beta}_i}$-1)\% or 100(1-e$^{\hat{\beta}_i}$)\%]. 
+
+- Compared to linear regression:
+
+    - For a [$k$] [units of predictor] increase in [predictor], we expect [outcome] to [increase or decrease] by [$k \times |\hat{\beta}_1|$] [units of outcome].
+
+## Example: Roy Kent's F-Bombs  
+
+```{r}
+round(exp(coefficients(m1)),2)
+```
+
+- Let's interpret the odds ratios:
+
+    - For a 1 percentage point increase in the percentage of f-bombs that came from Roy Kent, the odds of Roy and Keeley dating increase by 3%.
+    
+    - As compared to when episodes have less than an IMDB rating of 8.5, the odds of Roy and Keeley dating are 46% higher in episodes with an IMDB rating of at least 8.5.
+
+    
+## Test for Significant Predictors  
+
+- What we've learned so far re: significance of predictors holds true with logistic regression.
+
+- Looking at the results from `summary()`:
+
+```{r}
+summary(m1)
+```
+
+## Test for Significant Predictors  
+
+- **Hypotheses**
+
+    - $H_0: \ \beta_{\text{perc}} = 0$ 
+    - $H_1: \ \beta_{\text{perc}} \ne 0$
+
+- **Test Statistic and *p*-Value**
+
+    - $z_0 = 1.326$
+    - $p = 0.185$
+
+- **Rejection Region**
+
+    - Reject $H_0$ if $p<\alpha$; $\alpha=0.05$.
+    
+- **Conclusion / Interpretation**
+
+    - Fail to reject $H_0$. There is not sufficient evidence to suggest there exists a relationship between Roy and Keeley dating and the percentage of f-bombs by Roy.
+    
+## Test for Significant Predictors  
+
+- **Hypotheses**
+
+    - $H_0: \ \beta_{\text{IMDB}} = 0$ 
+    - $H_1: \ \beta_{\text{IMDB}} \ne 0$
+
+- **Test Statistic and *p*-Value**
+
+    - $z_0 = 0.526$
+    - $p = 0.599$
+
+- **Rejection Region**
+
+    - Reject $H_0$ if $p<\alpha$; $\alpha=0.05$.
+    
+- **Conclusion / Interpretation**
+
+    - Fail to reject $H_0$. There is not sufficient evidence to suggest there exists a relationship between Roy and Keeley dating and the IMDB rating.\
+    
+## Test for Significant Regression Line  
+
+- We will take a different approach when testing for a significant regression line.
+
+```{r}
+#| eval: false
+full <- glm(outcome ~ predictor_1 + predictor_2 + ... + predictor_k, data = dataset_name, family = "binomial"(link="logit"))
+reduced <- glm(outcome ~ 1, data = dataset_name, family = "binomial"(link="logit")) 
+anova(reduced, full, test = "LRT")
+```
+
+## Test for Significant Regression Line
+
+- **Hypotheses**
+
+    - $H_0: \ \beta_1 = \beta_2 = ... = \beta_k = 0$ 
+    - $H_1:$ at least one $\beta_i \ne 0$
+
+- **Test Statistic**
+
+    - $\chi^2_0 =$ from R
+
+- ***p*-Value**
+
+    - $p = P[\chi^2_{k-1} \ge |\chi^2_0|]$
+
+- **Rejection Region**
+
+    - Reject $H_0$ if $p<\alpha$.
+    
+## Test for Significant Regression Line
+
+```{r}
+full <- glm(dating ~ F_perc + IMDB, data = richmondway, family = "binomial"(link="logit"))
+reduced <- glm(dating ~ 1, data = richmondway, family = "binomial"(link="logit")) # intercept only model
+anova(reduced, full, test = "LRT")
+```
+
+## Test for Significant Regression Line
+
+- **Hypotheses**
+
+    - $H_0: \ \beta_{\text{perc}} = \beta_{\text{IMDB}} = 0$ 
+    - $H_1:$ at least one $\beta_i \ne 0$
+
+- **Test Statistic**
+
+    - $\chi^2_0 = 2.402$ 
+    - $p = 0.301$
+
+- **Rejection Region**
+
+    - Reject $H_0$ if $p<\alpha$; $\alpha=0.05$.
+    
+- **Conclusion/Interpretation**
+
+    - Fail to reject $H_0$. There is not sufficient evidence to suggest that either predictor has a non-zero slope.
+
+## Wrap Up
+
+- That's it for new material for our course.
+
+- The rest of our class meetings will be devoted to working on the project.
+
+    - Remember that the OUR Symposium is on April 17!
+    
+- **It is crucial that you are present in class.**    

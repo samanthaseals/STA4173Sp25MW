@@ -26,8 +26,8 @@ title-block-banner: false
 | M 02/24 | Simple linear regression and correlation | <a href="files/lectures/W08-L1-simple-linear-regression.html"><i class="fa fa-display fa-s" style="color: #8DC8E8;"></i></a> <a href="https://github.com/samanthaseals/STA4173Sp25MW/blob/main/files/lectures/W08-L1-simple-linear-regression.qmd"><i class="fa fa-paperclip" style="color: #8DC8E8;"></i></a> 
 | W 02/26 | Project: data collection reflection | | 
 | M 03/03 | Multiple regression | <a href="files/lectures/W09-L1-multiple-regression.html"><i class="fa fa-display fa-s" style="color: #8DC8E8;"></i></a> <a href="https://github.com/samanthaseals/STA4173Sp25MW/blob/main/files/lectures/W09-L1-multiple-regression.qmd"><i class="fa fa-paperclip" style="color: #8DC8E8;"></i></a> 
-| W 03/05 | Categorical analysis | | 
-| M 03/10 | Logistic regression | | 
+| W 03/05 | Categorical analysis | <a href="files/lectures/W09-L2-categorical.html"><i class="fa fa-display fa-s" style="color: #8DC8E8;"></i></a> <a href="https://github.com/samanthaseals/STA4173Sp25MW/blob/main/files/lectures/W09-L2-categorical.qmd"><i class="fa fa-paperclip" style="color: #8DC8E8;"></i></a> 
+| M 03/10 | Logistic regression | <a href="files/lectures/W10-L1-logistic.html"><i class="fa fa-display fa-s" style="color: #8DC8E8;"></i></a> <a href="https://github.com/samanthaseals/STA4173Sp25MW/blob/main/files/lectures/W10-L1-logistic.qmd"><i class="fa fa-paperclip" style="color: #8DC8E8;"></i></a> 
 | W 03/12 | Project: planning | | 
 | M 03/17 | Spring Break! | | 
 | W 03/19 | Spring Break! | | 

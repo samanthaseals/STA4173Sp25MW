@@ -210,6 +210,272 @@
     "text": "Dunnett’s Test\n\nLet’s apply Dunnett’s to the dental data.\n\nWe will treat “Ceramic” as the control group.\n\n\n\nlibrary(DescTools)\nDunnettTest(x=data$strength, \n            g=data$system, \n            control = \"Ceramic\")\n\n\n  Dunnett's test for comparing several treatments with a control :  \n    95% family-wise confidence level\n\n$Ceramic\n                  diff     lwr.ci    upr.ci   pval    \nCimara-Ceramic   -0.14 -5.0138317  4.733832 0.9997    \nCojet-Ceramic     5.50  0.6261683 10.373832 0.0258 *  \nSilistor-Ceramic  6.86  1.9861683 11.733832 0.0058 ** \n\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\n\nWhich are significantly different at the \\alpha=0.01 level?"
   },
   {
+    "objectID": "files/lectures/W09-L2-categorical.html#introduction",
+    "href": "files/lectures/W09-L2-categorical.html#introduction",
+    "title": "Tests for Proportions",
+    "section": "Introduction",
+    "text": "Introduction\n\nBefore today, we have focused on continuous outcomes.\nNow we will focus on categorical (or qualitative) outcomes.\nToday, we will review how to test one and two sample proportions.\nWe will estimate a proportion using \\hat{p},\n\n\\hat{p} = \\frac{x}{n}\n\nWe will estimate the difference between two proportions using \\hat{p}_1 - \\hat{p}_2,\n\n\\hat{p_1}- \\hat{p_2} = \\frac{x_1}{n_1} - \\frac{x_2}{n_2}"
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#one-sample-proportions",
+    "href": "files/lectures/W09-L2-categorical.html#one-sample-proportions",
+    "title": "Tests for Proportions",
+    "section": "One-Sample Proportions",
+    "text": "One-Sample Proportions\n\nHypotheses\n\nH_0: p \\ge p_0 | H_0: p \\le p_0 | H_0: p = p_0\nH_1: p &lt; p_0 | H_0: p &gt; p_0 | H_1: p \\ne p_0\n\nTest Statistic\n\n\nz_0 = \\frac{\\hat{p}-p_0}{\\sqrt{\\frac{p_0(1-p_0)}{n}}}\n\n\np-Value\n\np = P[z \\le z_0] | p = P[z \\ge z_0] | p = 2P[z \\ge |z_0|]\n\nRejection Region\n\nReject H_0 if p &lt; \\alpha.\n\nConclusion/Interpretation\n\n[Reject or fail to reject] H_0.\nThere [is or is not] sufficient evidence to suggest [alternative hypothesis in words]."
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#one-sample-proportions-1",
+    "href": "files/lectures/W09-L2-categorical.html#one-sample-proportions-1",
+    "title": "Tests for Proportions",
+    "section": "One-Sample Proportions",
+    "text": "One-Sample Proportions\n\n(1–\\alpha)100% CI for a population proportion, p\n\n\\hat{p} \\pm z_{\\alpha/2} \\sqrt{\\frac{\\hat{p}(1-\\hat{p})}{n}}\n\nTo construct this interval, we require both:\n\nn\\hat{p}(1-\\hat{p}) \\ge 10 and\nn \\le 0.05N"
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#one-sample-proportions-2",
+    "href": "files/lectures/W09-L2-categorical.html#one-sample-proportions-2",
+    "title": "Tests for Proportions",
+    "section": "One-Sample Proportions",
+    "text": "One-Sample Proportions\n\nWe will use either the binom.test() function or the prop.test() function.\nIf we have n \\le 30,\n\n\nbinom.test(x = num_success, \n           n = sample_size, \n           p = hypothesized_value, \n           alternative = \"alternative\")\n\n\nIf we have n &gt; 30,\n\n\nprop.test(x = num_success, \n          n = sample_size, \n          p = hypothesized_value, \n          alternative = \"alternative\",\n          correct=FALSE)"
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#one-sample-proportions-3",
+    "href": "files/lectures/W09-L2-categorical.html#one-sample-proportions-3",
+    "title": "Tests for Proportions",
+    "section": "One-Sample Proportions",
+    "text": "One-Sample Proportions\n\nHumira is a medication used to treat rheumatoid arthritis (RA). In clinical trials of Humira, 705 subjects diagnosed with RA were administered 40 mg of Humira every other week. Of the 705 subjects, 66 reported nausea as a side effect. It is known that the proportion of RA subjects in similar studies receiving a placebo who report nausea as a side effect is 0.08. Does the sample evidence represent significant evidence that a higher proportion of subjects receiving Humira experience nausea as a side effect than those taking a placebo? Test at the \\alpha = 0.05 level of significance.\nWhat are the important pieces?"
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#one-sample-proportions-4",
+    "href": "files/lectures/W09-L2-categorical.html#one-sample-proportions-4",
+    "title": "Tests for Proportions",
+    "section": "One-Sample Proportions",
+    "text": "One-Sample Proportions\n\nHumira is a medication used to treat rheumatoid arthritis (RA). In clinical trials of Humira, 705 subjects diagnosed with RA were administered 40 mg of Humira every other week. Of the 705 subjects, 66 reported nausea as a side effect. It is known that the proportion of RA subjects in similar studies receiving a placebo who report nausea as a side effect is 0.08. Does the sample evidence represent significant evidence that a higher proportion of subjects receiving Humira experience nausea as a side effect than those taking a placebo? Test at the \\alpha = 0.05 level of significance.\nWhat is the point estimate, \\hat{p}?\nWhat is the 95% confidence interval for p?\nAre there a higher proportion of subjects taking Humira experiencing nausea as a side effect than those taking a placebo?"
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#one-sample-proportions-5",
+    "href": "files/lectures/W09-L2-categorical.html#one-sample-proportions-5",
+    "title": "Tests for Proportions",
+    "section": "One-Sample Proportions",
+    "text": "One-Sample Proportions\n\nOf the 705 subjects, 66 reported nausea as a side effect. It is known that the proportion of RA subjects in similar studies receiving a placebo who report nausea as a side effect is 0.08.\n\n\nprop.test(x = 66, \n          n = 705,\n          alternative = \"two\",\n          correct=FALSE)\n\n\n    1-sample proportions test without continuity correction\n\ndata:  66 out of 705, null probability 0.5\nX-squared = 465.71, df = 1, p-value &lt; 2.2e-16\nalternative hypothesis: true p is not equal to 0.5\n95 percent confidence interval:\n 0.07426251 0.11737620\nsample estimates:\n         p \n0.09361702 \n\n\n\nThus, the point estimate is \\hat{p} = 0.094 and the 95% CI for p is (0.07, 0.12)."
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#one-sample-proportions-6",
+    "href": "files/lectures/W09-L2-categorical.html#one-sample-proportions-6",
+    "title": "Tests for Proportions",
+    "section": "One-Sample Proportions",
+    "text": "One-Sample Proportions\n\nOf the 705 subjects, 66 reported nausea as a side effect. It is known that the proportion of RA subjects in similar studies receiving a placebo who report nausea as a side effect is 0.08.\n\n\nprop.test(x = 66, \n          n = 705,\n          p = 0.08,\n          alternative = \"greater\",\n          correct=FALSE)\n\n\n    1-sample proportions test without continuity correction\n\ndata:  66 out of 705, null probability 0.08\nX-squared = 1.7761, df = 1, p-value = 0.09131\nalternative hypothesis: true p is greater than 0.08\n95 percent confidence interval:\n 0.07709288 1.00000000\nsample estimates:\n         p \n0.09361702"
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#one-sample-proportions-7",
+    "href": "files/lectures/W09-L2-categorical.html#one-sample-proportions-7",
+    "title": "Tests for Proportions",
+    "section": "One-Sample Proportions",
+    "text": "One-Sample Proportions\n\nHypotheses:\n\nH_0: \\ p \\le 0.08\nH_1: \\ p &gt; 0.08\n\nTest Statistic and p-Value\n\n\\chi^2 = 1.77\np= 0.091\n\nRejection Region\n\nReject H_0 if p &lt; \\alpha; \\alpha=0.05.\n\nConclusion / Interpretation\n\nFail to reject H_0.\nThere is not sufficient evidence to suggest that the proportion of subjects taking Humira who experience nausea is greater than 0.08."
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#one-sample-proportions-8",
+    "href": "files/lectures/W09-L2-categorical.html#one-sample-proportions-8",
+    "title": "Tests for Proportions",
+    "section": "One-Sample Proportions",
+    "text": "One-Sample Proportions\n\nWhich do you think is easier to raise – a boy or a girl? When asked this question in 1947, 24% of all Americans said raising a girl was easier. In June 2018, the Gallup Organization surveyed 1500 adult Americans, of which 408 felt it was easier to raise a girl. Does this result suggest the proportion of adult Americans who believe it is easier to raise a girl has changed since 1947? Test at the \\alpha=0.10 level.\nWhat are the important pieces?"
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#one-sample-proportions-9",
+    "href": "files/lectures/W09-L2-categorical.html#one-sample-proportions-9",
+    "title": "Tests for Proportions",
+    "section": "One-Sample Proportions",
+    "text": "One-Sample Proportions\n\nWhich do you think is easier to raise – a boy or a girl? When asked this question in 1947, 24% of all Americans said raising a girl was easier. In June 2018, the Gallup Organization surveyed 1500 adult Americans, of which 408 felt it was easier to raise a girl. Does this result suggest the proportion of adult Americans who believe it is easier to raise a girl has changed since 1947? Test at the \\alpha=0.10 level.\nWhat are the important pieces?\n\nWhich do you think is easier to raise – a boy or a girl? When asked this question in 1947, 24% of all Americans said raising a girl was easier. In June 2018, the Gallup Organization surveyed 1500 adult Americans, of which 408 felt it was easier to raise a girl. Does this result suggest the proportion of adult Americans who believe it is easier to raise a girl has changed since 1947? Test at the \\alpha=0.10 level."
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#one-sample-proportions-10",
+    "href": "files/lectures/W09-L2-categorical.html#one-sample-proportions-10",
+    "title": "Tests for Proportions",
+    "section": "One-Sample Proportions",
+    "text": "One-Sample Proportions\n\nprop.test(x = 408, \n          n = 1500,\n          p = 0.24,\n          correct=FALSE)\n\n\n    1-sample proportions test without continuity correction\n\ndata:  408 out of 1500, null probability 0.24\nX-squared = 8.4211, df = 1, p-value = 0.003709\nalternative hypothesis: true p is not equal to 0.24\n95 percent confidence interval:\n 0.2500845 0.2950804\nsample estimates:\n    p \n0.272 \n\n\n\nThus, the point estimate is \\hat{p} = 0.272 and the 95% CI for p is (0.25, 0.30)."
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#one-sample-proportions-11",
+    "href": "files/lectures/W09-L2-categorical.html#one-sample-proportions-11",
+    "title": "Tests for Proportions",
+    "section": "One-Sample Proportions",
+    "text": "One-Sample Proportions\n\nHypotheses\n\nH_0: \\ p = 0.24\nH_1: \\ p \\ne 0.24\n\nTest Statistic and p-Value\n\n\\chi^2 = 8.42\np= 0.004\n\nRejection Region\n\nReject H_0 if p &lt; \\alpha; \\alpha=0.10.\n\nConclusion / Interpretation\n\nReject H_0.\nThere is sufficient evidence to suggest that the proportion of adult Americans who believe that it is easier to raise a girl has changed since 1947."
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#two-sample-proportions",
+    "href": "files/lectures/W09-L2-categorical.html#two-sample-proportions",
+    "title": "Tests for Proportions",
+    "section": "Two-Sample Proportions",
+    "text": "Two-Sample Proportions\n\nHypotheses\n\nH_0: p_1 - p_2 \\ge d_0 | H_0: p_1 -p_2 \\le d_0 | H_0: p_1-p_2 = d_0\nH_1: p_1-p_2 &lt; d_0 | H_0: p_1 - p_2 &gt; d_0 | H_1: p_1-p_2 \\ne d_0\n\nTest Statistic\n\nz_0 = \\frac{\\left( \\hat{p}_1 - \\hat{p}_2 \\right)- d_0}{\\sqrt{\\hat{p}\\left(1-\\hat{p}\\right)\\left( \\frac{1}{n_1}+\\frac{1}{n_2} \\right)}}\n\nwhere\n\n\\hat{p}_1 = \\frac{x_1}{n_1}, \\ \\ \\ \\hat{p}_2 = \\frac{x_2}{n_2}, \\ \\ \\ \\hat{p} = \\frac{x_1+x_2}{n_1+n_2}\n\np-Value\n\np = P[z \\le z_0] | p = P[z \\ge z_0] | p = 2P[z \\ge |z_0|]\n\nRejection Region\n\nReject H_0 if p &lt; \\alpha."
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#two-sample-proportions-1",
+    "href": "files/lectures/W09-L2-categorical.html#two-sample-proportions-1",
+    "title": "Tests for Proportions",
+    "section": "Two-Sample Proportions",
+    "text": "Two-Sample Proportions\n\n(1–\\alpha)100% CI for p_1-p_2\n\n(\\hat{p}_1 - \\hat{p}_2) \\pm z_{\\alpha/2} \\sqrt{\\frac{\\hat{p}_1 (1-\\hat{p}_1)}{n_1} + \\frac{\\hat{p}_2(1-\\hat{p}_2)}{n_2}}\n\nwhere\n\n\\hat{p}_1-\\hat{p}_2=\\frac{x_1}{n_1} - \\frac{x_2}{n_2}\n\nand\n\nx_i is the number of individuals in group i with a specified characteristic\nn_i is the sample size for group i\n\nTo construct this interval, we require:\n\nn_1 \\hat{p}_1(1-\\hat{p}_1) \\ge 10 and\nn_2 \\hat{p}_2(1-\\hat{p}_2) \\ge 10."
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#two-sample-proportions-2",
+    "href": "files/lectures/W09-L2-categorical.html#two-sample-proportions-2",
+    "title": "Tests for Proportions",
+    "section": "Two-Sample Proportions",
+    "text": "Two-Sample Proportions\n\nIn R, we again use the prop.test() function.\n\n\nprop.test(x = c(x_1, x_2), \n          n = c(n_1, n_2), \n          alternative = [alternative],\n          correct=FALSE)"
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#two-sample-proportions-3",
+    "href": "files/lectures/W09-L2-categorical.html#two-sample-proportions-3",
+    "title": "Tests for Proportions",
+    "section": "Two-Sample Proportions",
+    "text": "Two-Sample Proportions\n\nIn clinical trials of Nasonex, 3774 adult and adolescent allergy patients (patients 12 years and older) were randomly divided into two groups.\n\nThe patients in group 1 (experimental group) received 200 \\mug of Nasonex.\n\nOf the 2103 patients in the experimental group, 547 reported headaches as a side effect.\n\nThe patients in group 2 (control group) received a placebo.\n\nOf the 1671 patients in the control group, 368 reported headaches as a side effect.\n\n\nIs there evidence to conclude that the proportion of Nasonex users who experienced headaches as a side effect is greater than the proportion in the control group?\nTest at the \\alpha= 0.05 level of significance.\nWhat are the important pieces?"
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#two-sample-proportions-4",
+    "href": "files/lectures/W09-L2-categorical.html#two-sample-proportions-4",
+    "title": "Tests for Proportions",
+    "section": "Two-Sample Proportions",
+    "text": "Two-Sample Proportions\n\nIn clinical trials of Nasonex, 3774 adult and adolescent allergy patients (patients 12 years and older) were randomly divided into two groups.\n\nThe patients in group 1 (experimental group) received 200 \\mug of Nasonex.\n\nOf the 2103 patients in the experimental group, 547 reported headaches as a side effect.\n\nThe patients in group 2 (control group) received a placebo.\n\nOf the 1671 patients in the control group, 368 reported headaches as a side effect.\n\n\nIs there evidence to conclude that the proportion of Nasonex users who experienced headaches as a side effect is greater than the proportion in the control group?\nTest at the \\alpha= 0.05 level of significance.\nWhat are the important pieces?"
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#two-sample-proportions-5",
+    "href": "files/lectures/W09-L2-categorical.html#two-sample-proportions-5",
+    "title": "Tests for Proportions",
+    "section": "Two-Sample Proportions",
+    "text": "Two-Sample Proportions\n\nOf the 2103 patients in the experimental group, 547 reported headaches as a side effect.\nOf the 1671 patients in the control group, 368 reported headaches as a side effect.\n\n\nprop.test(x = c(547, 368), \n          n = c(2103, 1671), \n          correct=FALSE)\n\n\n    2-sample test for equality of proportions without continuity correction\n\ndata:  c(547, 368) out of c(2103, 1671)\nX-squared = 8.0618, df = 1, p-value = 0.004521\nalternative hypothesis: two.sided\n95 percent confidence interval:\n 0.01255827 0.06719613\nsample estimates:\n   prop 1    prop 2 \n0.2601046 0.2202274 \n\n\n\nThus, \\hat{p}_{\\text{Exp}} = 0.260, \\hat{p}_{\\text{Ctrl}} = 0.220 and \\hat{p}_{\\text{Exp}} - \\hat{p}_{\\text{Ctrl}} = 0.04.\nThe 95% CI for \\hat{p}_{\\text{Exp}} - \\hat{p}_{\\text{Ctrl}} is (0.013, 0.067)."
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#two-sample-proportions-6",
+    "href": "files/lectures/W09-L2-categorical.html#two-sample-proportions-6",
+    "title": "Tests for Proportions",
+    "section": "Two-Sample Proportions",
+    "text": "Two-Sample Proportions\n\nprop.test(x = c(547, 368), \n          n = c(2103, 1671), \n          alternative = \"greater\",\n          correct=FALSE)\n\n\n    2-sample test for equality of proportions without continuity correction\n\ndata:  c(547, 368) out of c(2103, 1671)\nX-squared = 8.0618, df = 1, p-value = 0.00226\nalternative hypothesis: greater\n95 percent confidence interval:\n 0.01695043 1.00000000\nsample estimates:\n   prop 1    prop 2 \n0.2601046 0.2202274"
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#two-sample-proportions-7",
+    "href": "files/lectures/W09-L2-categorical.html#two-sample-proportions-7",
+    "title": "Tests for Proportions",
+    "section": "Two-Sample Proportions",
+    "text": "Two-Sample Proportions\n\nHypotheses\n\nH_0: \\ p_{\\text{Exp}} \\le p_{\\text{Ctrl}}\n\nH_1: \\ p_{\\text{Exp}} &gt; p_{\\text{Ctrl}}\n\nTest Statistic and p-value\n\n\\chi^2 = 8.06 or z_0 = \\sqrt{8.0618} = 2.839\np= 0.002\n\nRejection Region\n\nReject H_0 if p &lt; \\alpha; \\alpha=0.05.\n\nConclusion / Interpretation\n\nReject H_0.\nThere is sufficient evidence to suggest that the proportion of Nasonex users who experienced headaches as a side effect is greater than that of the control group."
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#goodness-of-fit",
+    "href": "files/lectures/W09-L2-categorical.html#goodness-of-fit",
+    "title": "Tests for Proportions",
+    "section": "Goodness-of-Fit",
+    "text": "Goodness-of-Fit\n\nThe goodness-of-fit test allows us to determine if a frequency distribution follows a specific distribution.\n\nThis could be a named distribution (e.g., normal)\nIt could also be a distribution without a name (e.g., the probabilities are specified)\n\nBefore we can perform the goodness-of-fit test, we must compute expected counts.E_i = n p_i\n\ne.g., suppose that we expect 25% of Skittles to be red; if we have 100 Skittles, we then expect 25 of them to be red."
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#goodness-of-fit-1",
+    "href": "files/lectures/W09-L2-categorical.html#goodness-of-fit-1",
+    "title": "Tests for Proportions",
+    "section": "Goodness-of-Fit",
+    "text": "Goodness-of-Fit\n\nHypotheses\n\nH_0: The random variable follows the specified distribution.\nH_1: The random variable does not follow the specified distribution.\n\nTest Statistic\n\n\\chi^2_0 = \\sum_{i=1}^k \\frac{(O_i-E_i)^2}{E_i}, where O_i = observed and E_i = expected\n\np-Value\n\np = P[\\chi^2_{k-1} \\ge \\chi^2_0], where k = number of categories\n\nRejection Region\n\nReject H_0 if p &lt; \\alpha"
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#goodness-of-fit-2",
+    "href": "files/lectures/W09-L2-categorical.html#goodness-of-fit-2",
+    "title": "Tests for Proportions",
+    "section": "Goodness-of-Fit",
+    "text": "Goodness-of-Fit\n\nIn R, we will use the chisq.test() function and plug in both the counts and the expected probabilities\n\n\ncounts &lt;- c(O_1, O_2, ..., O_k) # create O_i vector\nprobs &lt;- c(p_1, p_2, ..., p_k) # create p_i vector\nchisq.test(counts, p = probs)"
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#goodness-of-fit-3",
+    "href": "files/lectures/W09-L2-categorical.html#goodness-of-fit-3",
+    "title": "Tests for Proportions",
+    "section": "Goodness-of-Fit",
+    "text": "Goodness-of-Fit\n\nUsing the economy data, below (based on the 2017 Current Population Survey, adjusted for inflation), determine if there is evidence to suggest that the distribution of income has changed since 2000.\nTest at the \\alpha = 0.05 level of significance.\n\n\n\n\nIncome\nObserved\nProbability\n\n\n\n\nUnder $15,000\n161\n0.099\n\n\n$15,000 - $24,999\n144\n0.098\n\n\n$25,000 - $34,999\n138\n0.093\n\n\n$35,000 - $49,999\n184\n0.135\n\n\n$50,000 - $74,999\n247\n0.179\n\n\n$75,000 - $99,999\n188\n0.131\n\n\n$100,000 - $149,999\n217\n0.149\n\n\n$150,000 - $199,999\n105\n0.061\n\n\nOver $200,000\n116\n0.055"
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#goodness-of-fit-4",
+    "href": "files/lectures/W09-L2-categorical.html#goodness-of-fit-4",
+    "title": "Tests for Proportions",
+    "section": "Goodness-of-Fit",
+    "text": "Goodness-of-Fit\n\ncounts &lt;- c(161, 144, 138, 184, 247, 188, 217, 105, 116) # create O_i vector\nprobs &lt;- c(0.099, 0.098, 0.093, 0.135, 0.179, 0.131, 0.149, 0.061, 0.055) # create p_i vector\nchisq.test(counts, p = probs)\n\n\n    Chi-squared test for given probabilities\n\ndata:  counts\nX-squared = 20.693, df = 8, p-value = 0.00801"
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#goodness-of-fit-5",
+    "href": "files/lectures/W09-L2-categorical.html#goodness-of-fit-5",
+    "title": "Tests for Proportions",
+    "section": "Goodness-of-Fit",
+    "text": "Goodness-of-Fit\n\nHypotheses\n\nH_0: Distribution of income in 2017 follows the same distribution as 2000.\nH_1: Distribution of income in 2017 does not follow the same distribution as 2000.\n\nTest Statistic and p-Value\n\n\\chi^2_0 = 20.693\np = 0.008\n\nRejection Region\n\nReject H_0 if p &lt; \\alpha; \\alpha=0.05\n\nConclusion/Interpretation\n\nReject H_0.\nThere is sufficient evidence to suggest that the distribution of income in 2017 does not follow the same distribution as in 2000."
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#goodness-of-fit-6",
+    "href": "files/lectures/W09-L2-categorical.html#goodness-of-fit-6",
+    "title": "Tests for Proportions",
+    "section": "Goodness-of-Fit",
+    "text": "Goodness-of-Fit\n\nAn obstetrician wants to know whether the proportion of children born on each day of the week is the same.\nShe randomly selects 500 birth records and obtains the data shown in the table below (based on data obtained from Vital Statistics of the United States, 2016).\nIs there reason to believe that the day on which a child is born does not occur with equal frequency at the \\alpha = 0.01 level of significance?\n\n\n\n\nSun\nMon\nTues\nWeds\nThurs\nFri\nSat\n\n\n\n\n46\n76\n83\n81\n81\n80\n53\n\n\n\n\nWhat about expected probabilities?"
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#goodness-of-fit-7",
+    "href": "files/lectures/W09-L2-categorical.html#goodness-of-fit-7",
+    "title": "Tests for Proportions",
+    "section": "Goodness-of-Fit",
+    "text": "Goodness-of-Fit\n\ncounts &lt;- c(46, 76, 83, 81, 81, 80, 53) # create O_i vector\nprobs &lt;- c(1/7, 1/7, 1/7, 1/7, 1/7, 1/7, 1/7) # create p_i vector\nchisq.test(counts, p = probs)\n\n\n    Chi-squared test for given probabilities\n\ndata:  counts\nX-squared = 19.568, df = 6, p-value = 0.003305"
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#goodness-of-fit-8",
+    "href": "files/lectures/W09-L2-categorical.html#goodness-of-fit-8",
+    "title": "Tests for Proportions",
+    "section": "Goodness-of-Fit",
+    "text": "Goodness-of-Fit\n\nHypotheses\n\nH_0: \\ p_M = p_T = ... = p_{Su} = \\frac{1}{7}.\nH_1: At least one proportion is different.\n\nTest Statistic and p-Value\n\n\\chi^2_0 = 19.568\np = 0.003\n\nRejection Region\n\nReject H_0 if p &lt; \\alpha; \\alpha=0.01\n\nConclusion/Interpretation\n\nReject H_0.\nThere is sufficient evidence to suggest that at least one proportion is different."
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#test-for-independence",
+    "href": "files/lectures/W09-L2-categorical.html#test-for-independence",
+    "title": "Tests for Proportions",
+    "section": "Test for Independence",
+    "text": "Test for Independence\n\nLet us now discuss testing two categorical variables to determine if a relationship exists.\nTake, for example, this data:\n\n\n\nWe will use the \\chi^2 test for independence to determine if happiness depends on marital status."
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#test-for-independence-1",
+    "href": "files/lectures/W09-L2-categorical.html#test-for-independence-1",
+    "title": "Tests for Proportions",
+    "section": "Test for Independence",
+    "text": "Test for Independence\n\nLike in the goodness-of-fit test, we will first compute expected values.\n\n\n\n\n\nWe find the expected values,\n\nE_{ij} = \\frac{R_i C_j}{n}\n\nwhere R_i is the total for row i, C_j is the total for column j, and n is the total sample size"
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#test-for-independence-2",
+    "href": "files/lectures/W09-L2-categorical.html#test-for-independence-2",
+    "title": "Tests for Proportions",
+    "section": "Test for Independence",
+    "text": "Test for Independence\n\nHypotheses\n\nH_0: There is not a relationship between [var 1] and [var 2].\nH_1: There is a relationship between [var 1] and [var 2].\n\nTest Statistic\n\n\\chi_0^2 = \\sum_{i=1}^k \\frac{(O_i-E_i)^2}{E_i}\n\np-Value\n\np = \\text{P}[\\chi^2_{(r-1)(c-1)} \\ge \\chi^2_0]\n\nRejection Region\n\nReject H_0 if p &lt; \\alpha"
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#test-for-independence-3",
+    "href": "files/lectures/W09-L2-categorical.html#test-for-independence-3",
+    "title": "Tests for Proportions",
+    "section": "Test for Independence",
+    "text": "Test for Independence\n\nIf given the contingency table, we can enter it in a matrix() (see example) and use the chisq.test() function.\n\n\nchisq.test([matrix name])\n\n\nIf given raw data, we can use the CrossTable() function in the gmodels package.\n\nNote: this function replicates PROC FREQ from SAS :)\n\n\n\nCrossTable(dataset_name$row_variable, \n           dataset_name$col_variable, \n           prop.chisq= FALSE,  # turn off proportion contributed to chi-square statistic\n           prop.t = FALSE, # turn off total proportions\n           chisq = TRUE) # request chi-square test"
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#test-for-independence-4",
+    "href": "files/lectures/W09-L2-categorical.html#test-for-independence-4",
+    "title": "Tests for Proportions",
+    "section": "Test for Independence",
+    "text": "Test for Independence\n\nIn our example,\n\n\nobserved_table &lt;- matrix(c(600, 63, 112, 144,\n                           720, 142, 355, 459,\n                           93, 51, 119, 127), \n                         nrow = 3, ncol = 4, byrow = T)\n# I prefer to include breaks to make it look like the table given just for checking purposes\n# make sure you edit the number of rows (nrow) and columns (ncol)!\n\nrownames(observed_table) &lt;- c(\"Very Happy\", \"Pretty Happy\", \"Not Too Happy\") # name rows\ncolnames(observed_table) &lt;- c(\"Married\", \"Widowed\", \"Divorced/Separated\", \"Never Married\") # name cols\n\nobserved_table # print table to make sure it is what we want\n\n              Married Widowed Divorced/Separated Never Married\nVery Happy        600      63                112           144\nPretty Happy      720     142                355           459\nNot Too Happy      93      51                119           127\n\nchisq.test(observed_table) # chi-squared test for independence\n\n\n    Pearson's Chi-squared test\n\ndata:  observed_table\nX-squared = 224.12, df = 6, p-value &lt; 2.2e-16"
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#test-for-independence-5",
+    "href": "files/lectures/W09-L2-categorical.html#test-for-independence-5",
+    "title": "Tests for Proportions",
+    "section": "Test for Independence",
+    "text": "Test for Independence\n\nHypotheses\n\nH_0: Happiness does not depend on marital status.\nH_1: Happiness depends on marital status.\n\nTest Statistic and p-Value\n\n\\chi^2_0 = 224.116\np &lt; 0.001\n\nRejection Region\n\nReject H_0 if p &lt; \\alpha; \\alpha=0.05\n\nConclusion/Interpretation\n\nReject H_0.\nThere is sufficient evidence to suggest that happiness depends on marital status."
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#test-for-independence-6",
+    "href": "files/lectures/W09-L2-categorical.html#test-for-independence-6",
+    "title": "Tests for Proportions",
+    "section": "Test for Independence",
+    "text": "Test for Independence\n\nTo see how the CrossTable() function works, let’s explore the Palmer penguin dataset.\n\n\nlibrary(gmodels)\npenguins &lt;- palmerpenguins::penguins \nCrossTable(penguins$species, \n           penguins$sex, \n           prop.chisq= FALSE,  # turn off proportion contributed to chi-square statistic\n           prop.t = FALSE, # turn off total proportions\n           chisq = TRUE) # request chi-square test\n\n\n \n   Cell Contents\n|-------------------------|\n|                       N |\n|           N / Row Total |\n|           N / Col Total |\n|-------------------------|\n\n \nTotal Observations in Table:  333 \n\n \n                 | penguins$sex \npenguins$species |    female |      male | Row Total | \n-----------------|-----------|-----------|-----------|\n          Adelie |        73 |        73 |       146 | \n                 |     0.500 |     0.500 |     0.438 | \n                 |     0.442 |     0.435 |           | \n-----------------|-----------|-----------|-----------|\n       Chinstrap |        34 |        34 |        68 | \n                 |     0.500 |     0.500 |     0.204 | \n                 |     0.206 |     0.202 |           | \n-----------------|-----------|-----------|-----------|\n          Gentoo |        58 |        61 |       119 | \n                 |     0.487 |     0.513 |     0.357 | \n                 |     0.352 |     0.363 |           | \n-----------------|-----------|-----------|-----------|\n    Column Total |       165 |       168 |       333 | \n                 |     0.495 |     0.505 |           | \n-----------------|-----------|-----------|-----------|\n\n \nStatistics for All Table Factors\n\n\nPearson's Chi-squared test \n------------------------------------------------------------\nChi^2 =  0.04860717     d.f. =  2     p =  0.9759894"
+  },
+  {
+    "objectID": "files/lectures/W09-L2-categorical.html#test-for-independence-7",
+    "href": "files/lectures/W09-L2-categorical.html#test-for-independence-7",
+    "title": "Tests for Proportions",
+    "section": "Test for Independence",
+    "text": "Test for Independence\n\nHypotheses\n\nH_0: Biological sex of penguin depends on penguin species.\nH_1: Biological sex of penguin does not depend on penguin species.\n\nTest Statistic and p-Value\n\n\\chi^2_0 = 0.049\np = 0.976\n\nRejection Region\n\nReject H_0 if p &lt; \\alpha; \\alpha=0.05\n\nConclusion/Interpretation\n\nFail to reject H_0. There is not sufficient evidence to suggest that the biological sex of penguins depends on species of penguin."
+  },
+  {
     "objectID": "files/lectures/W04-L1-dependent-t.html#introduction",
     "href": "files/lectures/W04-L1-dependent-t.html#introduction",
     "title": "Dependent t-Tests",
@@ -872,7 +1138,7 @@
     "href": "index.html",
     "title": "<b>STA4173 - Biostatistics - Spring 2025</b>",
     "section": "",
-    "text": "Tentative Schedule\n\n\n\n\n\n\n\n\nDay\nTopic\nSlides\n\n\n\n\nW 01/08\nReview of estimation\n \n\n\nM 01/13\nIndependent t test\n \n\n\nSnow & Illness\ndependent t-test\n \n\n\n\nt-test assumptions\n \n\n\n\nWilcoxon rank sum (independent)\n \n\n\n\nWilcoxon signed rank (dependent)\n \n\n\nM 02/03\nAssignment 1\n\n\n\nW 02/05\nProject: planning period\n\n\n\nM 02/10\nAssignment 1\n\n\n\nW 02/12\nOne-way ANOVA and posthoc\n \n\n\nM 02/17\nANOVA assumptions & Kruskal-Wallis\n \n\n\nW 02/19\nTwo-Way ANOVA\n \n\n\nM 02/24\nSimple linear regression and correlation\n \n\n\nW 02/26\nProject: data collection reflection\n\n\n\nM 03/03\nMultiple regression\n \n\n\nW 03/05\nCategorical analysis\n\n\n\nM 03/10\nLogistic regression\n\n\n\nW 03/12\nProject: planning\n\n\n\nM 03/17\nSpring Break!\n\n\n\nW 03/19\nSpring Break!\n\n\n\nM 03/24\nProject: analysis\n\n\n\nW 03/26\nOUR: What is a Poster?\n\n\n\nM 03/31\nProject: analysis\n\n\n\nW 04/02\nProject: summary\n\n\n\nM 04/07\nProject: poster draft\n\n\n\nW 04/09\nProject: final poster draft\n\n\n\nM 04/14\nProject: individual group meetings with Dr. Seals & Dr. Schmutz\n\n\n\nW 04/16\nProject: Practice poster presentation\n\n\n\nT 04/17\nProject: OUR Symposium\n\n\n\nM 04/21\nCatch up!\n\n\n\nW 04/23\nProject: reflections"
+    "text": "Tentative Schedule\n\n\n\n\n\n\n\n\nDay\nTopic\nSlides\n\n\n\n\nW 01/08\nReview of estimation\n \n\n\nM 01/13\nIndependent t test\n \n\n\nSnow & Illness\ndependent t-test\n \n\n\n\nt-test assumptions\n \n\n\n\nWilcoxon rank sum (independent)\n \n\n\n\nWilcoxon signed rank (dependent)\n \n\n\nM 02/03\nAssignment 1\n\n\n\nW 02/05\nProject: planning period\n\n\n\nM 02/10\nAssignment 1\n\n\n\nW 02/12\nOne-way ANOVA and posthoc\n \n\n\nM 02/17\nANOVA assumptions & Kruskal-Wallis\n \n\n\nW 02/19\nTwo-Way ANOVA\n \n\n\nM 02/24\nSimple linear regression and correlation\n \n\n\nW 02/26\nProject: data collection reflection\n\n\n\nM 03/03\nMultiple regression\n \n\n\nW 03/05\nCategorical analysis\n \n\n\nM 03/10\nLogistic regression\n \n\n\nW 03/12\nProject: planning\n\n\n\nM 03/17\nSpring Break!\n\n\n\nW 03/19\nSpring Break!\n\n\n\nM 03/24\nProject: analysis\n\n\n\nW 03/26\nOUR: What is a Poster?\n\n\n\nM 03/31\nProject: analysis\n\n\n\nW 04/02\nProject: summary\n\n\n\nM 04/07\nProject: poster draft\n\n\n\nW 04/09\nProject: final poster draft\n\n\n\nM 04/14\nProject: individual group meetings with Dr. Seals & Dr. Schmutz\n\n\n\nW 04/16\nProject: Practice poster presentation\n\n\n\nT 04/17\nProject: OUR Symposium\n\n\n\nM 04/21\nCatch up!\n\n\n\nW 04/23\nProject: reflections"
   },
   {
     "objectID": "files/assignments/Assignment1.html",
@@ -1531,6 +1797,139 @@
     "title": "ANOVA Assumptions and  Kruskal-Wallis",
     "section": "Wrap Up",
     "text": "Wrap Up\n\nToday we have talked about assessing ANOVA assumptions and performing the nonparametric alternative, the Kruskal-Wallis.\nPer usual, we should only look at posthoc testing when we’ve detected an overall difference with the Kruskal-Wallis.\nNext lecture: two-way ANOVA."
+  },
+  {
+    "objectID": "files/lectures/W10-L1-logistic.html#introduction",
+    "href": "files/lectures/W10-L1-logistic.html#introduction",
+    "title": "Logistic Regression",
+    "section": "Introduction",
+    "text": "Introduction\n\nWe have previously discussed continuous outcomes and the normal distribution.\nLet’s now consider categorical outcomes:\n\nBinary\nOrdinal\nMultinomial"
+  },
+  {
+    "objectID": "files/lectures/W10-L1-logistic.html#binary-logistic-regression",
+    "href": "files/lectures/W10-L1-logistic.html#binary-logistic-regression",
+    "title": "Logistic Regression",
+    "section": "Binary Logistic Regression",
+    "text": "Binary Logistic Regression\n\nWe model binary outcomes using logistic regression,\n\n\\ln \\left( \\frac{\\pi}{1-\\pi} \\right) = \\beta_0 + \\beta_1 x_1 + ... + \\beta_k x_k,\n\nwhere \\pi = \\text{P}[Y = 1] = the probability of the outcome/event.\nHow is this different from linear regression?\n\n y = \\beta_0 + \\beta_1 x_1 + ... + \\beta_k x_k"
+  },
+  {
+    "objectID": "files/lectures/W10-L1-logistic.html#binary-logistic-regression-1",
+    "href": "files/lectures/W10-L1-logistic.html#binary-logistic-regression-1",
+    "title": "Logistic Regression",
+    "section": "Binary Logistic Regression",
+    "text": "Binary Logistic Regression\n\nWhy isn’t linear regression appropriate?"
+  },
+  {
+    "objectID": "files/lectures/W10-L1-logistic.html#r-syntax",
+    "href": "files/lectures/W10-L1-logistic.html#r-syntax",
+    "title": "Logistic Regression",
+    "section": "R Syntax",
+    "text": "R Syntax\n\nIn the glm() function, we specify the binomial family.\n\n\nm &lt;- glm(binary_outcome ~ predictor_1 + predictor_2 + ... + predictor_k, \n         data = dataset_name, \n         family = \"binomial\")"
+  },
+  {
+    "objectID": "files/lectures/W10-L1-logistic.html#todays-data",
+    "href": "files/lectures/W10-L1-logistic.html#todays-data",
+    "title": "Logistic Regression",
+    "section": "Today’s Data",
+    "text": "Today’s Data\n\nToday we will be using the Roy Kent dataset from Tidy Tuesday."
+  },
+  {
+    "objectID": "files/lectures/W10-L1-logistic.html#example-roy-kents-f-bombs",
+    "href": "files/lectures/W10-L1-logistic.html#example-roy-kents-f-bombs",
+    "title": "Logistic Regression",
+    "section": "Example: Roy Kent’s F-Bombs",
+    "text": "Example: Roy Kent’s F-Bombs\n\nLet’s model the odds of Roy Kent and Keeley Jones dating in a particular episode (dating) as a function of the percentage of F-bombs that belong to Roy Kent (F_perc) and if the IMDB rating is an 8.5 or better (IMDB).\n\n\nm1 &lt;- glm(dating ~ F_perc + IMDB, \n          data = richmondway, \n          family = \"binomial\"(link=\"logit\"))\nsummary(m1)\n\n\nCall:\nglm(formula = dating ~ F_perc + IMDB, family = binomial(link = \"logit\"), \n    data = richmondway)\n\nCoefficients:\n            Estimate Std. Error z value Pr(&gt;|z|)\n(Intercept) -1.76166    1.08995  -1.616    0.106\nF_perc       0.03323    0.02506   1.326    0.185\nIMDB         0.37986    0.72250   0.526    0.599\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 46.662  on 33  degrees of freedom\nResidual deviance: 44.261  on 31  degrees of freedom\nAIC: 50.261\n\nNumber of Fisher Scoring iterations: 4"
+  },
+  {
+    "objectID": "files/lectures/W10-L1-logistic.html#example-roy-kents-f-bombs-1",
+    "href": "files/lectures/W10-L1-logistic.html#example-roy-kents-f-bombs-1",
+    "title": "Logistic Regression",
+    "section": "Example: Roy Kent’s F-Bombs",
+    "text": "Example: Roy Kent’s F-Bombs\n\ncoefficients(m1)\n\n(Intercept)      F_perc        IMDB \n-1.76166167  0.03323012  0.37986267 \n\n\n\nThe model is as follows,\n\n\\ln \\left( \\frac{\\hat{\\pi}}{1-\\hat{\\pi}} \\right) = -1.76 + 0.03 x_1 + 0.38 x_2,\n\nwhere\n\nx_1 is the episode’s percentage of the F-bombs from Roy Kent\nx_2 is the IMDB rating categorization of the episode\n\n0 = IMDB rating &lt; 8.5\n1 = IMDB rating \\ge 8.5"
+  },
+  {
+    "objectID": "files/lectures/W10-L1-logistic.html#odds-ratios",
+    "href": "files/lectures/W10-L1-logistic.html#odds-ratios",
+    "title": "Logistic Regression",
+    "section": "Odds Ratios",
+    "text": "Odds Ratios\n\nRecall the binary logistic regression model,\n\n \\ln \\left( \\frac{\\pi}{1-\\pi} \\right) = \\beta_0 + \\beta_1 x_1 + ... + \\beta_k x_k, \n\nWe are modeling the log odds, which are not intuitive with interpretations.\nTo be able to discuss the odds, we will “undo” the natural log by exponentiation.\ni.e., if we want to interpret the slope for x_i, we will look at e^{\\hat{\\beta}_i}.\nWhen interpreting \\hat{\\beta}_i, it is an additive effect on the log odds.\nWhen interpreting e^{\\hat{\\beta}_i}, it is a multiplicative effect on the odds."
+  },
+  {
+    "objectID": "files/lectures/W10-L1-logistic.html#odds-ratios-1",
+    "href": "files/lectures/W10-L1-logistic.html#odds-ratios-1",
+    "title": "Logistic Regression",
+    "section": "Odds Ratios",
+    "text": "Odds Ratios\n\nWhy is it a multiplicative effect?\n\n\n\\begin{align*}\n  \\ln \\left( \\frac{\\pi}{1-\\pi} \\right) &= \\beta_0 + \\beta_1 x_1 + ... + \\beta_k x_k \\\\\n  \\exp\\left\\{ \\ln \\left( \\frac{\\pi}{1-\\pi} \\right) \\right\\} &= \\exp\\left\\{ \\beta_0 + \\beta_1 x_1 + ... + \\beta_k x_k \\right\\} \\\\\n  \\frac{\\pi}{1-\\pi}  &= e^{\\beta_0} e^{\\beta_1 x_1} \\cdots e^{\\beta_k x_k}\n\\end{align*}"
+  },
+  {
+    "objectID": "files/lectures/W10-L1-logistic.html#odds-ratios-2",
+    "href": "files/lectures/W10-L1-logistic.html#odds-ratios-2",
+    "title": "Logistic Regression",
+    "section": "Odds Ratios",
+    "text": "Odds Ratios\n\nOdds ratios:\n\nFor a 1 [unit of predictor] increase in [predictor name], the odds of [outcome] are multiplied by [e^{\\hat{\\beta}_i}].\nFor a 1 [unit of predictor] increase in [predictor name], the odds of [outcome] are [increased or decreased] by [100(e^{\\hat{\\beta}_i}-1)% or 100(1-e^{\\hat{\\beta}_i})%].\n\nCompared to linear regression:\n\nFor a [k] [units of predictor] increase in [predictor], we expect [outcome] to [increase or decrease] by [k \\times |\\hat{\\beta}_1|] [units of outcome]."
+  },
+  {
+    "objectID": "files/lectures/W10-L1-logistic.html#example-roy-kents-f-bombs-2",
+    "href": "files/lectures/W10-L1-logistic.html#example-roy-kents-f-bombs-2",
+    "title": "Logistic Regression",
+    "section": "Example: Roy Kent’s F-Bombs",
+    "text": "Example: Roy Kent’s F-Bombs\n\nround(exp(coefficients(m1)),2)\n\n(Intercept)      F_perc        IMDB \n       0.17        1.03        1.46 \n\n\n\nLet’s interpret the odds ratios:\n\nFor a 1 percentage point increase in the percentage of f-bombs that came from Roy Kent, the odds of Roy and Keeley dating increase by 3%.\nAs compared to when episodes have less than an IMDB rating of 8.5, the odds of Roy and Keeley dating are 46% higher in episodes with an IMDB rating of at least 8.5."
+  },
+  {
+    "objectID": "files/lectures/W10-L1-logistic.html#test-for-significant-predictors",
+    "href": "files/lectures/W10-L1-logistic.html#test-for-significant-predictors",
+    "title": "Logistic Regression",
+    "section": "Test for Significant Predictors",
+    "text": "Test for Significant Predictors\n\nWhat we’ve learned so far re: significance of predictors holds true with logistic regression.\nLooking at the results from summary():\n\n\nsummary(m1)\n\n\nCall:\nglm(formula = dating ~ F_perc + IMDB, family = binomial(link = \"logit\"), \n    data = richmondway)\n\nCoefficients:\n            Estimate Std. Error z value Pr(&gt;|z|)\n(Intercept) -1.76166    1.08995  -1.616    0.106\nF_perc       0.03323    0.02506   1.326    0.185\nIMDB         0.37986    0.72250   0.526    0.599\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 46.662  on 33  degrees of freedom\nResidual deviance: 44.261  on 31  degrees of freedom\nAIC: 50.261\n\nNumber of Fisher Scoring iterations: 4"
+  },
+  {
+    "objectID": "files/lectures/W10-L1-logistic.html#test-for-significant-predictors-1",
+    "href": "files/lectures/W10-L1-logistic.html#test-for-significant-predictors-1",
+    "title": "Logistic Regression",
+    "section": "Test for Significant Predictors",
+    "text": "Test for Significant Predictors\n\nHypotheses\n\nH_0: \\ \\beta_{\\text{perc}} = 0\nH_1: \\ \\beta_{\\text{perc}} \\ne 0\n\nTest Statistic and p-Value\n\nz_0 = 1.326\np = 0.185\n\nRejection Region\n\nReject H_0 if p&lt;\\alpha; \\alpha=0.05.\n\nConclusion / Interpretation\n\nFail to reject H_0. There is not sufficient evidence to suggest there exists a relationship between Roy and Keeley dating and the percentage of f-bombs by Roy."
+  },
+  {
+    "objectID": "files/lectures/W10-L1-logistic.html#test-for-significant-predictors-2",
+    "href": "files/lectures/W10-L1-logistic.html#test-for-significant-predictors-2",
+    "title": "Logistic Regression",
+    "section": "Test for Significant Predictors",
+    "text": "Test for Significant Predictors\n\nHypotheses\n\nH_0: \\ \\beta_{\\text{IMDB}} = 0\nH_1: \\ \\beta_{\\text{IMDB}} \\ne 0\n\nTest Statistic and p-Value\n\nz_0 = 0.526\np = 0.599\n\nRejection Region\n\nReject H_0 if p&lt;\\alpha; \\alpha=0.05.\n\nConclusion / Interpretation\n\nFail to reject H_0. There is not sufficient evidence to suggest there exists a relationship between Roy and Keeley dating and the IMDB rating."
+  },
+  {
+    "objectID": "files/lectures/W10-L1-logistic.html#test-for-significant-regression-line",
+    "href": "files/lectures/W10-L1-logistic.html#test-for-significant-regression-line",
+    "title": "Logistic Regression",
+    "section": "Test for Significant Regression Line",
+    "text": "Test for Significant Regression Line\n\nWe will take a different approach when testing for a significant regression line.\n\n\nfull &lt;- glm(outcome ~ predictor_1 + predictor_2 + ... + predictor_k, data = dataset_name, family = \"binomial\"(link=\"logit\"))\nreduced &lt;- glm(outcome ~ 1, data = dataset_name, family = \"binomial\"(link=\"logit\")) \nanova(reduced, full, test = \"LRT\")"
+  },
+  {
+    "objectID": "files/lectures/W10-L1-logistic.html#test-for-significant-regression-line-1",
+    "href": "files/lectures/W10-L1-logistic.html#test-for-significant-regression-line-1",
+    "title": "Logistic Regression",
+    "section": "Test for Significant Regression Line",
+    "text": "Test for Significant Regression Line\n\nHypotheses\n\nH_0: \\ \\beta_1 = \\beta_2 = ... = \\beta_k = 0\nH_1: at least one \\beta_i \\ne 0\n\nTest Statistic\n\n\\chi^2_0 = from R\n\np-Value\n\np = P[\\chi^2_{k-1} \\ge |\\chi^2_0|]\n\nRejection Region\n\nReject H_0 if p&lt;\\alpha."
+  },
+  {
+    "objectID": "files/lectures/W10-L1-logistic.html#test-for-significant-regression-line-2",
+    "href": "files/lectures/W10-L1-logistic.html#test-for-significant-regression-line-2",
+    "title": "Logistic Regression",
+    "section": "Test for Significant Regression Line",
+    "text": "Test for Significant Regression Line\n\nfull &lt;- glm(dating ~ F_perc + IMDB, data = richmondway, family = \"binomial\"(link=\"logit\"))\nreduced &lt;- glm(dating ~ 1, data = richmondway, family = \"binomial\"(link=\"logit\")) # intercept only model\nanova(reduced, full, test = \"LRT\")"
+  },
+  {
+    "objectID": "files/lectures/W10-L1-logistic.html#test-for-significant-regression-line-3",
+    "href": "files/lectures/W10-L1-logistic.html#test-for-significant-regression-line-3",
+    "title": "Logistic Regression",
+    "section": "Test for Significant Regression Line",
+    "text": "Test for Significant Regression Line\n\nHypotheses\n\nH_0: \\ \\beta_{\\text{perc}} = \\beta_{\\text{IMDB}} = 0\nH_1: at least one \\beta_i \\ne 0\n\nTest Statistic\n\n\\chi^2_0 = 2.402\np = 0.301\n\nRejection Region\n\nReject H_0 if p&lt;\\alpha; \\alpha=0.05.\n\nConclusion/Interpretation\n\nFail to reject H_0. There is not sufficient evidence to suggest that either predictor has a non-zero slope."
+  },
+  {
+    "objectID": "files/lectures/W10-L1-logistic.html#wrap-up",
+    "href": "files/lectures/W10-L1-logistic.html#wrap-up",
+    "title": "Logistic Regression",
+    "section": "Wrap Up",
+    "text": "Wrap Up\n\nThat’s it for new material for our course.\nThe rest of our class meetings will be devoted to working on the project.\n\nRemember that the OUR Symposium is on April 17!\n\nIt is crucial that you are present in class."
   },
   {
     "objectID": "files/lectures/W04-L4-Wilcoxon-signed-rank.html#introduction",
